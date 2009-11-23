@@ -1,0 +1,217 @@
+<?xml version="1.0"?>
+<!--Cyr Lj-->
+<glyph ps-name="afii10058" init-graphics="yes">
+ 
+ <!--
+     Copyright (C) 2008  Andrey V. Panov
+     
+     This program is free software; you can redistribute it and/or modify
+     it under the terms of the GNU General Public License as published by
+     the Free Software Foundation; either version 2 of the License, or
+     (at your option) any later version.
+     
+     This program is distributed in the hope that it will be useful,
+     but WITHOUT ANY WARRANTY; without even the implied warranty of
+     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+     GNU General Public License for more details.
+     
+     You should have received a copy of the GNU General Public License
+     along with this program; if not, write to the Free Software
+     Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+     -->
+ 
+ <constant name="curl-left-bottom" value="0"/>
+ <constant name="curl-left-top" value="curl-left-bottom + 1"/>
+ <constant name="curl-right-top" value="curl-left-top + 2"/>
+ <constant name="lstem-left-bottom" value="6"/>
+ <constant name="lstem-left-top" value="lstem-left-bottom + 1"/>
+ <constant name="rstem-right-top" value="lstem-left-top + 1"/>
+ <constant name="up-inner-left-bottom" value="rstem-right-top + 1"/>
+ <constant name="up-inner-right-bottom" value="up-inner-left-bottom + 1"/>
+ <constant name="low-outer-right" value="up-inner-right-bottom + 3"/>
+ <constant name="right-bottom" value="low-outer-right + 3"/>
+ <constant name="rstem-left-bottom" value="right-bottom + 1"/>
+ <constant name="rstem-left-top" value="rstem-left-bottom + 1"/>
+ <constant name="lstem-right-top" value="rstem-left-top + 1"/>
+ <constant name="lstem-right-bottom" value="lstem-right-top + 1"/>
+ <constant name="curl-right-bottom" value="lstem-right-bottom + 3"/>
+ <constant name="low-inner-left-bottom" value="25"/>
+ <constant name="low-inner-right-bottom" value="low-inner-left-bottom + 1"/>
+ <constant name="low-inner-right" value="low-inner-right-bottom + 3"/>
+ <constant name="low-inner-right-top" value="low-inner-right + 3"/>
+ <constant name="low-inner-left-top" value="low-inner-right-top + 1"/>
+ <constant name="last" value="low-inner-left-top"/>
+ <constant name="left-bearing" value="last + 1"/>
+ 
+ <compile-if test="slanted">
+  <push>cap-it-y-shift cap-it-x-shift 88</push>
+  <command name="CALL"/>
+ </compile-if>
+ 
+ <set-vectors axis="y"/>
+ <move distance="cap-o-baseline">
+  <point num="curl-right-bottom"/>
+  <move distance="cap-curve-hstem" color="black">
+   <point num="curl-right-top"/>
+  </move>
+ </move>
+ <move distance="cap-x-baseline">
+  <point num="rstem-left-bottom"/>
+  <align>
+   <point num="right-bottom"/>
+  </align>
+  <move distance="cap-horiz-stem" color="black">
+   <point num="low-inner-left-bottom"/>
+   <align>
+    <point num="low-inner-right-bottom"/>
+   </align>
+  </move>
+ </move>
+ <move distance="cap-x-height">
+  <point num="lstem-left-top"/>
+  <align>
+   <point num="rstem-right-top"/>
+  </align>
+  <move distance="cap-horiz-stem" color="black">
+   <point num="lstem-right-top"/>
+   <align>
+    <point num="rstem-left-top"/>
+   </align>
+  </move>
+ </move>
+ <move distance="cap-h-intersect-height">
+  <point num="low-inner-left-top"/>
+  <align>
+   <point num="low-inner-right-top"/>
+  </align>
+  <move distance="cap-horiz-stem" color="black">
+   <point num="up-inner-left-bottom"/>
+   <align>
+    <point num="up-inner-right-bottom"/>
+   </align>
+  </move>
+ </move>
+ 
+ <set-vectors axis="x"/>
+ <move color="white">
+  <reference>
+   <point num="left-bearing"/>
+  </reference>
+  <point num="lstem-left-top"/>
+  <align compile-if="slanted = 0">
+   <point num="lstem-left-bottom"/>
+  </align>
+  <move distance="cap-vert-thinstem" color="black" compile-if="slanted = 0">
+   <point num="lstem-right-top"/>
+   <align>
+    <point num="lstem-right-bottom"/>
+   </align>
+  </move>
+  <move distance="cap-cyrl-space" color="white">
+   <point num="rstem-right-top"/>
+   <align compile-if="slanted = 0">
+    <point num="up-inner-left-bottom"/>
+    <point num="low-inner-left-top"/>
+    <point num="low-inner-left-bottom"/>
+   </align>
+   <move distance="cap-vert-stem" color="black" compile-if="slanted = 0">
+    <point num="rstem-left-bottom"/>
+    <align>
+     <point num="rstem-left-top"/>
+    </align>
+    <move distance="cap-b-low-space" color="black">
+     <point num="low-outer-right"/>
+     <move distance="cap-o-curve-stem" color="black">
+      <point num="low-inner-right"/>
+     </move>
+    </move>
+   </move>
+  </move>
+ </move>
+ <compile-if test="slanted = 0">
+  <set-equal target="width" source="(low-outer-right -- right-bearing) - rbearing"/>
+  <if test="width &lt; 0.0p">
+   <shift-absolute pixel-distance="width">
+    <point num="low-inner-right"/>
+    <point num="low-outer-right"/>
+   </shift-absolute>
+  </if>
+  <delta compile-if="regular">
+   <delta-set size="1" distance="-8">
+    <point num="right-bearing"/>
+   </delta-set>
+  </delta>
+  <else>
+   <move color="white">
+    <reference>
+     <point num="left-bearing"/>
+    </reference>
+    <point num="lstem-left-top"/>
+    <move distance="cap-cyrl-space" color="black">
+     <point num="rstem-right-top"/>
+    </move>
+   </move>
+   <with-projection-vector x-component="variable(6)" y-component="negative(variable(7))">
+    <move distance="cap-vert-stem-slanted" color="black">
+     <reference>
+      <point num="rstem-right-top"/>
+     </reference>
+     <point num="rstem-left-bottom"/>
+     <align>
+      <point num="rstem-left-top"/>
+     </align>
+    </move>
+   </with-projection-vector>
+   <move>
+    <point num="rstem-left-bottom"/>
+    <move distance="cap-b-low-space" color="black">
+     <point num="low-outer-right"/>
+     <move distance="cap-o-curve-stem" color="black">
+      <point num="low-inner-right"/>
+     </move>
+     <move color="white">
+      <point num="right-bearing"/>
+     </move>
+    </move>
+   </move>
+   <with-projection-vector to-line="orthogonal">
+    <line>
+     <point num="rstem-left-bottom"/>
+     <point num="rstem-left-top"/>
+    </line>
+    <align>
+     <reference>
+      <point num="rstem-right-top"/>
+     </reference>
+     <point num="up-inner-left-bottom"/>
+     <point num="low-inner-left-top"/>
+     <point num="low-inner-left-bottom"/>
+    </align>
+    <move distance="cap-vert-thinstem" color="black">
+     <reference>
+      <point num="lstem-left-top"/>
+     </reference>
+     <point num="lstem-right-top"/>
+     <align>
+      <point num="lstem-right-bottom"/>
+     </align>
+    </move>
+    <align>
+     <reference>
+      <point num="lstem-left-top"/>
+     </reference>
+     <point num="lstem-left-bottom"/>
+    </align>
+   </with-projection-vector>
+   <interpolate round="yes">
+    <reference>
+     <point num="left-bearing"/>
+     <point num="lstem-left-bottom"/>
+    </reference>
+    <point num="curl-right-bottom"/>
+   </interpolate>
+  </else>
+ </compile-if>
+ <interpolate-untouched-points/>
+ 
+</glyph>

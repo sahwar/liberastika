@@ -1,0 +1,215 @@
+<?xml version="1.0"?>
+<!--"Cyr F" -->
+<glyph ps-name="afii10038" init-graphics="yes">
+ 
+ <!--
+     Copyright (C) 2008  Andrey V. Panov
+     
+     This program is free software; you can redistribute it and/or modify
+     it under the terms of the GNU General Public License as published by
+     the Free Software Foundation; either version 2 of the License, or
+     (at your option) any later version.
+     
+     This program is distributed in the hope that it will be useful,
+     but WITHOUT ANY WARRANTY; without even the implied warranty of
+     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+     GNU General Public License for more details.
+     
+     You should have received a copy of the GNU General Public License
+     along with this program; if not, write to the Free Software
+     Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+     -->
+ 
+ <constant name="larc-outer-left" value="0"/>
+ <constant name="larc-outer-top" value="larc-outer-left + 4"/>
+ <constant name="vstem-left-top" value="larc-outer-top + 1"/>
+ <constant name="vstem-right-top" value="vstem-left-top + 1"/>
+ <constant name="rarc-outer-top" value="vstem-right-top + 1"/>
+ <constant name="rarc-outer-right" value="rarc-outer-top + 4"/>
+ <constant name="rarc-outer-bottom" value="rarc-outer-right + 4"/>
+ <constant name="vstem-right-bottom" value="rarc-outer-bottom + 1"/>
+ <constant name="vstem-left-bottom" value="vstem-right-bottom + 1"/>
+ <constant name="larc-outer-bottom" value="vstem-left-bottom + 1"/>
+ <constant name="larc-inner-left" value="22"/>
+ <constant name="larc-inner-bottom" value="larc-inner-left + 4"/>
+ <constant name="larc-inner-top" value="larc-inner-bottom + 1"/>
+ <constant name="rarc-inner-bottom" value="31"/>
+ <constant name="rarc-inner-right" value="rarc-inner-bottom + 4"/>
+ <constant name="rarc-inner-top" value="rarc-inner-right + 4"/>
+ <constant name="last" value="rarc-inner-top"/>
+ 
+ <variable name="height-top"/>
+ 
+ <push>cap-it-y-shift cap-it-x-shift 88</push>
+ <command name="CALL"/>
+ 
+ <set-vectors axis="y"/>
+ <move distance="cap-x-baseline">
+  <point num="vstem-left-bottom"/>
+  <align>
+   <point num="vstem-right-bottom"/>
+  </align>
+  <move>
+   <point num="larc-outer-bottom"/>
+   <align>
+    <point num="rarc-outer-bottom"/>
+   </align>
+   <move distance="cap-horiz-stem" color="black">
+    <point num="larc-inner-bottom"/>
+    <align>
+     <point num="rarc-inner-bottom"/>
+    </align>
+   </move>
+  </move>
+ </move>
+ <move distance="cap-x-height">
+  <point num="vstem-left-top"/>
+  <align>
+   <point num="vstem-right-top"/>
+  </align>
+  <move>
+   <point num="larc-outer-top"/>
+   <align>
+    <point num="rarc-outer-top"/>
+   </align>
+   <move distance="cap-horiz-stem" color="black">
+    <point num="larc-inner-top"/>
+    <align>
+     <point num="rarc-inner-top"/>
+    </align>
+   </move>
+  </move>
+ </move>
+ <measure-distance grid-fitted="yes" result-to="width">
+  <point num="vstem-left-bottom"/>
+  <point num="larc-outer-bottom"/>
+ </measure-distance>
+ <measure-distance grid-fitted="yes" result-to="height-top">
+  <point num="larc-outer-top"/>
+  <point num="vstem-left-top"/>
+ </measure-distance>
+ <if test="width &lt; height-top">
+  <shift-absolute pixel-distance="1.0p">
+   <!--   <point num="larc-outer-left"/>
+   <point num="larc-outer-top"/>
+   <point num="rarc-outer-top"/>
+   <point num="rarc-outer-right"/>-->
+   <point num="rarc-outer-bottom"/>
+   <point num="larc-outer-bottom"/>
+   <!--    <point num="larc-inner-left"/> -->
+   <point num="larc-inner-bottom"/>
+   <!--    <point num="larc-inner-top"/> -->
+   <point num="rarc-inner-bottom"/>
+   <!--   <point num="rarc-inner-right"/>
+   <point num="rarc-inner-top"/>-->
+  </shift-absolute>
+ </if>
+ 
+ <set-vectors axis="x"/>
+ <move distance="cap-o-lbearing" color="white">
+  <reference>
+   <point num="left-bearing"/>
+  </reference>
+  <point num="larc-outer-left"/>
+  <move distance="cap-o-curve-stem" color="black">
+   <point num="larc-inner-left"/>
+  </move>
+  <move>
+   <point num="vstem-left-bottom"/>
+   <move distance="cap-vert-stem" color="black">
+    <point num="vstem-right-bottom"/>
+   </move>
+  </move>
+ </move>
+ <with-projection-vector x-component="variable(6)" y-component="negative(variable(7))">
+  <align>
+   <reference>
+    <point num="vstem-left-bottom"/>
+   </reference>
+   <point num="vstem-left-top"/>
+  </align>
+ </with-projection-vector>
+ <mdap round="yes">
+  <point num="vstem-left-top"/>
+ </mdap>
+ <with-projection-vector to-line="orthogonal">
+  <line>
+   <point num="vstem-left-bottom"/>
+   <point num="vstem-left-top"/>
+  </line>
+  <align>
+   <reference>
+    <point num="vstem-left-bottom"/>
+   </reference>
+   <point num="larc-outer-top"/>
+   <point num="larc-inner-top"/>
+   <point num="larc-inner-bottom"/>
+   <point num="larc-outer-bottom"/>
+  </align>
+  <align>
+   <reference>
+    <point num="vstem-right-bottom"/>
+   </reference>
+   <point num="rarc-outer-top"/>
+   <point num="rarc-inner-top"/>
+   <point num="rarc-inner-bottom"/>
+   <point num="rarc-outer-bottom"/>
+   <point num="vstem-right-top"/>
+  </align>
+  <move pixel-distance="larc-inner-left -- vstem-left-bottom" round="no" color="white">
+   <reference>
+    <point num="vstem-right-bottom"/>
+   </reference>
+   <point num="rarc-inner-right"/>
+  </move>
+ </with-projection-vector>
+ <mdap round="yes">
+  <point num="rarc-inner-right"/>
+ </mdap>
+ <move distance="cap-o-curve-stem" color="black">
+  <reference>
+   <point num="rarc-inner-right"/>
+  </reference>
+  <point num="rarc-outer-right"/>
+ </move>
+ <with-projection-vector to-line="orthogonal">
+  <line>
+   <point num="vstem-left-bottom"/>
+   <point num="vstem-left-top"/>
+  </line>
+  <set-equal target="width" source="(rarc-outer-right -- right-bearing) - rbearing"/>
+ </with-projection-vector>
+ <round value="width"/>
+ <if test="width &lt; 0.0p">
+  <if test="odd((larc-outer-left -- larc-inner-bottom) + (rarc-inner-top -- rarc-outer-right) + width)">
+   <set-equal target="width" source="width - 1.0p"/>
+  </if>
+  <shift-absolute pixel-distance="width">
+   <point num="rarc-inner-right"/>
+   <point num="rarc-outer-right"/>
+  </shift-absolute>
+  <shift-absolute pixel-distance="width / 2.0">
+   <point num="vstem-left-top"/>
+   <point num="larc-outer-top"/>
+   <point num="larc-inner-top"/>
+   <point num="larc-inner-bottom"/>
+   <point num="larc-outer-bottom"/>
+   <point num="vstem-left-bottom"/>
+   <point num="vstem-right-top"/>
+   <point num="rarc-outer-top"/>
+   <point num="rarc-inner-top"/>
+   <point num="rarc-inner-bottom"/>
+   <point num="rarc-outer-bottom"/>
+   <point num="vstem-right-bottom"/>
+  </shift-absolute>
+ </if>
+ <move min-distance="no" color="white">
+  <reference>
+   <point num="rarc-outer-right"/>
+  </reference>
+  <point num="right-bearing"/>
+ </move>
+ 
+ <interpolate-untouched-points/>
+ 
+</glyph>

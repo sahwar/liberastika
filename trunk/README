@@ -1,0 +1,32 @@
+Liberastika fonts are based on Liberation Sans family which was designed
+by Ascender Corp for Red Hat, Inc. The Cyrillic part of the fonts was
+redesigned significantly. It was lost its metric compatibility with the
+Arial font. This is done since the design of Cyrillic in Arial has
+substantial flaws so no good quality Cyrillic could be based on this
+metrics.
+
+The fonts are distributed under the terms of GNU General Public License
+Version 2 with the following exception:
+
+As a special exception, if you create a document which uses this font,
+and embed this font or unaltered portions of this font into the
+document, this font does not by itself cause the resulting document to
+be covered by the GNU General Public License. This exception does not
+however invalidate any other reasons why the document might be covered
+by the GNU General Public License. If you modify this font, you may
+extend this exception to your version of the font, but you are not
+obligated to do so. If you do not wish to do so, delete this exception
+statement from your version.
+
+The sources and truetype fonts are at ftp://ftp.dvo.ru/pub/Font/liberastika/
+Tarballs are compressed with xz (use http://tukaani.org/xz/ or multiplatform 
+7-Zip archiver http://sourceforge.net/projects/sevenzip/ version greater than 9 
+for decompression).
+
+
+In order to build the fonts from the sources you must have 
+fontforge (http://fontforge.sourceforge.net) and 
+xgridfit (http://xgridfit.sourceforge.net). 
+This could be done with "make all" command.
+
+				Andrey V. Panov <panov@canopus.iacp.dvo.ru>

@@ -1,0 +1,93 @@
+#!/usr/bin/env fontforge
+/* Copyright (C) 2008 Andrey V. Panov
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+ */
+
+fontname=$1
+Open(fontname+".sfd")
+Reencode("unicode")
+/*
+if (fontname == "Istok-BoldItalic" || fontname == "Istok-Italic")
+ h_offset = -240
+endif
+if ($italicangle != 0)
+ add_ipa.ff(h_offset)
+else
+ add_ipa.ff()
+endif
+*/
+same_cyrext.ff()
+combining.ff()
+ Select(0u300,0u34E)
+ SelectMore(0u0484,0u0489)
+ SelectMore(0u1DC0,0u1DFF)
+ foreach
+  if ( WorthOutputting() )
+   width = GlyphInfo ("Width")
+   if (width > 0)
+    Move(-width,0)
+    SetWidth(0)
+   endif
+  endif
+ endloop
+
+ Select(0u362)
+ SelectMore(0u0361) # ?
+ SelectMore(0u0360) # ?
+ SelectMore(0u0483) # ?
+ foreach
+  if ( WorthOutputting() )
+   width = GlyphInfo ("Width")
+   Move(-width/2,0)
+   SetWidth(0)
+  endif
+ endloop
+
+anchors.ff()
+#spaces_dashes.ff()
+case_sub.ff()
+add_accented.ff()
+if ($italicangle != 0)
+ AddLookup("Italic substitutions", "gsub_single", 0, [["locl",[["cyrl",["MKD ","SRB "]]]]])
+ AddLookupSubtable("Italic substitutions", "Italic substitutions cyr")
+ Select("afii10068") # Cyrillic g
+ AddPosSub("Italic substitutions cyr","ghe.ital") # afii10063
+ Select("afii10069") # Cyrillic g
+ AddPosSub("Italic substitutions cyr","de.ital") # afii10063
+ Select("afii10081") # Cyrillic p
+ AddPosSub("Italic substitutions cyr","pe.ital") # afii10831
+ Select("afii10084") # Cyrillic t
+ AddPosSub("Italic substitutions cyr","te.ital") # afii10832
+endif
+ liga_tag = "liga"
+lat_lang_liga =  "Latin ligatures subtable"
+AddLookup("Latin ligatures", "gsub_ligature", 0, [[liga_tag,[["latn",["dflt","NLD ","VIT ","TRK ","AZE "]]]]])
+AddLookupSubtable("Latin ligatures", lat_lang_liga)
+lat_tur_lang_liga =  "Latin ligatures excepting Turkic subtable"
+AddLookup("Latin ligatures excepting Turkic", "gsub_ligature", 0, [[liga_tag,[["latn",["dflt","NLD ","VIT "]]]]])
+AddLookupSubtable("Latin ligatures excepting Turkic", lat_tur_lang_liga)
+lat_nld_lang_liga =  "Latin Dutch ligatures subtable"
+AddLookup("Latin Dutch ligatures", "gsub_ligature", 0, [[liga_tag,[["latn",["NLD "]]]]])
+AddLookupSubtable("Latin Dutch ligatures", lat_nld_lang_liga)
+Select("fi")
+AddPosSub(lat_tur_lang_liga,"f i")
+Select("fl")
+AddPosSub(lat_lang_liga,"f l")
+Select("ij")
+AddPosSub(lat_nld_lang_liga,"i j")
+Select("IJ")
+AddPosSub(lat_nld_lang_liga,"I J")
+Save(fontname+"_.sfd")

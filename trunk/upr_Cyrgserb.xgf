@@ -1,0 +1,102 @@
+<?xml version="1.0"?>
+<!--Cyr g-->
+<glyph ps-name="ghe.ital" init-graphics="yes">
+ 
+ <!--
+     Copyright (C) 2008  Andrey V. Panov
+     
+     This program is free software; you can redistribute it and/or modify
+     it under the terms of the GNU General Public License as published by
+     the Free Software Foundation; either version 2 of the License, or
+     (at your option) any later version.
+     
+     This program is distributed in the hope that it will be useful,
+     but WITHOUT ANY WARRANTY; without even the implied warranty of
+     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+     GNU General Public License for more details.
+     
+     You should have received a copy of the GNU General Public License
+     along with this program; if not, write to the Free Software
+     Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+     -->
+ 
+ <constant name="left-bottom" value="0"/>
+ <constant name="left-top" value="left-bottom + 1"/>
+ <constant name="right-top" value="left-top + 1"/>
+ <constant name="right-hstem-bottom" value="right-top + 1"/>
+ <constant name="intersect" value="right-hstem-bottom + 1"/>
+ <constant name="right-bottom" value="intersect + 1"/>
+ <constant name="last" value="right-bottom"/>
+ 
+ <compile-if test="slanted">
+  <push>small-it-y-shift small-it-x-shift 88</push>
+  <command name="CALL"/>
+ </compile-if>
+ 
+ <set-vectors axis="y"/>
+ <move distance="zero">
+  <point num="left-bottom"/>
+  <align>
+   <point num="right-bottom"/>
+  </align>
+ </move>
+ <move distance="small-x-height">
+  <point num="left-top"/>
+  <align>
+   <point num="right-top"/>
+  </align>
+  <move distance="small-horiz-stem" color="black">
+   <point num="right-hstem-bottom"/>
+   <align>
+    <point num="intersect"/>
+   </align>
+  </move>
+ </move>
+ 
+ <set-vectors axis="x"/>
+ <move distance="small-i-lbearing" color="white">
+  <reference>
+   <point num="left-bearing"/>
+  </reference>
+  <point num="left-bottom"/>
+  <align compile-if="slanted = 0">
+   <point num="left-top"/>
+  </align>
+  <move distance="small-vert-stem" color="black">
+   <point num="right-bottom"/>
+   <align compile-if="slanted = 0">
+    <point num="intersect"/>
+   </align>
+   <move color="black">
+    <point num="right-top"/>
+    <align compile-if="slanted = 0">
+     <point num="right-hstem-bottom"/>
+    </align>
+   </move>
+  </move>
+ </move>
+ <compile-if test="slanted">
+  <with-projection-vector x-component="variable(6)" y-component="negative(variable(7))">
+   <align>
+    <reference>
+     <point num="left-bottom"/>
+    </reference>
+    <point num="left-top"/>
+   </align>
+   <align>
+    <reference>
+     <point num="right-bottom"/>
+    </reference>
+    <point num="intersect"/>
+   </align>
+   <align>
+    <reference>
+     <point num="right-top"/>
+    </reference>
+    <point num="right-hstem-bottom"/>
+   </align>
+  </with-projection-vector>
+ </compile-if>
+ 
+ <interpolate-untouched-points/>
+</glyph><!--Cyr G-->

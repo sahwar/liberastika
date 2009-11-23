@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<glyph ps-name="te.ital" init-graphics="yes">
+ 
+ <!--
+     Copyright (C) 2008  Andrey V. Panov
+     
+     This program is free software; you can redistribute it and/or modify
+     it under the terms of the GNU General Public License as published by
+     the Free Software Foundation; either version 2 of the License, or
+     (at your option) any later version.
+     
+     This program is distributed in the hope that it will be useful,
+     but WITHOUT ANY WARRANTY; without even the implied warranty of
+     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+     GNU General Public License for more details.
+     
+     You should have received a copy of the GNU General Public License
+     along with this program; if not, write to the Free Software
+     Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+     -->
+ 
+ <constant name="macron-left-bottom" value="45"/>
+ <constant name="macron-left-top" value="macron-left-bottom + 1"/>
+ <constant name="macron-right-top" value="macron-left-top + 1"/>
+ <constant name="macron-right-bottom" value="macron-right-top + 1"/>
+ <constant name="last" value="macron-right-bottom"/>
+ 
+ <call-glyph ps-name="afii10090">
+  <with-param name="left-bearing" value="last + 1"/>
+ </call-glyph>
+ 
+ <set-vectors axis="y"/>
+ <move min-distance="no" color="white">
+  <reference>
+   <point num="afii10090/lstem-left-top"/>
+  </reference>
+  <point num="macron-left-bottom"/>
+  <align>
+   <point num="macron-right-bottom"/>
+  </align>
+  <move distance="small-horiz-stem">
+   <point num="macron-left-top"/>
+   <align>
+    <point num="macron-right-top"/>
+   </align>
+  </move>
+ </move>
+ 
+ <set-freedom-vector axis="x"/>
+ <set-projection-vector x-component="variable(6)" y-component="negative(variable(7))"/>
+ <align>
+  <reference>
+   <point num="afii10090/lstem-left-top"/>
+  </reference>
+  <point num="macron-left-bottom"/>
+  <point num="macron-left-top"/>
+ </align>
+ <align>
+  <reference>
+   <point num="afii10090/rstem-right-top"/>
+  </reference>
+  <point num="macron-right-top"/>
+  <point num="macron-right-bottom"/>
+ </align>
+ <interpolate-untouched-points/>
+</glyph>

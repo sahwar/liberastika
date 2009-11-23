@@ -1,0 +1,163 @@
+<?xml version="1.0"?>
+<!--ѣ-->
+<glyph ps-name="afii10194" init-graphics="yes">
+ 
+ <!--
+     Copyright (C) 2008  Andrey V. Panov
+     
+     This program is free software; you can redistribute it and/or modify
+     it under the terms of the GNU General Public License as published by
+     the Free Software Foundation; either version 2 of the License, or
+     (at your option) any later version.
+     
+     This program is distributed in the hope that it will be useful,
+     but WITHOUT ANY WARRANTY; without even the implied warranty of
+     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+     GNU General Public License for more details.
+     
+     You should have received a copy of the GNU General Public License
+     along with this program; if not, write to the Free Software
+     Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+     -->
+ 
+ <constant name="lstem-left-bottom" value="0"/>
+ <constant name="lstem-left-top" value="lstem-left-bottom + 4"/>
+ <constant name="lstem-right-top" value="lstem-left-top + 1"/>
+ <constant name="ljoint-top" value="lstem-right-top + 3"/>
+ <constant name="larc-top" value="ljoint-top + 4"/>
+ <constant name="rstem-right-top" value="larc-top + 3"/>
+ <constant name="up-inner-left-bottom" value="rstem-right-top + 1"/>
+ <constant name="up-inner-right-bottom" value="up-inner-left-bottom + 3"/>
+ <constant name="low-outer-right" value="up-inner-right-bottom + 3"/>
+ <constant name="right-bottom" value="low-outer-right + 3"/>
+ <constant name="rstem-left-bottom" value="right-bottom + 3"/>
+ <constant name="rstem-left-top" value="rstem-left-bottom + 1"/>
+ <constant name="larc-bottom" value="rstem-left-top + 5"/>
+ <constant name="ljoint-bottom" value="larc-bottom + 3"/>
+ <constant name="lstem-right-bottom" value="ljoint-bottom + 1"/>
+ <constant name="low-inner-left-bottom" value="39"/>
+ <constant name="low-inner-right-bottom" value="low-inner-left-bottom + 3"/>
+ <constant name="low-inner-right" value="low-inner-right-bottom + 3"/>
+ <constant name="low-inner-right-top" value="low-inner-right + 3"/>
+ <constant name="low-inner-left-top" value="low-inner-right-top + 3"/>
+ <constant name="last" value="low-inner-left-top"/>
+ 
+ <push>small-it-y-shift small-it-x-shift 88</push>
+ <command name="CALL"/>
+ 
+ <set-vectors axis="y"/>
+ <move distance="small-o-baseline">
+  <point num="right-bottom"/>
+  <move distance="small-curve-hstem" color="black">
+   <point num="low-inner-right-bottom"/>
+  </move>
+ </move>
+ <move>
+  <point num="rstem-left-bottom"/>
+ </move>
+ <move distance="zero">
+  <point num="lstem-left-bottom"/>
+  <align>
+   <point num="lstem-right-bottom"/>
+  </align>
+ </move>
+ <move distance="small-x-height">
+  <point num="lstem-left-top"/>
+  <align>
+   <point num="lstem-right-top"/>
+  </align>
+ </move>
+ <move distance="small-cyrn-intersect-height">
+  <point num="low-inner-left-top"/>
+  <move distance="small-horiz-stem" color="black">
+   <point num="up-inner-left-bottom"/>
+  </move>
+  <move min-distance="no">
+   <point num="low-inner-right-top"/>
+   <move distance="small-horiz-stem" color="black">
+    <point num="up-inner-right-bottom"/>
+   </move>
+  </move>
+ </move>
+ <move distance="small-o-height">
+  <point num="larc-top"/>
+  <move distance="small-curve-hstem" color="black">
+   <point num="larc-bottom"/>
+  </move>
+  <move>
+   <point num="ljoint-top"/>
+   <move color="black">
+    <point num="ljoint-bottom"/>
+   </move>
+  </move>
+ </move>
+ 
+ <set-vectors axis="x"/>
+ <move distance="small-i-lbearing" min-distance="no" color="white">
+  <reference>
+   <point num="left-bearing"/>
+  </reference>
+  <point num="lstem-left-bottom"/>
+  <move distance="small-vert-stem" color="black">
+   <point num="lstem-right-bottom"/>
+   <move distance="small-m-inner-space" min-distance="no" round="no" cut-in="no" color="white">
+    <point num="rstem-left-bottom"/>
+    <align>
+     <point num="rstem-left-top"/>
+    </align>
+    <move distance="small-vert-stem" color="black">
+     <point num="rstem-right-top"/>
+     <align>
+      <point num="up-inner-left-bottom"/>
+      <point num="low-inner-left-top"/>
+      <point num="low-inner-left-bottom"/>
+     </align>
+    </move>
+    <move distance="small-cyrv-low-space" color="black">
+     <point num="low-outer-right"/>
+     <move distance="small-o-curve-stem" color="black">
+      <point num="low-inner-right"/>
+     </move>
+     <move min-distance="no" color="white">
+      <point num="right-bearing"/>
+     </move>
+    </move>
+   </move>
+  </move>
+ </move>
+ <with-projection-vector x-component="variable(6)" y-component="negative(variable(7))">
+  <align>
+   <reference>
+    <point num="lstem-left-bottom"/>
+   </reference>
+   <point num="lstem-left-top"/>
+  </align>
+  <align>
+   <reference>
+    <point num="lstem-right-bottom"/>
+   </reference>
+   <point num="ljoint-top"/>
+   <point num="ljoint-bottom"/>
+   <point num="lstem-right-top"/>
+  </align>
+  <align>
+   <reference>
+    <point num="rstem-left-bottom"/>
+   </reference>
+   <point num="rstem-left-top"/>
+  </align>
+  <move distance="small-vert-stem-slanted" color="black"> <!--round="no"-->
+   <reference>
+    <point num="rstem-left-bottom"/>
+   </reference>
+   <point num="low-inner-left-bottom"/>
+   <align>
+    <point num="up-inner-left-bottom"/>
+    <point num="low-inner-left-top"/>
+    <point num="rstem-right-top"/>
+   </align>
+  </move>
+ </with-projection-vector>
+ <interpolate-untouched-points/>
+ 
+</glyph>
