@@ -1,0 +1,122 @@
+<?xml version="1.0"?>
+<!--ə-->
+<glyph ps-name="uni0259" init-graphics="yes">
+ 
+ <!--
+     Copyright (C) 2008  Andrey V. Panov
+     
+     This program is free software; you can redistribute it and/or modify
+     it under the terms of the GNU General Public License as published by
+     the Free Software Foundation; either version 2 of the License, or
+     (at your option) any later version.
+     
+     This program is distributed in the hope that it will be useful,
+     but WITHOUT ANY WARRANTY; without even the implied warranty of
+     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+     GNU General Public License for more details.
+     
+     You should have received a copy of the GNU General Public License
+     along with this program; if not, write to the Free Software
+     Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+     -->
+ 
+ <constant name="outer-left" value="0"/>
+ <constant name="hstem-left-top" value="outer-left + 3"/>
+ <constant name="hstem-right-top" value="hstem-left-top + 1"/>
+ <constant name="inner-right" value="hstem-right-top + 2"/>
+ <constant name="inner-top" value="inner-right + 3"/>
+ <constant name="upper-end-bottom" value="inner-top + 3"/>
+ <constant name="upper-end-top" value="upper-end-bottom + 1"/>
+ <constant name="outer-top" value="upper-end-top + 3"/>
+ <constant name="outer-right" value="outer-top + 3"/>
+ <constant name="outer-bottom" value="outer-right + 3"/>
+ <constant name="inner-left" value="25"/>
+ <constant name="inner-bottom" value="inner-left + 3"/>
+ <constant name="hstem-right-bottom" value="inner-bottom + 3"/>
+ <constant name="hstem-left-bottom" value="hstem-right-bottom + 1"/>
+ <constant name="last" value="hstem-left-bottom + 1"/>
+ 
+ <set-vectors axis="x"/>
+ <move distance="small-o-lbearing" min-distance="no" color="white">
+  <reference>
+   <point num="left-bearing"/>
+  </reference>
+  <point num="outer-left"/>
+  <move distance="small-o-curve-stem" color="black">
+   <point num="inner-left"/>
+   <interpolate>
+    <point num="upper-end-top"/>
+   </interpolate>
+  </move>
+  <move distance="small-o-space" color="black">
+   <point num="outer-right"/>
+   <move distance="small-o-curve-stem" color="black">
+    <point num="inner-right"/>
+   </move>
+   <move>
+    <point num="right-bearing"/>
+   </move>
+  </move>
+ </move>
+ <interpolate>
+  <reference>
+   <point num="inner-left"/>
+   <point num="inner-right"/>
+  </reference>
+  <point num="hstem-left-bottom"/>
+  <point num="hstem-right-bottom"/>
+  <point num="hstem-right-top"/>
+ </interpolate>
+ 
+ <set-vectors axis="y"/>
+ <move distance="small-o-baseline">
+  <point num="outer-bottom"/>
+  <move distance="small-horiz-stem" color="black">
+   <point num="inner-bottom"/>
+  </move>
+ </move>
+ <move distance="small-o-height">
+  <point num="outer-top"/>
+  <move distance="small-horiz-stem" color="black">
+   <point num="inner-top"/>
+  </move>
+ </move>
+ <move>
+  <point num="hstem-left-bottom"/>
+  <align>
+   <point num="hstem-right-bottom"/>
+  </align>
+  <move distance="small-horiz-stem">
+   <point num="hstem-left-top"/>
+   <align>
+    <point num="hstem-right-top"/>
+   </align>
+  </move>
+ </move>
+ <if test="pixels-per-em &lt; small-c-flat-ends">
+  <align>
+   <reference>
+    <point num="inner-top"/>
+   </reference>
+   <point num="upper-end-bottom"/>
+  </align>
+  <align>
+   <reference>
+    <point num="outer-top"/>
+   </reference>
+   <point num="upper-end-top"/>
+  </align>
+  <else>
+   <interpolate>
+    <reference>
+     <point num="hstem-left-top"/>
+     <point num="inner-top"/>
+    </reference>
+    <point num="upper-end-bottom"/>
+    <point num="upper-end-top"/>
+   </interpolate>
+  </else>
+ </if>
+ <interpolate-untouched-points/>
+ 
+</glyph>

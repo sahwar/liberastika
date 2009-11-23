@@ -1,0 +1,145 @@
+<?xml version="1.0"?>
+<!--Cyr Sh (Ш)-->
+<glyph ps-name="afii10042" init-graphics="yes">
+ 
+ <!--
+     Copyright (C) 2008  Andrey V. Panov
+     
+     This program is free software; you can redistribute it and/or modify
+     it under the terms of the GNU General Public License as published by
+     the Free Software Foundation; either version 2 of the License, or
+     (at your option) any later version.
+     
+     This program is distributed in the hope that it will be useful,
+     but WITHOUT ANY WARRANTY; without even the implied warranty of
+     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+     GNU General Public License for more details.
+     
+     You should have received a copy of the GNU General Public License
+     along with this program; if not, write to the Free Software
+     Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+     -->
+ 
+ <constant name="lstem-left-bottom" value="0"/>
+ <constant name="lstem-left-top" value="lstem-left-bottom + 1"/>
+ <constant name="lstem-right-top" value="lstem-left-top + 1"/>
+ <constant name="lstem-right-bottom" value="lstem-right-top + 1"/>
+ <constant name="mstem-left-bottom" value="lstem-right-bottom + 1"/>
+ <constant name="mstem-left-top" value="mstem-left-bottom + 1"/>
+ <constant name="mstem-right-top" value="mstem-left-top + 1"/>
+ <constant name="mstem-right-bottom" value="mstem-right-top + 1"/>
+ <constant name="rstem-left-bottom" value="mstem-right-bottom + 1"/>
+ <constant name="rstem-left-top" value="rstem-left-bottom + 1"/>
+ <constant name="rstem-right-top" value="rstem-left-top + 1"/>
+ <constant name="rstem-right-bottom" value="rstem-right-top + 1"/>
+ <constant name="last" value="rstem-right-bottom"/>
+ <constant name="left-bearing" value="last + 1"/>
+ 
+ <push>cap-it-y-shift cap-it-x-shift 88</push>
+ <command name="CALL"/>
+ 
+ <set-vectors axis="y"/>
+ <move distance="cap-x-baseline">
+  <point num="lstem-left-bottom"/>
+  <align>
+   <point num="rstem-right-bottom"/>
+  </align>
+  <move distance="cap-horiz-stem" color="black">
+   <point num="lstem-right-bottom"/>
+   <align>
+    <point num="mstem-left-bottom"/>
+    <point num="mstem-right-bottom"/>
+    <point num="rstem-left-bottom"/>
+   </align>
+  </move>
+ </move>
+ <move distance="cap-x-height">
+  <point num="lstem-left-top"/>
+  <align>
+   <point num="lstem-right-top"/>
+   <point num="mstem-left-top"/>
+   <point num="mstem-right-top"/>
+   <point num="rstem-left-top"/>
+   <point num="rstem-right-top"/>
+  </align>
+ </move>
+ 
+ <set-vectors axis="x"/>
+ <move distance="cap-i-lbearing" min-distance="no" color="white">
+  <reference>
+   <point num="left-bearing"/>
+  </reference>
+  <point num="lstem-left-bottom"/>
+ </move>
+ <with-projection-vector x-component="variable(6)" y-component="negative(variable(7))">
+  <align>
+   <reference>
+    <point num="lstem-left-bottom"/>
+   </reference>
+   <point num="lstem-left-top"/>
+  </align>
+ </with-projection-vector>
+ <mdap round="yes">
+  <point num="lstem-left-top"/>
+ </mdap>
+ <move distance="cap-vert-stem" color="black">
+  <reference>
+   <point num="lstem-left-top"/>
+  </reference>
+  <point num="lstem-right-top"/>
+  <move distance="cap-sh-inner-space" min-distance="no" round="no" cut-in="no" color="white">
+   <point num="mstem-left-top"/>
+   <move distance="cap-vert-stem" color="black">
+    <point num="mstem-right-top"/>
+    <move distance="cap-sh-inner-space" min-distance="no" round="no" cut-in="no" color="white">
+     <point num="rstem-left-top"/>
+     <move distance="cap-vert-stem" color="black">
+      <point num="rstem-right-top"/>
+      <move min-distance="no" color="white">
+       <point num="right-bearing"/>
+      </move>
+     </move>
+    </move>
+   </move>
+  </move>
+ </move>
+ <with-projection-vector to-line="orthogonal">
+  <line>
+   <point num="lstem-left-bottom"/>
+   <point num="lstem-left-top"/>
+  </line>
+  <align>
+   <reference>
+    <point num="lstem-right-top"/>
+   </reference>
+   <point num="lstem-right-bottom"/>
+  </align>
+  <align>
+   <reference>
+    <point num="mstem-right-top"/>
+   </reference>
+   <point num="mstem-right-bottom"/>
+  </align>
+  <align>
+   <reference>
+    <point num="mstem-left-top"/>
+   </reference>
+   <point num="mstem-left-bottom"/>
+  </align>
+  <align>
+   <reference>
+    <point num="rstem-right-top"/>
+   </reference>
+   <point num="rstem-right-bottom"/>
+  </align>
+  <align>
+   <reference>
+    <point num="rstem-left-top"/>
+   </reference>
+   <point num="rstem-left-bottom"/>
+  </align>
+ </with-projection-vector>
+ 
+ <interpolate-untouched-points/>
+ 
+</glyph><!--Cyr sh-->

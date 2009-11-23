@@ -1,0 +1,150 @@
+<?xml version="1.0"?>
+<!--Cyr Ch (Ч)-->
+<glyph ps-name="afii10041" init-graphics="yes">
+ 
+ <!--
+     Copyright (C) 2007, 2008  Andrey V. Panov
+     
+     This program is free software; you can redistribute it and/or modify
+     it under the terms of the GNU General Public License as published by
+     the Free Software Foundation; either version 2 of the License, or
+     (at your option) any later version.
+     
+     This program is distributed in the hope that it will be useful,
+     but WITHOUT ANY WARRANTY; without even the implied warranty of
+     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+     GNU General Public License for more details.
+     
+     You should have received a copy of the GNU General Public License
+     along with this program; if not, write to the Free Software
+     Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+     -->
+ 
+ <constant name="lstem-left-bottom" value="0"/>
+ <constant name="lstem-left-top" value="lstem-left-bottom + 1"/>
+ <constant name="lstem-right-top" value="lstem-left-top + 1"/>
+ <constant name="lstem-right-bottom" value="lstem-right-top + 1"/>
+ <constant name="intersect-mid-top" value="lstem-right-bottom + 3"/>
+ <constant name="intersect-right-top" value="intersect-mid-top + 2"/>
+ <constant name="rstem-left-top" value="intersect-right-top + 1"/>
+ <constant name="rstem-right-top" value="rstem-left-top + 1"/>
+ <constant name="rstem-right-bottom" value="rstem-right-top + 1"/>
+ <constant name="rstem-left-bottom" value="rstem-right-bottom + 1"/>
+ <constant name="intersect-right-bottom" value="rstem-left-bottom + 1"/>
+ <constant name="intersect-mid-bottom" value="intersect-right-bottom + 2"/>
+ <constant name="last" value="intersect-mid-bottom + 2"/>
+ 
+ <compile-if test="slanted">
+  <push>cap-it-y-shift cap-it-x-shift 88</push>
+  <command name="CALL"/>
+ </compile-if>
+ 
+ <set-vectors axis="y"/>
+ <move distance="cap-x-baseline">
+  <point num="rstem-left-bottom"/>
+  <align>
+   <point num="rstem-right-bottom"/>
+  </align>
+ </move>
+ <move distance="cap-x-height">
+  <point num="lstem-left-top"/>
+  <align>
+   <point num="lstem-right-top"/>
+   <point num="rstem-left-top"/>
+   <point num="rstem-right-top"/>
+  </align>
+  <move>
+   <point num="intersect-mid-top"/>
+   <move color="black">
+    <point num="intersect-mid-bottom"/>
+   </move>
+  </move>
+ </move>
+ 
+ <set-vectors axis="x"/>
+ <if test="control-value(index(cap-i-lbearing)) &lt;= 1.0p">
+  <set-equal target="temp" source="0"/>
+  <else>
+   <set-equal target="temp" source="round(47)"/>
+  </else>
+ </if>
+ <compile-if test="slanted">
+  <subtract minuend="temp" subtrahend="floor((y-coord(lstem-left-top) * tg-it-ang) + tg-y-delta)"/>
+ </compile-if>
+ <move pixel-distance="control-value(index(cap-i-lbearing)) - temp" min-distance="no" color="white">
+  <reference>
+   <point num="left-bearing"/>
+  </reference>
+  <point num="lstem-left-top"/>
+  <align compile-if="slanted = 0">
+   <point num="lstem-left-bottom"/>
+  </align>
+  <move distance="cap-vert-stem" color="black">
+   <point num="lstem-right-top"/>
+   <align compile-if="slanted = 0">
+    <point num="lstem-right-bottom"/>
+   </align>
+  </move>
+  <move distance="cap-cyrch-space" color="black">
+   <point num="rstem-right-top"/>
+   <align compile-if="slanted = 0">
+    <point num="rstem-right-bottom"/>
+   </align>
+   <move distance="cap-vert-stem" color="black">
+    <point num="rstem-left-top"/>
+    <align compile-if="slanted = 0">
+     <point num="rstem-left-bottom"/>
+     <point num="intersect-right-top"/>
+     <point num="intersect-right-bottom"/>
+    </align>
+   </move>
+   <move min-distance="no" color="white" compile-if="slanted = 0">
+    <point num="right-bearing"/>
+   </move>
+  </move>
+ </move>
+ <compile-if test="slanted">
+  <with-projection-vector x-component="variable(6)" y-component="negative(variable(7))">
+   <align>
+    <reference>
+     <point num="rstem-right-top"/>
+    </reference>
+    <point num="rstem-right-bottom"/>
+   </align>
+  </with-projection-vector>
+  <move>
+   <point num="rstem-right-bottom"/>
+   <move min-distance="no" color="white">
+    <point num="right-bearing"/>
+   </move>
+  </move>
+  <with-projection-vector to-line="orthogonal">
+   <line>
+    <point num="rstem-right-bottom"/>
+    <point num="rstem-right-top"/>
+   </line>
+   <align>
+    <reference>
+     <point num="lstem-left-top"/>
+    </reference>
+    <point num="lstem-left-bottom"/>
+   </align>
+   <align>
+    <reference>
+     <point num="rstem-left-top"/>
+    </reference>
+    <point num="rstem-left-bottom"/>
+   </align>
+   <align>
+    <reference>
+     <point num="rstem-left-top"/>
+    </reference>
+    <point num="rstem-left-bottom"/>
+    <point num="intersect-right-top"/>
+    <point num="intersect-right-bottom"/>
+   </align>
+  </with-projection-vector>
+ </compile-if>
+ 
+ <interpolate-untouched-points/>
+</glyph><!--Cyr Ch-->

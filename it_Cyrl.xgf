@@ -1,0 +1,142 @@
+<?xml version="1.0"?>
+<!--Cyr l-->
+<glyph ps-name="afii10077" init-graphics="yes">
+ 
+ <!--
+     Copyright (C) 2008  Andrey V. Panov
+     
+     This program is free software; you can redistribute it and/or modify
+     it under the terms of the GNU General Public License as published by
+     the Free Software Foundation; either version 2 of the License, or
+     (at your option) any later version.
+     
+     This program is distributed in the hope that it will be useful,
+     but WITHOUT ANY WARRANTY; without even the implied warranty of
+     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+     GNU General Public License for more details.
+     
+     You should have received a copy of the GNU General Public License
+     along with this program; if not, write to the Free Software
+     Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+     -->
+ 
+ <constant name="curl-left-bottom" value="0"/>
+ <constant name="curl-left-top" value="curl-left-bottom + 1"/>
+ <constant name="curl-right-top" value="curl-left-top + 2"/>
+ <constant name="lstem-left-bottom" value="6"/>
+ <constant name="lstem-left-top" value="lstem-left-bottom + 1"/>
+ <constant name="hstem-left-top" value="lstem-left-top + 3"/>
+ <constant name="rstem-right-top" value="hstem-left-top + 1"/>
+ <constant name="rstem-right-bottom" value="rstem-right-top + 1"/>
+ <constant name="rstem-left-bottom" value="rstem-right-bottom + 1"/>
+ <constant name="rstem-left-top" value="rstem-left-bottom + 1"/>
+ <constant name="hstem-left-bottom" value="rstem-left-top + 1"/>
+ <constant name="lstem-right-top" value="hstem-left-bottom + 3"/>
+ <constant name="lstem-right-bottom" value="lstem-right-top + 1"/>
+ <constant name="curl-right-bottom" value="lstem-right-bottom + 3"/>
+ <constant name="last" value="curl-right-bottom + 1"/>
+ 
+ <push>small-it-y-shift small-it-x-shift 88</push>
+ <command name="CALL"/>
+ 
+ <set-vectors axis="y"/>
+ <move distance="small-o-baseline">
+  <point num="curl-right-bottom"/>
+  <move distance="small-curve-hstem" color="black">
+   <point num="curl-right-top"/>
+  </move>
+ </move>
+ <move distance="zero">
+  <point num="curl-left-bottom"/>
+  <align>
+   <point num="curl-right-bottom"/>
+   <point num="rstem-left-bottom"/>
+   <point num="rstem-right-bottom"/>
+  </align>
+  <move distance="small-horiz-stem" color="black">
+   <point num="curl-left-top"/>
+   <align>
+    <point num="curl-left-top + 1"/>
+   </align>
+  </move>
+ </move>
+ <move distance="small-x-height">
+  <point num="hstem-left-top"/>
+  <align>
+   <point num="rstem-right-top"/>
+  </align>
+  <move distance="small-horiz-stem" color="black">
+   <point num="hstem-left-bottom"/>
+   <align>
+    <point num="rstem-left-top"/>
+   </align>
+  </move>
+ </move>
+ 
+ <set-vectors axis="x"/>
+ 
+ <move color="white">
+  <reference>
+   <point num="left-bearing"/>
+  </reference>
+  <point num="rstem-right-bottom"/>
+  <move distance="small-vert-stem" color="black">
+   <point num="rstem-left-bottom"/>
+  </move>
+ </move>
+ <with-projection-vector x-component="variable(6)" y-component="negative(variable(7))">
+  <align>
+   <reference>
+    <point num="rstem-right-bottom"/>
+   </reference>
+   <point num="rstem-right-top"/>
+  </align>
+  <align>
+   <reference>
+    <point num="rstem-left-bottom"/>
+   </reference>
+   <point num="rstem-left-top"/>
+  </align>
+  <with-round-state round="no">
+   <move color="black">
+    <reference>
+     <point num="rstem-right-bottom"/>
+    </reference>
+    <point num="lstem-left-top"/>
+    <align>
+     <point num="lstem-left-bottom"/>
+    </align>
+    <move distance="small-vert-thinstem" color="black">
+     <point num="lstem-right-top"/>
+     <align>
+      <point num="lstem-right-bottom"/>
+     </align>
+    </move>
+    <move min-distance="no" color="white">
+     <point num="right-bearing"/>
+    </move>
+   </move>
+  </with-round-state>
+ </with-projection-vector>
+ <interpolate round="yes">
+  <reference>
+   <point num="left-bearing"/>
+   <point num="lstem-left-bottom"/>
+  </reference>
+  <point num="curl-right-bottom"/>
+ </interpolate>
+ <mdap round="yes">
+  <point num="right-bearing"/>
+ </mdap>
+ <compile-if test="regular">
+  <delta>
+   <delta-set size="4" distance="-8">
+    <point num="right-bearing"/>
+   </delta-set>
+   <delta-set size="9" distance="-8">
+    <point num="right-bearing"/>
+   </delta-set>
+  </delta>
+ </compile-if>
+ <interpolate-untouched-points/>
+</glyph>

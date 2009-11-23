@@ -1,0 +1,133 @@
+<?xml version="1.0"?>
+<!--Cyr Shch (Щ)-->
+<glyph ps-name="afii10043" init-graphics="yes">
+ 
+ <!--
+     Copyright (C) 2008  Andrey V. Panov
+     
+     This program is free software; you can redistribute it and/or modify
+     it under the terms of the GNU General Public License as published by
+     the Free Software Foundation; either version 2 of the License, or
+     (at your option) any later version.
+     
+     This program is distributed in the hope that it will be useful,
+     but WITHOUT ANY WARRANTY; without even the implied warranty of
+     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+     GNU General Public License for more details.
+     
+     You should have received a copy of the GNU General Public License
+     along with this program; if not, write to the Free Software
+     Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+     -->
+ 
+ <constant name="lstem-left-bottom" value="0"/>
+ <constant name="lstem-left-top" value="lstem-left-bottom + 1"/>
+ <constant name="lstem-right-top" value="lstem-left-top + 1"/>
+ <constant name="lstem-right-bottom" value="lstem-right-top + 1"/>
+ <constant name="mstem-left-bottom" value="lstem-right-bottom + 1"/>
+ <constant name="mstem-left-top" value="mstem-left-bottom + 1"/>
+ <constant name="mstem-right-top" value="mstem-left-top + 1"/>
+ <constant name="mstem-right-bottom" value="mstem-right-top + 1"/>
+ <constant name="rstem-left-bottom" value="mstem-right-bottom + 1"/>
+ <constant name="rstem-left-top" value="rstem-left-bottom + 1"/>
+ <constant name="rstem-right-top" value="rstem-left-top + 1"/>
+ <constant name="rstem-right-bottom" value="rstem-right-top + 1"/>
+ <constant name="rdesc-right-top" value="rstem-right-bottom + 1"/>
+ <constant name="rdesc-right-bottom" value="rdesc-right-top + 1"/>
+ <constant name="rdesc-left-bottom" value="rdesc-right-bottom + 1"/>
+ <constant name="rdesc-left-top" value="rdesc-left-bottom + 1"/>
+ <constant name="last" value="rdesc-left-top"/>
+ <constant name="left-bearing" value="last + 1"/>
+ 
+ <set-vectors axis="x"/>
+ <move distance="cap-i-lbearing" min-distance="no" color="white">
+  <reference>
+   <point num="left-bearing"/>
+  </reference>
+  <point num="lstem-left-bottom"/>
+  <align>
+   <point num="lstem-left-top"/>
+  </align>
+  <move distance="cap-vert-stem" color="black">
+   <point num="lstem-right-top"/>
+   <align>
+    <point num="lstem-right-bottom"/>
+   </align>
+   <move distance="cap-sh-inner-space" min-distance="no" round="no" cut-in="no" color="white">
+    <point num="mstem-left-bottom"/>
+    <align>
+     <point num="mstem-left-top"/>
+    </align>
+    <move distance="cap-vert-stem" color="black">
+     <point num="mstem-right-top"/>
+     <align>
+      <point num="mstem-right-bottom"/>
+     </align>
+     <move distance="cap-sh-inner-space" min-distance="no" round="no" cut-in="no" color="white">
+      <point num="rstem-left-bottom"/>
+      <align>
+       <point num="rstem-left-top"/>
+      </align>
+      <move distance="cap-vert-stem" color="black">
+       <point num="rstem-right-top"/>
+       <align>
+        <point num="rstem-right-bottom"/>
+       </align>
+       <move distance="cap-tse-desc-horiz-shift" min-distance="no">
+        <point num="rdesc-right-bottom"/>
+        <align>
+         <point num="rdesc-right-top"/>
+        </align>
+        <move distance="cap-vert-thinstem" color="black">
+         <point num="rdesc-left-top"/>
+         <align>
+          <point num="rdesc-left-bottom"/>
+         </align>
+        </move>
+        <move color="white">
+         <point num="right-bearing"/>
+        </move>
+       </move>
+      </move>
+     </move>
+    </move>
+   </move>
+  </move>
+ </move>
+ <interpolate-untouched-points axis="x"/>
+ 
+ <set-vectors axis="y"/>
+ <move distance="zero">
+  <point num="lstem-left-bottom"/>
+  <align>
+   <point num="rstem-right-bottom"/>
+  </align>
+  <move distance="cap-horiz-stem" color="black">
+   <point num="lstem-right-bottom"/>
+   <align>
+    <point num="mstem-left-bottom"/>
+    <point num="mstem-right-bottom"/>
+    <point num="rstem-left-bottom"/>
+    <point num="rstem-right-bottom"/>
+    <point num="rdesc-right-top"/>
+   </align>
+  </move>
+ </move>
+ <move distance="cap-x-height">
+  <point num="lstem-left-top"/>
+  <align>
+   <point num="lstem-right-top"/>
+   <point num="mstem-left-top"/>
+   <point num="mstem-right-top"/>
+   <point num="rstem-left-top"/>
+   <point num="rstem-right-top"/>
+  </align>
+ </move>
+ <move distance="cap-tse-desc">
+  <point num="rdesc-left-bottom"/>
+  <align>
+   <point num="rdesc-right-bottom"/>
+  </align>
+ </move>
+ <interpolate-untouched-points axis="y"/>
+</glyph><!--Cyr shch-->
