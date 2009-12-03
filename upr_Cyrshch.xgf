@@ -106,7 +106,7 @@
  <move distance="zero">
   <point num="lstem-left-bottom"/>
   <align>
-   <point num="rstem-right-bottom"/>
+   <point num="rdesc-left-top"/>
   </align>
   <move distance="small-horiz-stem" color="black">
    <point num="lstem-right-bottom"/>
