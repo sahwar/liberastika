@@ -1,8 +1,10 @@
 <?xml version="1.0"?>
-<!--Њ-->
-<glyph ps-name="afii10059" init-graphics="yes">
- 
- <!--
+<xgridfit xmlns="http://xgridfit.sourceforge.net/Xgridfit2">
+
+  <!--Њ-->
+
+  <glyph ps-name="afii10059" init-graphics="yes">
+    <!--
      Copyright (C) 2008  Andrey V. Panov
      
      This program is free software; you can redistribute it and/or modify
@@ -19,180 +21,178 @@
      along with this program; if not, write to the Free Software
      Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
      -->
- 
- <constant name="lstem-left-bottom" value="0"/>
- <constant name="lstem-left-top" value="lstem-left-bottom + 1"/>
- <constant name="lstem-right-top" value="lstem-left-top + 1"/>
- <constant name="lstem-right-bottom" value="18"/>
- <constant name="rstem-left-top" value="5"/>
- <constant name="rstem-right-top" value="rstem-left-top + 1"/>
- <constant name="up-inner-left-bottom" value="rstem-right-top + 1"/>
- <constant name="up-inner-right-bottom" value="up-inner-left-bottom + 1"/>
- <constant name="low-outer-right" value="up-inner-right-bottom + 3"/>
- <constant name="right-bottom" value="low-outer-right + 3"/>
- <constant name="rstem-left-bottom" value="right-bottom + 1"/>
- <constant name="rstem-right-bottom" value="rstem-right-top + 1"/>
- <constant name="rstem-left-bottom" value="rstem-right-bottom + 1"/>
- <constant name="intersect-left-top" value="3"/>
- <constant name="intersect-right-top" value="intersect-left-top + 1"/>
- <constant name="intersect-right-bottom" value="16"/>
- <constant name="intersect-left-bottom" value="intersect-right-bottom + 1"/>
- <constant name="low-inner-left-bottom" value="19"/>
- <constant name="low-inner-right-bottom" value="low-inner-left-bottom + 1"/>
- <constant name="low-inner-right" value="low-inner-right-bottom + 3"/>
- <constant name="low-inner-right-top" value="low-inner-right + 3"/>
- <constant name="low-inner-left-top" value="low-inner-right-top + 1"/>
- <constant name="last" value="low-inner-left-top"/>
- <constant name="left-bearing" value="last + 1"/>
- 
- <compile-if test="slanted">
-  <push>cap-it-y-shift cap-it-x-shift 88</push>
-  <command name="CALL"/>
- </compile-if>
- 
- <set-vectors axis="y"/>
- <move distance="cap-x-baseline">
-  <point num="lstem-left-bottom"/>
-  <align>
-   <point num="lstem-right-bottom"/>
-   <point num="rstem-left-bottom"/>
-   <point num="right-bottom"/>
-  </align>
-  <move distance="cap-horiz-stem" color="black">
-   <point num="low-inner-left-bottom"/>
-   <align>
-    <point num="low-inner-right-bottom"/>
-   </align>
-  </move>
- </move>
- <move distance="cap-h-intersect-height">
-  <point num="intersect-left-bottom"/>
-  <align>
-   <point num="intersect-right-bottom"/>
-   <point num="low-inner-left-top"/>
-   <point num="low-inner-right-top"/>
-  </align>
-  <move distance="cap-horiz-stem" color="black">
-   <point num="intersect-left-top"/>
-   <align>
-    <point num="intersect-right-top"/>
-    <point num="up-inner-left-bottom"/>
-    <point num="up-inner-right-bottom"/>
-   </align>
-  </move>
- </move>
- <move distance="cap-x-height">
-  <point num="lstem-left-top"/>
-  <align>
-   <point num="lstem-right-top"/>
-   <point num="rstem-left-top"/>
-   <point num="rstem-right-top"/>
-  </align>
- </move>
- 
- <set-vectors axis="x"/>
- <move distance="cap-i-lbearing" min-distance="no" color="white">
-  <reference>
-   <point num="left-bearing"/>
-  </reference>
-  <point num="lstem-left-bottom"/>
-  <align compile-if="slanted = 0">
-   <point num="lstem-left-top"/>
-  </align>
-  <move distance="cap-vert-stem" color="black">
-   <point num="lstem-right-bottom"/>
-   <align compile-if="slanted = 0">
-    <point num="intersect-left-top"/>
-    <point num="intersect-left-bottom"/>
-    <point num="lstem-right-top"/>
-   </align>
-  </move>
-  <move distance="cap-h-space" color="black" compile-if="slanted = 0">
-   <point num="rstem-right-top"/>
-   <align>
-    <point num="up-inner-left-bottom"/>
-    <point num="low-inner-left-top"/>
-    <point num="low-inner-left-bottom"/>
-   </align>
-   <move distance="cap-vert-stem">
-    <point num="rstem-left-bottom"/>
-    <align>
-     <point num="intersect-right-top"/>
-     <point num="intersect-right-bottom"/>
-     <point num="rstem-left-top"/>
-    </align>
-    <move distance="cap-b-low-space" color="black">
-     <point num="low-outer-right"/>
-     <move distance="cap-o-curve-stem" color="black">
-      <point num="low-inner-right"/>
-     </move>
-     <move color="white">
-      <point num="right-bearing"/>
-     </move>
+    <constant name="lstem-left-bottom" value="0"/>
+    <constant name="lstem-left-top" value="lstem-left-bottom + 1"/>
+    <constant name="lstem-right-top" value="lstem-left-top + 1"/>
+    <constant name="lstem-right-bottom" value="18"/>
+    <constant name="rstem-left-top" value="5"/>
+    <constant name="rstem-right-top" value="rstem-left-top + 1"/>
+    <constant name="up-inner-left-bottom" value="rstem-right-top + 1"/>
+    <constant name="up-inner-right-bottom" value="up-inner-left-bottom + 1"/>
+    <constant name="low-outer-right" value="up-inner-right-bottom + 3"/>
+    <constant name="right-bottom" value="low-outer-right + 3"/>
+    <constant name="rstem-left-bottom" value="right-bottom + 1"/>
+    <constant name="rstem-right-bottom" value="rstem-right-top + 1"/>
+    <constant name="rstem-left-bottom" value="rstem-right-bottom + 1"/>
+    <constant name="intersect-left-top" value="3"/>
+    <constant name="intersect-right-top" value="intersect-left-top + 1"/>
+    <constant name="intersect-right-bottom" value="16"/>
+    <constant name="intersect-left-bottom" value="intersect-right-bottom + 1"/>
+    <constant name="low-inner-left-bottom" value="19"/>
+    <constant name="low-inner-right-bottom" value="low-inner-left-bottom + 1"/>
+    <constant name="low-inner-right" value="low-inner-right-bottom + 3"/>
+    <constant name="low-inner-right-top" value="low-inner-right + 3"/>
+    <constant name="low-inner-left-top" value="low-inner-right-top + 1"/>
+    <constant name="last" value="low-inner-left-top"/>
+    <constant name="left-bearing" value="last + 1"/>
+    <compile-if test="slanted">
+      <push>cap-it-y-shift cap-it-x-shift 88</push>
+      <command name="CALL"/>
+    </compile-if>
+    <set-vectors axis="y"/>
+    <move distance="cap-x-baseline">
+      <point num="lstem-left-bottom"/>
+      <align>
+        <point num="lstem-right-bottom"/>
+        <point num="rstem-left-bottom"/>
+        <point num="right-bottom"/>
+      </align>
+      <move distance="cap-horiz-stem" color="black">
+        <point num="low-inner-left-bottom"/>
+        <align>
+          <point num="low-inner-right-bottom"/>
+        </align>
+      </move>
     </move>
-   </move>
-  </move>
- </move>
- <compile-if test="slanted">
-  <with-projection-vector x-component="variable(6)" y-component="negative(variable(7))">
-   <align>
-    <reference>
-     <point num="lstem-left-bottom"/>
-    </reference>
-    <point num="lstem-left-top"/>
-   </align>
-  </with-projection-vector>
-  <move>
-   <point num="lstem-left-top"/>
-   <move distance="cap-h-space" color="black">
-    <point num="rstem-right-top"/>
-    <move distance="cap-vert-stem">
-     <point num="rstem-left-top"/>
+    <move distance="cap-h-intersect-height">
+      <point num="intersect-left-bottom"/>
+      <align>
+        <point num="intersect-right-bottom"/>
+        <point num="low-inner-left-top"/>
+        <point num="low-inner-right-top"/>
+      </align>
+      <move distance="cap-horiz-stem" color="black">
+        <point num="intersect-left-top"/>
+        <align>
+          <point num="intersect-right-top"/>
+          <point num="up-inner-left-bottom"/>
+          <point num="up-inner-right-bottom"/>
+        </align>
+      </move>
     </move>
-   </move>
-  </move>
-  <with-projection-vector to-line="orthogonal">
-   <line>
-    <point num="lstem-left-bottom"/>
-    <point num="lstem-left-top"/>
-   </line>
-   <align>
-    <reference>
-     <point num="lstem-right-bottom"/>
-    </reference>
-    <point num="intersect-left-top"/>
-    <point num="intersect-left-bottom"/>
-    <point num="lstem-right-top"/>
-   </align>
-   <align>
-    <reference>
-     <point num="rstem-right-top"/>
-    </reference>
-    <point num="up-inner-left-bottom"/>
-    <point num="low-inner-left-top"/>
-    <point num="low-inner-left-bottom"/>
-   </align>
-   <align>
-    <reference>
-     <point num="rstem-left-top"/>
-    </reference>
-    <point num="rstem-left-bottom"/>
-    <point num="intersect-right-top"/>
-    <point num="intersect-right-bottom"/>
-   </align>
-  </with-projection-vector>
-  <move distance="cap-b-low-space" color="black">
-   <reference>
-    <point num="rstem-left-bottom"/>
-   </reference>
-   <point num="low-outer-right"/>
-   <move distance="cap-o-curve-stem" color="black">
-    <point num="low-inner-right"/>
-   </move>
-   <move color="white">
-    <point num="right-bearing"/>
-   </move>
-  </move>
- </compile-if>
- <interpolate-untouched-points/>
-</glyph>
+    <move distance="cap-x-height">
+      <point num="lstem-left-top"/>
+      <align>
+        <point num="lstem-right-top"/>
+        <point num="rstem-left-top"/>
+        <point num="rstem-right-top"/>
+      </align>
+    </move>
+    <set-vectors axis="x"/>
+    <move distance="cap-i-lbearing" min-distance="no" color="white">
+      <reference>
+        <point num="left-bearing"/>
+      </reference>
+      <point num="lstem-left-bottom"/>
+      <align compile-if="slanted = 0">
+        <point num="lstem-left-top"/>
+      </align>
+      <move distance="cap-vert-stem" color="black">
+        <point num="lstem-right-bottom"/>
+        <align compile-if="slanted = 0">
+          <point num="intersect-left-top"/>
+          <point num="intersect-left-bottom"/>
+          <point num="lstem-right-top"/>
+        </align>
+      </move>
+      <move distance="cap-h-space" color="black" compile-if="slanted = 0">
+        <point num="rstem-right-top"/>
+        <align>
+          <point num="up-inner-left-bottom"/>
+          <point num="low-inner-left-top"/>
+          <point num="low-inner-left-bottom"/>
+        </align>
+        <move distance="cap-vert-stem">
+          <point num="rstem-left-bottom"/>
+          <align>
+            <point num="intersect-right-top"/>
+            <point num="intersect-right-bottom"/>
+            <point num="rstem-left-top"/>
+          </align>
+          <move distance="cap-b-low-space" color="black">
+            <point num="low-outer-right"/>
+            <move distance="cap-o-curve-stem" color="black">
+              <point num="low-inner-right"/>
+            </move>
+            <move color="white">
+              <point num="right-bearing"/>
+            </move>
+          </move>
+        </move>
+      </move>
+    </move>
+    <compile-if test="slanted">
+      <with-projection-vector x-component="variable(6)" y-component="negative(variable(7))">
+        <align>
+          <reference>
+            <point num="lstem-left-bottom"/>
+          </reference>
+          <point num="lstem-left-top"/>
+        </align>
+      </with-projection-vector>
+      <move>
+        <point num="lstem-left-top"/>
+        <move distance="cap-h-space" color="black">
+          <point num="rstem-right-top"/>
+          <move distance="cap-vert-stem">
+            <point num="rstem-left-top"/>
+          </move>
+        </move>
+      </move>
+      <with-projection-vector to-line="orthogonal">
+        <line>
+          <point num="lstem-left-bottom"/>
+          <point num="lstem-left-top"/>
+        </line>
+        <align>
+          <reference>
+            <point num="lstem-right-bottom"/>
+          </reference>
+          <point num="intersect-left-top"/>
+          <point num="intersect-left-bottom"/>
+          <point num="lstem-right-top"/>
+        </align>
+        <align>
+          <reference>
+            <point num="rstem-right-top"/>
+          </reference>
+          <point num="up-inner-left-bottom"/>
+          <point num="low-inner-left-top"/>
+          <point num="low-inner-left-bottom"/>
+        </align>
+        <align>
+          <reference>
+            <point num="rstem-left-top"/>
+          </reference>
+          <point num="rstem-left-bottom"/>
+          <point num="intersect-right-top"/>
+          <point num="intersect-right-bottom"/>
+        </align>
+      </with-projection-vector>
+      <move distance="cap-b-low-space" color="black">
+        <reference>
+          <point num="rstem-left-bottom"/>
+        </reference>
+        <point num="low-outer-right"/>
+        <move distance="cap-o-curve-stem" color="black">
+          <point num="low-inner-right"/>
+        </move>
+        <move color="white">
+          <point num="right-bearing"/>
+        </move>
+      </move>
+    </compile-if>
+    <interpolate-untouched-points/>
+  </glyph>
+
+</xgridfit>

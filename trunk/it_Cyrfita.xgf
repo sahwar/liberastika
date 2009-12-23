@@ -1,8 +1,10 @@
 <?xml version="1.0"?>
-<!--Ѳ-->
-<glyph ps-name="afii10195" init-graphics="yes">
- 
- <!--
+<xgridfit xmlns="http://xgridfit.sourceforge.net/Xgridfit2">
+
+  <!--Ѳ-->
+
+  <glyph ps-name="afii10195" init-graphics="yes">
+    <!--
      Copyright (C) 2008  Andrey V. Panov
      
      This program is free software; you can redistribute it and/or modify
@@ -19,79 +21,76 @@
      along with this program; if not, write to the Free Software
      Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
      -->
- 
- <constant name="outer-left" value="0"/>
- <constant name="outer-top" value="outer-left + 4"/>
- <constant name="outer-right" value="outer-top + 4"/>
- <constant name="outer-bottom" value="outer-right + 4"/>
- <constant name="hstem-left-bottom" value="23"/>
- <constant name="inner-bottom" value="18"/>
- <constant name="hstem-right-bottom" value="inner-bottom + 4"/>
- <constant name="hstem-left-top" value="25"/>
- <constant name="hstem-right-top" value="hstem-left-top + 1"/>
- <constant name="inner-top" value="hstem-right-top + 4"/>
- <constant name="last" value="inner-top + 3"/>
- 
- <set-vectors axis="y"/>
- <move distance="small-o-baseline">
-  <point num="outer-bottom"/>
-  <move distance="small-horiz-stem" color="black">
-   <point num="inner-bottom"/>
-  </move>
- </move>
- <move distance="small-o-height">
-  <point num="outer-top"/>
-  <move distance="small-horiz-stem" color="black">
-   <point num="inner-top"/>
-  </move>
- </move>
- <move distance="small-cyrn-intersect-height">
-  <point num="hstem-left-bottom"/>
-  <align>
-   <point num="hstem-right-bottom"/>
-  </align>
-  <move distance="small-horiz-stem">
-   <point num="hstem-left-top"/>
-   <align>
-    <point num="hstem-right-top"/>
-   </align>
-  </move>
- </move>
- 
- <set-vectors axis="x"/>
- <move distance="small-o-lbearing" min-distance="no" color="white">
-  <reference>
-   <point num="left-bearing"/>
-  </reference>
-  <point num="outer-left"/>
-  <move distance="small-o-curve-stem" color="black">
-   <point num="hstem-left-bottom"/>
-  </move>
-  <move distance="small-o-space" color="black">
-   <point num="outer-right"/>
-   <move distance="small-o-curve-stem" color="black">
-    <point num="hstem-right-top"/>
-   </move>
-   <move>
-    <point num="right-bearing"/>
-   </move>
-  </move>
- </move>
- <interpolate>
-  <reference>
-   <point num="outer-left"/>
-   <point num="hstem-left-bottom"/>
-  </reference>
-  <point num="hstem-left-top"/>
- </interpolate>
- <interpolate>
-  <reference>
-   <point num="hstem-right-top"/>
-   <point num="outer-right"/>
-  </reference>
-  <point num="hstem-right-bottom"/>
- </interpolate>
- <!-- <interpolate>
+    <constant name="outer-left" value="0"/>
+    <constant name="outer-top" value="outer-left + 4"/>
+    <constant name="outer-right" value="outer-top + 4"/>
+    <constant name="outer-bottom" value="outer-right + 4"/>
+    <constant name="hstem-left-bottom" value="23"/>
+    <constant name="inner-bottom" value="18"/>
+    <constant name="hstem-right-bottom" value="inner-bottom + 4"/>
+    <constant name="hstem-left-top" value="25"/>
+    <constant name="hstem-right-top" value="hstem-left-top + 1"/>
+    <constant name="inner-top" value="hstem-right-top + 4"/>
+    <constant name="last" value="inner-top + 3"/>
+    <set-vectors axis="y"/>
+    <move distance="small-o-baseline">
+      <point num="outer-bottom"/>
+      <move distance="small-horiz-stem" color="black">
+        <point num="inner-bottom"/>
+      </move>
+    </move>
+    <move distance="small-o-height">
+      <point num="outer-top"/>
+      <move distance="small-horiz-stem" color="black">
+        <point num="inner-top"/>
+      </move>
+    </move>
+    <move distance="small-cyrn-intersect-height">
+      <point num="hstem-left-bottom"/>
+      <align>
+        <point num="hstem-right-bottom"/>
+      </align>
+      <move distance="small-horiz-stem">
+        <point num="hstem-left-top"/>
+        <align>
+          <point num="hstem-right-top"/>
+        </align>
+      </move>
+    </move>
+    <set-vectors axis="x"/>
+    <move distance="small-o-lbearing" min-distance="no" color="white">
+      <reference>
+        <point num="left-bearing"/>
+      </reference>
+      <point num="outer-left"/>
+      <move distance="small-o-curve-stem" color="black">
+        <point num="hstem-left-bottom"/>
+      </move>
+      <move distance="small-o-space" color="black">
+        <point num="outer-right"/>
+        <move distance="small-o-curve-stem" color="black">
+          <point num="hstem-right-top"/>
+        </move>
+        <move>
+          <point num="right-bearing"/>
+        </move>
+      </move>
+    </move>
+    <interpolate>
+      <reference>
+        <point num="outer-left"/>
+        <point num="hstem-left-bottom"/>
+      </reference>
+      <point num="hstem-left-top"/>
+    </interpolate>
+    <interpolate>
+      <reference>
+        <point num="hstem-right-top"/>
+        <point num="outer-right"/>
+      </reference>
+      <point num="hstem-right-bottom"/>
+    </interpolate>
+    <!-- <interpolate>
   <reference>
    <point num="hstem-left-bottom"/>
    <point num="hstem-right-bottom"/>
@@ -106,7 +105,7 @@
   <point num="inner-bottom"/>
   <point num="inner-top"/>
  </align>-->
- 
- <interpolate-untouched-points/>
- 
-</glyph>
+    <interpolate-untouched-points/>
+  </glyph>
+
+</xgridfit>

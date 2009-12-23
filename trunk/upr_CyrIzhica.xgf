@@ -1,8 +1,10 @@
 <?xml version="1.0"?>
-<!--Ѵ-->
-<glyph ps-name="afii10148" init-graphics="yes">
- 
- <!--
+<xgridfit xmlns="http://xgridfit.sourceforge.net/Xgridfit2">
+
+  <!--Ѵ-->
+
+  <glyph ps-name="afii10148" init-graphics="yes">
+    <!--
      Copyright (C) 2008  Andrey V. Panov
      
      This program is free software; you can redistribute it and/or modify
@@ -19,141 +21,135 @@
      along with this program; if not, write to the Free Software
      Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
      -->
- 
- <constant name="ldiag-left-top" value="0"/>
- <constant name="ldiag-right-top" value="ldiag-left-top + 1"/>
- <constant name="diag-intersect" value="ldiag-right-top + 5"/>
- <constant name="rdiag-left-top" value="diag-intersect + 5"/>
- <constant name="curl-left-top" value="rdiag-left-top + 3"/>
- <constant name="curl-right-top" value="curl-left-top + 2"/>
- <constant name="curl-right-bottom" value="curl-right-top + 1"/>
- <constant name="curl-left-bottom" value="curl-right-bottom + 2"/>
- <constant name="rdiag-right-top" value="curl-left-bottom + 3"/>
- <constant name="rdiag-right-bottom" value="rdiag-right-top + 1"/>
- <constant name="ldiag-left-bottom" value="rdiag-right-bottom + 1"/>
- <constant name="last" value="ldiag-left-bottom"/>
- <line name="ldiag-left">
-  <point num="ldiag-left-top"/>
-  <point num="ldiag-left-bottom"/>
- </line>
- <line name="ldiag-right">
-  <point num="ldiag-right-top"/>
-  <point num="diag-intersect"/>
- </line>
- <line name="rdiag-left">
-  <!--   <point num="diag-intersect"/> -->
-  <point num="rdiag-left-top - 1"/>
-  <point num="rdiag-left-top"/>
- </line>
- <line name="rdiag-right">
-  <point num="rdiag-right-bottom"/>
-  <point num="rdiag-right-top"/>
- </line>
- 
- <compile-if test="slanted">
-  <push>cap-it-y-shift cap-it-x-shift 88</push>
-  <command name="CALL"/>
- </compile-if>
- 
- <set-vectors axis="x"/>
- <move min-distance="no" color="white">
-  <reference>
-   <point num="left-bearing"/>
-  </reference>
-  <point num="ldiag-left-top"/>
-  <move round="no" color="black">
-   <point num="rdiag-right-top"/>
-  </move>
-  <move>
-   <point num="curl-right-top"/>
-   <align compile-if="slanted = 0">
-    <point num="curl-right-bottom"/>
-   </align>
-   <move min-distance="no">
-    <point num="right-bearing"/>
-   </move>
-  </move>
- </move>
- <compile-if test="slanted">
-  <with-projection-vector x-component="variable(6)" y-component="negative(variable(7))">
-   <align>
-    <reference>
-     <point num="curl-right-top"/>
-    </reference>
-    <point num="curl-right-bottom"/>
-   </align>
-  </with-projection-vector>
- </compile-if>
- <interpolate round="down-to-grid">
-  <reference>
-   <point num="ldiag-left-top"/>
-   <point num="rdiag-right-top"/>
-  </reference>
-  <point num="ldiag-left-bottom"/>
- </interpolate>
- <move color="black">
-  <reference>
-   <point num="ldiag-left-bottom"/>
-  </reference>
-  <point num="rdiag-right-bottom"/>
- </move>
- 
- <set-vectors axis="y"/>
- <move distance="cap-o-baseline">
-  <point num="ldiag-left-bottom"/>
-  <align>
-   <point num="rdiag-right-bottom"/>
-  </align>
- </move>
- <move distance="cap-x-height">
-  <point num="ldiag-left-top"/>
-  <align>
-   <point num="ldiag-right-top"/>
-  </align>
- </move>
- <move distance="cap-o-height">
-  <point num="curl-left-top"/>
-  <move distance="cap-horiz-stem" color="black">
-   <point num="curl-left-bottom"/>
-  </move>
-  <move min-distance="no">
-   <point num="curl-right-top"/>
-   <move distance="cap-horiz-stem" color="black">
-    <point num="curl-right-bottom"/>
-   </move>
-  </move>
- </move>
- <interpolate>
-  <reference>
-   <point num="curl-left-bottom"/>
-   <point num="rdiag-right-bottom"/>
-  </reference>
-  <point num="rdiag-right-top"/>
- </interpolate>
- 
- <set-vectors axis="x"/>
- <call-macro name="make-diagonal">
-  <with-param name="first-diag-first-point" value="ldiag-left-top"/>
-  <with-param name="first-diag-second-point" value="ldiag-left-bottom"/>
-  <with-param name="second-diag-first-point" value="ldiag-right-top"/>
-  <with-param name="second-diag-second-point" value="ldiag-right-top + 1"/>
-  <with-param name="diag-width" value="small--diag"/>
-  <with-param name="interpolation-point" value="ldiag-left-bottom"/>
- </call-macro>
- <with-round-state round="no">
-  <with-minimum-distance value="diag-min-thick">
-   <!--<diagonal-stem distance="cap- -diag" save-vectors="yes" color="black">
+    <constant name="ldiag-left-top" value="0"/>
+    <constant name="ldiag-right-top" value="ldiag-left-top + 1"/>
+    <constant name="diag-intersect" value="ldiag-right-top + 5"/>
+    <constant name="rdiag-left-top" value="diag-intersect + 5"/>
+    <constant name="curl-left-top" value="rdiag-left-top + 3"/>
+    <constant name="curl-right-top" value="curl-left-top + 2"/>
+    <constant name="curl-right-bottom" value="curl-right-top + 1"/>
+    <constant name="curl-left-bottom" value="curl-right-bottom + 2"/>
+    <constant name="rdiag-right-top" value="curl-left-bottom + 3"/>
+    <constant name="rdiag-right-bottom" value="rdiag-right-top + 1"/>
+    <constant name="ldiag-left-bottom" value="rdiag-right-bottom + 1"/>
+    <constant name="last" value="ldiag-left-bottom"/>
+    <line name="ldiag-left">
+      <point num="ldiag-left-top"/>
+      <point num="ldiag-left-bottom"/>
+    </line>
+    <line name="ldiag-right">
+      <point num="ldiag-right-top"/>
+      <point num="diag-intersect"/>
+    </line>
+    <line name="rdiag-left">
+      <!--   <point num="diag-intersect"/> -->
+      <point num="rdiag-left-top - 1"/>
+      <point num="rdiag-left-top"/>
+    </line>
+    <line name="rdiag-right">
+      <point num="rdiag-right-bottom"/>
+      <point num="rdiag-right-top"/>
+    </line>
+    <compile-if test="slanted">
+      <push>cap-it-y-shift cap-it-x-shift 88</push>
+      <command name="CALL"/>
+    </compile-if>
+    <set-vectors axis="x"/>
+    <move min-distance="no" color="white">
+      <reference>
+        <point num="left-bearing"/>
+      </reference>
+      <point num="ldiag-left-top"/>
+      <move round="no" color="black">
+        <point num="rdiag-right-top"/>
+      </move>
+      <move>
+        <point num="curl-right-top"/>
+        <align compile-if="slanted = 0">
+          <point num="curl-right-bottom"/>
+        </align>
+        <move min-distance="no">
+          <point num="right-bearing"/>
+        </move>
+      </move>
+    </move>
+    <compile-if test="slanted">
+      <with-projection-vector x-component="variable(6)" y-component="negative(variable(7))">
+        <align>
+          <reference>
+            <point num="curl-right-top"/>
+          </reference>
+          <point num="curl-right-bottom"/>
+        </align>
+      </with-projection-vector>
+    </compile-if>
+    <interpolate round="down-to-grid">
+      <reference>
+        <point num="ldiag-left-top"/>
+        <point num="rdiag-right-top"/>
+      </reference>
+      <point num="ldiag-left-bottom"/>
+    </interpolate>
+    <move color="black">
+      <reference>
+        <point num="ldiag-left-bottom"/>
+      </reference>
+      <point num="rdiag-right-bottom"/>
+    </move>
+    <set-vectors axis="y"/>
+    <move distance="cap-o-baseline">
+      <point num="ldiag-left-bottom"/>
+      <align>
+        <point num="rdiag-right-bottom"/>
+      </align>
+    </move>
+    <move distance="cap-x-height">
+      <point num="ldiag-left-top"/>
+      <align>
+        <point num="ldiag-right-top"/>
+      </align>
+    </move>
+    <move distance="cap-o-height">
+      <point num="curl-left-top"/>
+      <move distance="cap-horiz-stem" color="black">
+        <point num="curl-left-bottom"/>
+      </move>
+      <move min-distance="no">
+        <point num="curl-right-top"/>
+        <move distance="cap-horiz-stem" color="black">
+          <point num="curl-right-bottom"/>
+        </move>
+      </move>
+    </move>
+    <interpolate>
+      <reference>
+        <point num="curl-left-bottom"/>
+        <point num="rdiag-right-bottom"/>
+      </reference>
+      <point num="rdiag-right-top"/>
+    </interpolate>
+    <set-vectors axis="x"/>
+    <call-macro name="make-diagonal">
+      <with-param name="first-diag-first-point" value="ldiag-left-top"/>
+      <with-param name="first-diag-second-point" value="ldiag-left-bottom"/>
+      <with-param name="second-diag-first-point" value="ldiag-right-top"/>
+      <with-param name="second-diag-second-point" value="ldiag-right-top + 1"/>
+      <with-param name="diag-width" value="small--diag"/>
+      <with-param name="interpolation-point" value="ldiag-left-bottom"/>
+    </call-macro>
+    <with-round-state round="no">
+      <with-minimum-distance value="diag-min-thick">
+        <!--<diagonal-stem distance="cap- -diag" save-vectors="yes" color="black">
     <line ref="ldiag-left"/>
     <line ref="ldiag-right"/>
    </diagonal-stem>-->
-   <diagonal-stem distance="cap-diag" save-vectors="yes" color="black">
-    <line ref="rdiag-right"/>
-    <line ref="rdiag-left"/>
-   </diagonal-stem>
-  </with-minimum-distance>
- </with-round-state>
- 
- <!--  <with-projection-vector axis="y">
+        <diagonal-stem distance="cap-diag" save-vectors="yes" color="black">
+          <line ref="rdiag-right"/>
+          <line ref="rdiag-left"/>
+        </diagonal-stem>
+      </with-minimum-distance>
+    </with-round-state>
+    <!--  <with-projection-vector axis="y">
   <with-freedom-vector to-line="parallel">
    <line ref="ldiag-left"/>
    <align>
@@ -186,6 +182,7 @@
    </align>
   </with-freedom-vector>
  </with-projection-vector>-->
- <interpolate-untouched-points/>
- 
-</glyph>
+    <interpolate-untouched-points/>
+  </glyph>
+
+</xgridfit>

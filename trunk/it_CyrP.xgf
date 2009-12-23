@@ -1,8 +1,10 @@
 <?xml version="1.0"?>
-<!--П-->
-<glyph ps-name="afii10033" init-graphics="yes">
- 
- <!--
+<xgridfit xmlns="http://xgridfit.sourceforge.net/Xgridfit2">
+
+  <!--П-->
+
+  <glyph ps-name="afii10033" init-graphics="yes">
+    <!--
      Copyright (C) 2008  Andrey V. Panov
      
      This program is free software; you can redistribute it and/or modify
@@ -19,95 +21,94 @@
      along with this program; if not, write to the Free Software
      Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
      -->
- 
- <constant name="lstem-left-bottom" value="0"/>
- <constant name="lstem-left-top" value="lstem-left-bottom + 1"/>
- <constant name="rstem-right-top" value="lstem-left-top + 1"/>
- <constant name="rstem-right-bottom" value="rstem-right-top + 1"/>
- <constant name="rstem-left-bottom" value="rstem-right-bottom + 1"/>
- <constant name="rstem-left-top" value="rstem-left-bottom + 1"/>
- <constant name="lstem-right-top" value="rstem-left-top + 1"/>
- <constant name="lstem-right-bottom" value="lstem-right-top + 1"/>
- <constant name="last" value="lstem-right-bottom"/>
- <constant name="left-bearing" value="last + 1"/>
- 
- <push>cap-it-y-shift cap-it-x-shift 88</push>
- <command name="CALL"/>
- <!--   <set-freedom-vector x-component="x-skew2" y-component="y-skew2"/> -->
- <!--   <set-projection-vector axis="y"/> -->
- <set-vectors axis="y"/>
- <move distance="cap-x-baseline">
-  <point num="lstem-left-bottom"/>
-  <align>
-   <point num="lstem-right-bottom"/>
-   <point num="rstem-left-bottom"/>
-   <point num="rstem-right-bottom"/>
-  </align>
- </move>
- <move distance="cap-x-height">
-  <point num="lstem-left-top"/>
-  <align>
-   <point num="rstem-right-top"/>
-  </align>
-  <move distance="cap-horiz-stem" color="black">
-   <point num="rstem-left-top"/>
-   <align>
-    <point num="lstem-right-top"/>
-   </align>
-  </move>
- </move>
- 
- <set-vectors axis="x"/>
- <move distance="cap-i-lbearing" min-distance="no" color="white">
-  <reference>
-   <point num="left-bearing"/>
-  </reference>
-  <point num="lstem-left-bottom"/>
-  <move distance="cap-vert-stem" color="black">
-   <point num="lstem-right-bottom"/>
-  </move>
- </move>
- <move distance="cap-h-space" color="black">
-  <point num="rstem-right-bottom"/>
-  <move distance="cap-vert-stem" color="black">
-   <point num="rstem-left-bottom"/>
-  </move>
- </move>
- <with-projection-vector x-component="variable(6)" y-component="negative(variable(7))">
-  <align>
-   <reference>
-    <point num="lstem-left-bottom"/>
-   </reference>
-   <point num="lstem-left-top"/>
-  </align>
- </with-projection-vector>
- <mdap round="yes">
-  <point num="lstem-left-top"/>
- </mdap>
- <with-projection-vector to-line="orthogonal">
-  <line>
-   <point num="lstem-left-bottom"/>
-   <point num="lstem-left-top"/>
-  </line>
-  <align>
-   <reference>
-    <point num="lstem-right-bottom"/>
-   </reference>
-   <point num="lstem-right-top"/>
-  </align>
-  <align>
-   <reference>
-    <point num="rstem-right-bottom"/>
-   </reference>
-   <point num="rstem-right-top"/>
-  </align>
-  <align>
-   <reference>
-    <point num="rstem-left-bottom"/>
-   </reference>
-   <point num="rstem-left-top"/>
-  </align>
- </with-projection-vector>
- 
- <interpolate-untouched-points/>
-</glyph><!--Cyr P-->
+    <constant name="lstem-left-bottom" value="0"/>
+    <constant name="lstem-left-top" value="lstem-left-bottom + 1"/>
+    <constant name="rstem-right-top" value="lstem-left-top + 1"/>
+    <constant name="rstem-right-bottom" value="rstem-right-top + 1"/>
+    <constant name="rstem-left-bottom" value="rstem-right-bottom + 1"/>
+    <constant name="rstem-left-top" value="rstem-left-bottom + 1"/>
+    <constant name="lstem-right-top" value="rstem-left-top + 1"/>
+    <constant name="lstem-right-bottom" value="lstem-right-top + 1"/>
+    <constant name="last" value="lstem-right-bottom"/>
+    <constant name="left-bearing" value="last + 1"/>
+    <push>cap-it-y-shift cap-it-x-shift 88</push>
+    <command name="CALL"/>
+    <!--   <set-freedom-vector x-component="x-skew2" y-component="y-skew2"/> -->
+    <!--   <set-projection-vector axis="y"/> -->
+    <set-vectors axis="y"/>
+    <move distance="cap-x-baseline">
+      <point num="lstem-left-bottom"/>
+      <align>
+        <point num="lstem-right-bottom"/>
+        <point num="rstem-left-bottom"/>
+        <point num="rstem-right-bottom"/>
+      </align>
+    </move>
+    <move distance="cap-x-height">
+      <point num="lstem-left-top"/>
+      <align>
+        <point num="rstem-right-top"/>
+      </align>
+      <move distance="cap-horiz-stem" color="black">
+        <point num="rstem-left-top"/>
+        <align>
+          <point num="lstem-right-top"/>
+        </align>
+      </move>
+    </move>
+    <set-vectors axis="x"/>
+    <move distance="cap-i-lbearing" min-distance="no" color="white">
+      <reference>
+        <point num="left-bearing"/>
+      </reference>
+      <point num="lstem-left-bottom"/>
+      <move distance="cap-vert-stem" color="black">
+        <point num="lstem-right-bottom"/>
+      </move>
+    </move>
+    <move distance="cap-h-space" color="black">
+      <point num="rstem-right-bottom"/>
+      <move distance="cap-vert-stem" color="black">
+        <point num="rstem-left-bottom"/>
+      </move>
+    </move>
+    <with-projection-vector x-component="variable(6)" y-component="negative(variable(7))">
+      <align>
+        <reference>
+          <point num="lstem-left-bottom"/>
+        </reference>
+        <point num="lstem-left-top"/>
+      </align>
+    </with-projection-vector>
+    <mdap round="yes">
+      <point num="lstem-left-top"/>
+    </mdap>
+    <with-projection-vector to-line="orthogonal">
+      <line>
+        <point num="lstem-left-bottom"/>
+        <point num="lstem-left-top"/>
+      </line>
+      <align>
+        <reference>
+          <point num="lstem-right-bottom"/>
+        </reference>
+        <point num="lstem-right-top"/>
+      </align>
+      <align>
+        <reference>
+          <point num="rstem-right-bottom"/>
+        </reference>
+        <point num="rstem-right-top"/>
+      </align>
+      <align>
+        <reference>
+          <point num="rstem-left-bottom"/>
+        </reference>
+        <point num="rstem-left-top"/>
+      </align>
+    </with-projection-vector>
+    <interpolate-untouched-points/>
+  </glyph>
+  <!--Cyr P-->
+
+</xgridfit>

@@ -1,8 +1,10 @@
 <?xml version="1.0"?>
-<!--m-->
-<glyph ps-name="m" init-graphics="yes">
- 
- <!--
+<xgridfit xmlns="http://xgridfit.sourceforge.net/Xgridfit2">
+
+  <!--m-->
+
+  <glyph ps-name="m" init-graphics="yes">
+    <!--
      Copyright (C) 2008  Andrey V. Panov
      
      This program is free software; you can redistribute it and/or modify
@@ -19,171 +21,169 @@
      along with this program; if not, write to the Free Software
      Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
      -->
- 
- <constant name="lstem-left-bottom" value="0"/>
- <constant name="lstem-left-top" value="lstem-left-bottom + 4"/>
- <constant name="lstem-right-top" value="lstem-left-top + 1"/>
- <constant name="ljoint-top" value="lstem-right-top + 4"/>
- <constant name="larc-top" value="ljoint-top + 3"/>
- <constant name="rjoint-top" value="larc-top + 3"/>
- <constant name="rarc-top" value="rjoint-top + 3"/>
- <constant name="rstem-right-top" value="rarc-top + 5"/>
- <constant name="rstem-right-bottom" value="rstem-right-top + 1"/>
- <constant name="rstem-left-bottom" value="rstem-right-bottom + 1"/>
- <constant name="rstem-left-top" value="rstem-left-bottom + 1"/>
- <constant name="rarc-bottom" value="rstem-left-top + 4"/>
- <constant name="rjoint-bottom" value="rarc-bottom + 3"/>
- <constant name="mstem-right-bottom" value="rjoint-bottom + 1"/>
- <constant name="mstem-left-bottom" value="mstem-right-bottom + 1"/>
- <constant name="mstem-left-top" value="mstem-left-bottom + 1"/>
- <constant name="larc-bottom" value="mstem-left-top + 4"/>
- <constant name="ljoint-bottom" value="larc-bottom + 3"/>
- <constant name="lstem-right-bottom" value="ljoint-bottom + 1"/>
- <constant name="last" value="lstem-right-bottom"/>
- 
- <compile-if test="slanted">
-  <push>small-it-y-shift small-it-x-shift 88</push>
-  <command name="CALL"/>
- </compile-if>
- 
- <set-vectors axis="y"/>
- <move distance="zero">
-  <point num="lstem-left-bottom"/>
-  <align>
-   <point num="lstem-right-bottom"/>
-   <point num="mstem-left-bottom"/>
-   <point num="mstem-right-bottom"/>
-   <point num="rstem-left-bottom"/>
-   <point num="rstem-right-bottom"/>
-  </align>
- </move>
- <move distance="small-x-height">
-  <point num="lstem-left-top"/>
-  <align>
-   <point num="lstem-right-top"/>
-  </align>
- </move>
- <move distance="small-o-height">
-  <point num="larc-top"/>
-  <align>
-   <point num="rarc-top"/>
-  </align>
-  <move distance="small-curve-hstem" color="black">
-   <point num="larc-bottom"/>
-   <align>
-    <point num="rarc-bottom"/>
-   </align>
-  </move>
-  <move>
-   <point num="ljoint-top"/>
-   <align>
-    <point num="rjoint-top"/>
-   </align>
-   <move color="black">
-    <point num="ljoint-bottom"/>
-    <align>
-     <point num="rjoint-bottom"/>
-    </align>
-   </move>
-  </move>
- </move>
- 
- <set-vectors axis="x"/>
- <move min-distance="no" distance="small-i-lbearing" color="white">
-  <reference>
-   <point num="left-bearing"/>
-  </reference>
-  <point num="lstem-left-bottom"/>
-  <align compile-if="slanted = 0">
-   <point num="lstem-left-top"/>
-  </align>
-  <move distance="small-vert-stem" color="black">
-   <point num="lstem-right-bottom"/>
-   <align compile-if="slanted = 0">
-    <point num="lstem-right-top"/>
-    <point num="ljoint-top"/>
-    <point num="ljoint-bottom"/>
-   </align>
-   <move distance="small-m-inner-space" min-distance="no" round="no" cut-in="no" color="white">
-    <point num="mstem-left-bottom"/>
-    <align compile-if="slanted = 0">
-     <point num="mstem-left-top"/>
-    </align>
-    <move distance="small-vert-stem" color="black">
-     <point num="mstem-right-bottom"/>
-     <align compile-if="slanted = 0">
-      <point num="rjoint-bottom"/>
-     </align>
-     <interpolate compile-if="slanted = 0">
-      <point num="rjoint-top"/>
-     </interpolate>
-     <move distance="small-m-inner-space" min-distance="no" round="no" cut-in="no" color="white">
-      <point num="rstem-left-bottom"/>
+    <constant name="lstem-left-bottom" value="0"/>
+    <constant name="lstem-left-top" value="lstem-left-bottom + 4"/>
+    <constant name="lstem-right-top" value="lstem-left-top + 1"/>
+    <constant name="ljoint-top" value="lstem-right-top + 4"/>
+    <constant name="larc-top" value="ljoint-top + 3"/>
+    <constant name="rjoint-top" value="larc-top + 3"/>
+    <constant name="rarc-top" value="rjoint-top + 3"/>
+    <constant name="rstem-right-top" value="rarc-top + 5"/>
+    <constant name="rstem-right-bottom" value="rstem-right-top + 1"/>
+    <constant name="rstem-left-bottom" value="rstem-right-bottom + 1"/>
+    <constant name="rstem-left-top" value="rstem-left-bottom + 1"/>
+    <constant name="rarc-bottom" value="rstem-left-top + 4"/>
+    <constant name="rjoint-bottom" value="rarc-bottom + 3"/>
+    <constant name="mstem-right-bottom" value="rjoint-bottom + 1"/>
+    <constant name="mstem-left-bottom" value="mstem-right-bottom + 1"/>
+    <constant name="mstem-left-top" value="mstem-left-bottom + 1"/>
+    <constant name="larc-bottom" value="mstem-left-top + 4"/>
+    <constant name="ljoint-bottom" value="larc-bottom + 3"/>
+    <constant name="lstem-right-bottom" value="ljoint-bottom + 1"/>
+    <constant name="last" value="lstem-right-bottom"/>
+    <compile-if test="slanted">
+      <push>small-it-y-shift small-it-x-shift 88</push>
+      <command name="CALL"/>
+    </compile-if>
+    <set-vectors axis="y"/>
+    <move distance="zero">
+      <point num="lstem-left-bottom"/>
+      <align>
+        <point num="lstem-right-bottom"/>
+        <point num="mstem-left-bottom"/>
+        <point num="mstem-right-bottom"/>
+        <point num="rstem-left-bottom"/>
+        <point num="rstem-right-bottom"/>
+      </align>
+    </move>
+    <move distance="small-x-height">
+      <point num="lstem-left-top"/>
+      <align>
+        <point num="lstem-right-top"/>
+      </align>
+    </move>
+    <move distance="small-o-height">
+      <point num="larc-top"/>
+      <align>
+        <point num="rarc-top"/>
+      </align>
+      <move distance="small-curve-hstem" color="black">
+        <point num="larc-bottom"/>
+        <align>
+          <point num="rarc-bottom"/>
+        </align>
+      </move>
+      <move>
+        <point num="ljoint-top"/>
+        <align>
+          <point num="rjoint-top"/>
+        </align>
+        <move color="black">
+          <point num="ljoint-bottom"/>
+          <align>
+            <point num="rjoint-bottom"/>
+          </align>
+        </move>
+      </move>
+    </move>
+    <set-vectors axis="x"/>
+    <move min-distance="no" distance="small-i-lbearing" color="white">
+      <reference>
+        <point num="left-bearing"/>
+      </reference>
+      <point num="lstem-left-bottom"/>
       <align compile-if="slanted = 0">
-       <point num="rstem-left-top"/>
+        <point num="lstem-left-top"/>
       </align>
       <move distance="small-vert-stem" color="black">
-       <point num="rstem-right-bottom"/>
-       <align compile-if="slanted = 0">
-        <point num="rstem-right-top"/>
-       </align>
-       <move color="white">
-        <point num="right-bearing"/>
-       </move>
+        <point num="lstem-right-bottom"/>
+        <align compile-if="slanted = 0">
+          <point num="lstem-right-top"/>
+          <point num="ljoint-top"/>
+          <point num="ljoint-bottom"/>
+        </align>
+        <move distance="small-m-inner-space" min-distance="no" round="no" cut-in="no" color="white">
+          <point num="mstem-left-bottom"/>
+          <align compile-if="slanted = 0">
+            <point num="mstem-left-top"/>
+          </align>
+          <move distance="small-vert-stem" color="black">
+            <point num="mstem-right-bottom"/>
+            <align compile-if="slanted = 0">
+              <point num="rjoint-bottom"/>
+            </align>
+            <interpolate compile-if="slanted = 0">
+              <point num="rjoint-top"/>
+            </interpolate>
+            <move distance="small-m-inner-space" min-distance="no" round="no" cut-in="no" color="white">
+              <point num="rstem-left-bottom"/>
+              <align compile-if="slanted = 0">
+                <point num="rstem-left-top"/>
+              </align>
+              <move distance="small-vert-stem" color="black">
+                <point num="rstem-right-bottom"/>
+                <align compile-if="slanted = 0">
+                  <point num="rstem-right-top"/>
+                </align>
+                <move color="white">
+                  <point num="right-bearing"/>
+                </move>
+              </move>
+            </move>
+          </move>
+        </move>
       </move>
-     </move>
     </move>
-   </move>
-  </move>
- </move>
- <compile-if test="slanted">
-  <with-projection-vector x-component="variable(6)" y-component="negative(variable(7))">
-   <align>
-    <reference>
-     <point num="lstem-left-bottom"/>
-    </reference>
-    <point num="lstem-left-top"/>
-   </align>
-   <align>
-    <reference>
-     <point num="lstem-right-bottom"/>
-    </reference>
-    <point num="lstem-right-top"/>
-    <point num="ljoint-top"/>
-    <point num="ljoint-bottom"/>
-   </align>
-   <align>
-    <reference>
-     <point num="mstem-left-bottom"/>
-    </reference>
-    <point num="mstem-left-top"/>
-   </align>
-   <align>
-    <reference>
-     <point num="mstem-right-bottom"/>
-    </reference>
-    <point num="rjoint-bottom"/>
-   </align>
-   <align>
-    <reference>
-     <point num="rstem-left-bottom"/>
-    </reference>
-    <point num="rstem-left-top"/>
-   </align>
-   <align>
-    <reference>
-     <point num="rstem-right-bottom"/>
-    </reference>
-    <point num="rstem-right-top"/>
-   </align>
-   <interpolate>
-    <reference>
-     <point num="mstem-left-bottom"/>
-     <point num="mstem-right-bottom"/>
-    </reference>
-    <point num="rjoint-top"/>
-   </interpolate>
-  </with-projection-vector>
- </compile-if>
- <interpolate-untouched-points/>
-</glyph>
+    <compile-if test="slanted">
+      <with-projection-vector x-component="variable(6)" y-component="negative(variable(7))">
+        <align>
+          <reference>
+            <point num="lstem-left-bottom"/>
+          </reference>
+          <point num="lstem-left-top"/>
+        </align>
+        <align>
+          <reference>
+            <point num="lstem-right-bottom"/>
+          </reference>
+          <point num="lstem-right-top"/>
+          <point num="ljoint-top"/>
+          <point num="ljoint-bottom"/>
+        </align>
+        <align>
+          <reference>
+            <point num="mstem-left-bottom"/>
+          </reference>
+          <point num="mstem-left-top"/>
+        </align>
+        <align>
+          <reference>
+            <point num="mstem-right-bottom"/>
+          </reference>
+          <point num="rjoint-bottom"/>
+        </align>
+        <align>
+          <reference>
+            <point num="rstem-left-bottom"/>
+          </reference>
+          <point num="rstem-left-top"/>
+        </align>
+        <align>
+          <reference>
+            <point num="rstem-right-bottom"/>
+          </reference>
+          <point num="rstem-right-top"/>
+        </align>
+        <interpolate>
+          <reference>
+            <point num="mstem-left-bottom"/>
+            <point num="mstem-right-bottom"/>
+          </reference>
+          <point num="rjoint-top"/>
+        </interpolate>
+      </with-projection-vector>
+    </compile-if>
+    <interpolate-untouched-points/>
+  </glyph>
+
+</xgridfit>

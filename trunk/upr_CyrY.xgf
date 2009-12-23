@@ -1,8 +1,10 @@
 <?xml version="1.0"?>
-<!--Ы-->
-<glyph ps-name="afii10045" init-graphics="yes">
- 
- <!--
+<xgridfit xmlns="http://xgridfit.sourceforge.net/Xgridfit2">
+
+  <!--Ы-->
+
+  <glyph ps-name="afii10045" init-graphics="yes">
+    <!--
      Copyright (C) 2008  Andrey V. Panov
      
      This program is free software; you can redistribute it and/or modify
@@ -19,28 +21,26 @@
      along with this program; if not, write to the Free Software
      Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
      -->
+    <constant name="last" value="afii10046/total + 3"/>
+    <set-vectors axis="x"/>
+    <move>
+      <reference>
+        <point num="afii10046/low-outer-right"/>
+      </reference>
+      <point num="afii10046/total + 0"/>
+    </move>
+    <shift>
+      <reference>
+        <point num="afii10046/total + 0"/>
+      </reference>
+      <contour num="2"/>
+    </shift>
+    <move>
+      <reference>
+        <point num="last"/>
+      </reference>
+      <point num="right-bearing"/>
+    </move>
+  </glyph>
 
- <constant name="last" value="afii10046/total + 3"/>
- 
- <set-vectors axis="x"/>
- 
- <move>
-  <reference>
-   <point num="afii10046/low-outer-right"/>
-  </reference>
-  <point num="afii10046/total + 0"/>
- </move>
- <shift>
-  <reference>
-   <point num="afii10046/total + 0"/>
-  </reference>
-  <contour num="2"/>
- </shift>
- <move>
-  <reference>
-   <point num="last"/>
-  </reference>
-  <point num="right-bearing"/>
- </move>
-
-</glyph>
+</xgridfit>

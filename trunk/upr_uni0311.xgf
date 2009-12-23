@@ -1,8 +1,9 @@
 <?xml version="1.0"?>
-<xgridfit>
- <glyph ps-name="space_uni0311.cap">
-  
-  <!--
+<xgridfit xmlns="http://xgridfit.sourceforge.net/Xgridfit2">
+
+
+  <glyph ps-name="space_uni0311.cap">
+    <!--
       
       Copyright (C) 2008, 2009  Andrey V. Panov
       
@@ -20,54 +21,51 @@
       along with this program; if not, write to the Free Software
       Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
       -->
-  
-  <constant name="left-end-left" value="0"/>
-  <constant name="junction-top" value="left-end-left + 5"/>
-  <constant name="right-end-right" value="junction-top + 5"/>
-  <constant name="right-end-left" value="right-end-right + 1"/>
-  <constant name="junction-bottom" value="right-end-left + 3"/>
-  <constant name="left-end-right" value="junction-bottom + 3"/>
-  <constant name="last" value="left-end-right"/>
-  
-  <set-vectors axis="y"/>
-  <move>
-   <point num="left-end-left"/>
-   <align>
-    <point num="right-end-right"/>
-   </align>
-   <move min-distance="no">
-    <point num="junction-bottom"/>
-    <move color="black">
-     <point num="junction-top"/>
+    <constant name="left-end-left" value="0"/>
+    <constant name="junction-top" value="left-end-left + 5"/>
+    <constant name="right-end-right" value="junction-top + 5"/>
+    <constant name="right-end-left" value="right-end-right + 1"/>
+    <constant name="junction-bottom" value="right-end-left + 3"/>
+    <constant name="left-end-right" value="junction-bottom + 3"/>
+    <constant name="last" value="left-end-right"/>
+    <set-vectors axis="y"/>
+    <move>
+      <point num="left-end-left"/>
+      <align>
+        <point num="right-end-right"/>
+      </align>
+      <move min-distance="no">
+        <point num="junction-bottom"/>
+        <move color="black">
+          <point num="junction-top"/>
+        </move>
+      </move>
     </move>
-   </move>
-  </move>
-  
-  <set-vectors axis="x"/>
-  <move color="white">
-   <reference>
-    <point num="left-bearing"/>
-   </reference>
-   <point num="left-end-left"/>
-   <move round="no" color="black" compile-if="slanted = 0">
-    <point num="left-end-right"/>
-   </move>
-   <move color="black">
-    <point num="right-end-right"/>
-    <move round="no" pixel-distance="left-end-right -- left-end-left" color="black" compile-if="slanted = 0">
-     <point num="right-end-left"/>
+    <set-vectors axis="x"/>
+    <move color="white">
+      <reference>
+        <point num="left-bearing"/>
+      </reference>
+      <point num="left-end-left"/>
+      <move round="no" color="black" compile-if="slanted = 0">
+        <point num="left-end-right"/>
+      </move>
+      <move color="black">
+        <point num="right-end-right"/>
+        <move round="no" pixel-distance="left-end-right -- left-end-left" color="black" compile-if="slanted = 0">
+          <point num="right-end-left"/>
+        </move>
+      </move>
     </move>
-   </move>
-  </move>
-  <interpolate>
-   <reference>
-    <point num="left-end-left"/>
-    <point num="right-end-right"/>
-   </reference>
-   <point num="junction-bottom"/>
-   <point num="junction-top"/>
-  </interpolate>
-  <interpolate-untouched-points/>
-  
- </glyph>
+    <interpolate>
+      <reference>
+        <point num="left-end-left"/>
+        <point num="right-end-right"/>
+      </reference>
+      <point num="junction-bottom"/>
+      <point num="junction-top"/>
+    </interpolate>
+    <interpolate-untouched-points/>
+  </glyph>
+
 </xgridfit>

@@ -1,8 +1,10 @@
 <?xml version="1.0"?>
-<!--ы-->
-<glyph ps-name="afii10093" init-graphics="yes">
- 
- <!--
+<xgridfit xmlns="http://xgridfit.sourceforge.net/Xgridfit2">
+
+  <!--ы-->
+
+  <glyph ps-name="afii10093" init-graphics="yes">
+    <!--
      Copyright (C) 2008  Andrey V. Panov
      
      This program is free software; you can redistribute it and/or modify
@@ -19,31 +21,29 @@
      along with this program; if not, write to the Free Software
      Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
      -->
-
- <constant name="last" value="afii10094/total + 3"/>
- 
- <set-vectors axis="x"/>
- 
-<!-- <shift-absolute pixel-distance="round-white(afii10094/total - - - afii10094/low-outer-right) - (afii10094/total - - afii10094/low-outer-right)">
+    <constant name="last" value="afii10094/total + 3"/>
+    <set-vectors axis="x"/>
+    <!-- <shift-absolute pixel-distance="round-white(afii10094/total - - - afii10094/low-outer-right) - (afii10094/total - - afii10094/low-outer-right)">
   <point num="afii10094/total + 0"/>
  </shift-absolute>-->
- <move color="white">
-  <reference>
-   <point num="afii10094/low-outer-right"/>
-  </reference>
-  <point num="afii10094/total + 0"/>
- </move>
- <shift>
-  <reference>
-   <point num="afii10094/total + 0"/>
-  </reference>
-  <contour num="2"/>
- </shift>
- <move color="white">
-  <reference>
-   <point num="last"/>
-  </reference>
-  <point num="right-bearing"/>
- </move>
+    <move color="white">
+      <reference>
+        <point num="afii10094/low-outer-right"/>
+      </reference>
+      <point num="afii10094/total + 0"/>
+    </move>
+    <shift>
+      <reference>
+        <point num="afii10094/total + 0"/>
+      </reference>
+      <contour num="2"/>
+    </shift>
+    <move color="white">
+      <reference>
+        <point num="last"/>
+      </reference>
+      <point num="right-bearing"/>
+    </move>
+  </glyph>
 
-</glyph>
+</xgridfit>

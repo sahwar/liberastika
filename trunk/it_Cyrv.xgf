@@ -1,8 +1,10 @@
 <?xml version="1.0"?>
-<!--в-->
-<glyph ps-name="afii10067" init-graphics="yes">
- 
- <!--
+<xgridfit xmlns="http://xgridfit.sourceforge.net/Xgridfit2">
+
+  <!--в-->
+
+  <glyph ps-name="afii10067" init-graphics="yes">
+    <!--
      Copyright (C) 2008  Andrey V. Panov
      
      This program is free software; you can redistribute it and/or modify
@@ -19,135 +21,134 @@
      along with this program; if not, write to the Free Software
      Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
      -->
- 
- <constant name="lstem-left-bottom" value="0"/>
- <constant name="lstem-left-top" value="lstem-left-bottom + 1"/>
- <constant name="right-top" value="lstem-left-top + 3"/>
- <constant name="up-outer-right" value="right-top + 3"/>
- <constant name="curve-intersect" value="up-outer-right + 3"/>
- <constant name="low-outer-right" value="curve-intersect + 4"/>
- <constant name="right-bottom" value="low-outer-right + 3"/>
- <constant name="up-inner-left-bottom" value="31"/>
- <constant name="up-inner-right-bottom" value="up-inner-left-bottom + 1"/>
- <constant name="up-inner-right" value="up-inner-right-bottom + 3"/>
- <constant name="up-inner-right-top" value="up-inner-right + 3"/>
- <constant name="up-inner-left-top" value="up-inner-right-top + 3"/>
- <constant name="low-inner-left-bottom" value="20"/>
- <constant name="low-inner-right-bottom" value="low-inner-left-bottom + 3"/>
- <constant name="low-inner-right" value="low-inner-right-bottom + 3"/>
- <constant name="low-inner-right-top" value="low-inner-right + 3"/>
- <constant name="low-inner-left-top" value="low-inner-right-top + 1"/>
- <constant name="last" value="up-inner-left-top"/>
- <constant name="left-bearing" value="last + 1"/>
- 
- <push>small-it-y-shift small-it-x-shift 88</push>
- <command name="CALL"/>
- 
- <set-vectors axis="y"/>
- <move>
-  <point num="lstem-left-bottom"/>
-  <move distance="small-horiz-stem" color="black">
-   <point num="low-inner-left-bottom"/>
-  </move>
- </move>
- <move distance="small-o-baseline">
-  <point num="right-bottom"/>
-  <move distance="small-horiz-stem" color="black">
-   <point num="low-inner-right-bottom"/>
-  </move>
-  <move>
-   <point num="low-inner-left-top"/>
-   <align>
-    <point num="low-inner-right-top"/>
-   </align>
-   <move distance="small-horiz-stem" color="black">
-    <point num="up-inner-left-bottom"/>
-    <align>
-     <point num="up-inner-right-bottom"/>
-    </align>
-   </move>
-  </move>
- </move>
- <move distance="small-asc-height">
-  <point num="right-top"/>
-  <move distance="small-horiz-stem" color="black">
-   <point num="up-inner-right-top"/>
-  </move>
- </move>
- <interpolate>
-  <reference>
-   <point num="low-inner-left-top"/>
-   <point num="up-inner-left-bottom"/>
-  </reference>
-  <point num="curve-intersect"/>
- </interpolate>
- <interpolate>
-  <reference>
-   <point num="up-inner-left-bottom"/>
-   <point num="up-inner-right-top"/>
-  </reference>
-  <point num="up-inner-left-top"/>
-  <point num="lstem-left-top"/>
- </interpolate>
- 
- <set-vectors axis="x"/>
- <move min-distance="no" pixel-distance="control-value(index(small-i-lbearing)) + floor((y-coord(lstem-left-bottom) * tg-it-ang) + tg-y-delta)" color="white"> 
-  <reference>
-   <point num="left-bearing"/>
-  </reference>
-  <point num="lstem-left-bottom"/>
-  <move color="black">
-   <point num="low-outer-right"/>
-   <move distance="small-o-curve-stem" color="black">
-    <point num="low-inner-right"/>
-   </move>
-   <move min-distance="no" color="white">
-    <point num="right-bearing"/>
-   </move>
-  </move>
- </move>
- <interpolate round="yes">
-  <reference>
-   <point num="low-inner-right"/>
-   <point num="low-outer-right"/>
-  </reference>
-  <point num="up-outer-right"/>
- </interpolate>
- <move distance="small-vert-stem" color="black">
-  <reference>
-   <point num="up-outer-right"/>
-  </reference>
-  <point num="up-inner-right"/>
- </move>
- <interpolate>
-  <reference>
-   <point num="up-inner-left-bottom"/>
-   <point num="up-outer-right"/>
-  </reference>
-  <point num="curve-intersect"/>
-  <point num="up-inner-right-top"/>
-  <point num="up-inner-right-bottom"/>
-  <point num="right-top"/>
- </interpolate>
- <with-projection-vector x-component="variable(6)" y-component="negative(variable(7))">
-  <align>
-   <reference>
-    <point num="lstem-left-bottom"/>
-   </reference>
-   <point num="lstem-left-top"/>
-  </align>
-  <move distance="small-vert-stem-slanted" color="black"> <!--round="no"-->
-   <reference>
-    <point num="lstem-left-bottom"/>
-   </reference>
-   <point num="low-inner-left-bottom"/>
-   <align>
-    <point num="up-inner-left-top"/>
-    <point num="up-inner-left-bottom"/>
-    <point num="low-inner-left-top"/>
-   </align>
-  </move>
- </with-projection-vector>
- <interpolate-untouched-points/>
- 
-</glyph><!--Cyr V-->
+    <constant name="lstem-left-bottom" value="0"/>
+    <constant name="lstem-left-top" value="lstem-left-bottom + 1"/>
+    <constant name="right-top" value="lstem-left-top + 3"/>
+    <constant name="up-outer-right" value="right-top + 3"/>
+    <constant name="curve-intersect" value="up-outer-right + 3"/>
+    <constant name="low-outer-right" value="curve-intersect + 4"/>
+    <constant name="right-bottom" value="low-outer-right + 3"/>
+    <constant name="up-inner-left-bottom" value="31"/>
+    <constant name="up-inner-right-bottom" value="up-inner-left-bottom + 1"/>
+    <constant name="up-inner-right" value="up-inner-right-bottom + 3"/>
+    <constant name="up-inner-right-top" value="up-inner-right + 3"/>
+    <constant name="up-inner-left-top" value="up-inner-right-top + 3"/>
+    <constant name="low-inner-left-bottom" value="20"/>
+    <constant name="low-inner-right-bottom" value="low-inner-left-bottom + 3"/>
+    <constant name="low-inner-right" value="low-inner-right-bottom + 3"/>
+    <constant name="low-inner-right-top" value="low-inner-right + 3"/>
+    <constant name="low-inner-left-top" value="low-inner-right-top + 1"/>
+    <constant name="last" value="up-inner-left-top"/>
+    <constant name="left-bearing" value="last + 1"/>
+    <push>small-it-y-shift small-it-x-shift 88</push>
+    <command name="CALL"/>
+    <set-vectors axis="y"/>
+    <move>
+      <point num="lstem-left-bottom"/>
+      <move distance="small-horiz-stem" color="black">
+        <point num="low-inner-left-bottom"/>
+      </move>
+    </move>
+    <move distance="small-o-baseline">
+      <point num="right-bottom"/>
+      <move distance="small-horiz-stem" color="black">
+        <point num="low-inner-right-bottom"/>
+      </move>
+      <move>
+        <point num="low-inner-left-top"/>
+        <align>
+          <point num="low-inner-right-top"/>
+        </align>
+        <move distance="small-horiz-stem" color="black">
+          <point num="up-inner-left-bottom"/>
+          <align>
+            <point num="up-inner-right-bottom"/>
+          </align>
+        </move>
+      </move>
+    </move>
+    <move distance="small-asc-height">
+      <point num="right-top"/>
+      <move distance="small-horiz-stem" color="black">
+        <point num="up-inner-right-top"/>
+      </move>
+    </move>
+    <interpolate>
+      <reference>
+        <point num="low-inner-left-top"/>
+        <point num="up-inner-left-bottom"/>
+      </reference>
+      <point num="curve-intersect"/>
+    </interpolate>
+    <interpolate>
+      <reference>
+        <point num="up-inner-left-bottom"/>
+        <point num="up-inner-right-top"/>
+      </reference>
+      <point num="up-inner-left-top"/>
+      <point num="lstem-left-top"/>
+    </interpolate>
+    <set-vectors axis="x"/>
+    <move min-distance="no" pixel-distance="control-value(index(small-i-lbearing)) + floor((y-coord(lstem-left-bottom) * tg-it-ang) + tg-y-delta)" color="white">
+      <reference>
+        <point num="left-bearing"/>
+      </reference>
+      <point num="lstem-left-bottom"/>
+      <move color="black">
+        <point num="low-outer-right"/>
+        <move distance="small-o-curve-stem" color="black">
+          <point num="low-inner-right"/>
+        </move>
+        <move min-distance="no" color="white">
+          <point num="right-bearing"/>
+        </move>
+      </move>
+    </move>
+    <interpolate round="yes">
+      <reference>
+        <point num="low-inner-right"/>
+        <point num="low-outer-right"/>
+      </reference>
+      <point num="up-outer-right"/>
+    </interpolate>
+    <move distance="small-vert-stem" color="black">
+      <reference>
+        <point num="up-outer-right"/>
+      </reference>
+      <point num="up-inner-right"/>
+    </move>
+    <interpolate>
+      <reference>
+        <point num="up-inner-left-bottom"/>
+        <point num="up-outer-right"/>
+      </reference>
+      <point num="curve-intersect"/>
+      <point num="up-inner-right-top"/>
+      <point num="up-inner-right-bottom"/>
+      <point num="right-top"/>
+    </interpolate>
+    <with-projection-vector x-component="variable(6)" y-component="negative(variable(7))">
+      <align>
+        <reference>
+          <point num="lstem-left-bottom"/>
+        </reference>
+        <point num="lstem-left-top"/>
+      </align>
+      <move distance="small-vert-stem-slanted" color="black">
+        <!--round="no"-->
+        <reference>
+          <point num="lstem-left-bottom"/>
+        </reference>
+        <point num="low-inner-left-bottom"/>
+        <align>
+          <point num="up-inner-left-top"/>
+          <point num="up-inner-left-bottom"/>
+          <point num="low-inner-left-top"/>
+        </align>
+      </move>
+    </with-projection-vector>
+    <interpolate-untouched-points/>
+  </glyph>
+  <!--Cyr V-->
+
+</xgridfit>
