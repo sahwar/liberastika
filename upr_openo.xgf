@@ -1,8 +1,10 @@
 <?xml version="1.0"?>
-<!--ɔ-->
-<glyph ps-name="uni0254" init-graphics="yes">
- 
- <!--
+<xgridfit xmlns="http://xgridfit.sourceforge.net/Xgridfit2">
+
+  <!--ɔ-->
+
+  <glyph ps-name="uni0254" init-graphics="yes">
+    <!--
      Copyright (C) 2008  Andrey V. Panov
      
      This program is free software; you can redistribute it and/or modify
@@ -19,106 +21,104 @@
      along with this program; if not, write to the Free Software
      Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
      -->
- 
- <constant name="upper-end-top" value="0"/>
- <constant name="outer-top" value="upper-end-top + 3"/>
- <constant name="outer-right" value="outer-top + 3"/>
- <constant name="outer-bottom" value="outer-right + 3"/>
- <constant name="lower-end-bottom" value="outer-bottom + 3"/>
- <constant name="lower-end-top" value="lower-end-bottom + 1"/>
- <constant name="inner-bottom" value="lower-end-top + 3"/>
- <constant name="inner-right" value="inner-bottom + 3"/>
- <constant name="inner-top" value="inner-right + 3"/>
- <constant name="upper-end-bottom" value="inner-top + 3"/>
- <constant name="last" value="upper-end-bottom"/>
- 
- <set-vectors axis="x"/>
- <move distance="small-cyrz-lbearing" min-distance="no" color="white">
-  <reference>
-   <point num="left-bearing"/>
-  </reference>
-  <point num="upper-end-top"/>
-  <move distance="small-c-space" round="no" cut-in="no">
-   <point num="outer-right"/>
-   <move distance="small-o-curve-stem" color="black">
-    <point num="inner-right"/>
-   </move>
-   <move min-distance="no" compile-if="slanted">
-    <point num="right-bearing"/>
-   </move>
-   <move compile-if="slanted = 0">
-    <point num="right-bearing"/>
-   </move>
-  </move>
-  <move distance="small-vert-stem">
-   <point num="upper-end-bottom"/>
-  </move>
- </move>
- <interpolate round="yes">
-  <reference>
-   <point num="upper-end-top"/>
-   <point num="inner-right"/>
-  </reference>
-  <point num="lower-end-bottom"/>
- </interpolate>
- <move distance="small-vert-stem">
-  <reference>
-   <point num="lower-end-bottom"/>
-  </reference>
-  <point num="lower-end-top"/>
- </move>
- 
- <set-vectors axis="y"/>
- <move distance="small-o-baseline">
-  <point num="outer-bottom"/>
-  <move distance="small-curve-hstem" color="black">
-   <point num="inner-bottom"/>
-  </move>
- </move>
- <move distance="small-o-height">
-  <point num="outer-top"/>
-  <move distance="small-curve-hstem" color="black">
-   <point num="inner-top"/>
-  </move>
- </move>
- <if test="pixels-per-em &lt; small-c-flat-ends">
-  <align>
-   <reference>
-    <point num="outer-bottom"/>
-   </reference>
-   <point num="lower-end-bottom"/>
-  </align>
-  <align>
-   <reference>
-    <point num="inner-bottom"/>
-   </reference>
-   <point num="lower-end-top"/>
-  </align>
-  <align>
-   <reference>
-    <point num="inner-top"/>
-   </reference>
-   <point num="upper-end-bottom"/>
-  </align>
-  <align>
-   <reference>
-    <point num="outer-top"/>
-   </reference>
-   <point num="upper-end-top"/>
-  </align>
-  <else>
-   <interpolate>
-    <reference>
-     <point num="inner-bottom"/>
-     <point num="inner-top"/>
-    </reference>
-    <point num="lower-end-bottom"/>
-    <point num="lower-end-top"/>
-    <point num="upper-end-bottom"/>
-    <point num="upper-end-top"/>
-   </interpolate>
-  </else>
- </if>
- <interpolate-untouched-points/>
- 
-</glyph>
+    <constant name="upper-end-top" value="0"/>
+    <constant name="outer-top" value="upper-end-top + 3"/>
+    <constant name="outer-right" value="outer-top + 3"/>
+    <constant name="outer-bottom" value="outer-right + 3"/>
+    <constant name="lower-end-bottom" value="outer-bottom + 3"/>
+    <constant name="lower-end-top" value="lower-end-bottom + 1"/>
+    <constant name="inner-bottom" value="lower-end-top + 3"/>
+    <constant name="inner-right" value="inner-bottom + 3"/>
+    <constant name="inner-top" value="inner-right + 3"/>
+    <constant name="upper-end-bottom" value="inner-top + 3"/>
+    <constant name="last" value="upper-end-bottom"/>
+    <set-vectors axis="x"/>
+    <move distance="small-cyrz-lbearing" min-distance="no" color="white">
+      <reference>
+        <point num="left-bearing"/>
+      </reference>
+      <point num="upper-end-top"/>
+      <move distance="small-c-space" round="no" cut-in="no">
+        <point num="outer-right"/>
+        <move distance="small-o-curve-stem" color="black">
+          <point num="inner-right"/>
+        </move>
+        <move min-distance="no" compile-if="slanted">
+          <point num="right-bearing"/>
+        </move>
+        <move compile-if="slanted = 0">
+          <point num="right-bearing"/>
+        </move>
+      </move>
+      <move distance="small-vert-stem">
+        <point num="upper-end-bottom"/>
+      </move>
+    </move>
+    <interpolate round="yes">
+      <reference>
+        <point num="upper-end-top"/>
+        <point num="inner-right"/>
+      </reference>
+      <point num="lower-end-bottom"/>
+    </interpolate>
+    <move distance="small-vert-stem">
+      <reference>
+        <point num="lower-end-bottom"/>
+      </reference>
+      <point num="lower-end-top"/>
+    </move>
+    <set-vectors axis="y"/>
+    <move distance="small-o-baseline">
+      <point num="outer-bottom"/>
+      <move distance="small-curve-hstem" color="black">
+        <point num="inner-bottom"/>
+      </move>
+    </move>
+    <move distance="small-o-height">
+      <point num="outer-top"/>
+      <move distance="small-curve-hstem" color="black">
+        <point num="inner-top"/>
+      </move>
+    </move>
+    <if test="pixels-per-em &lt; small-c-flat-ends">
+      <align>
+        <reference>
+          <point num="outer-bottom"/>
+        </reference>
+        <point num="lower-end-bottom"/>
+      </align>
+      <align>
+        <reference>
+          <point num="inner-bottom"/>
+        </reference>
+        <point num="lower-end-top"/>
+      </align>
+      <align>
+        <reference>
+          <point num="inner-top"/>
+        </reference>
+        <point num="upper-end-bottom"/>
+      </align>
+      <align>
+        <reference>
+          <point num="outer-top"/>
+        </reference>
+        <point num="upper-end-top"/>
+      </align>
+      <else>
+        <interpolate>
+          <reference>
+            <point num="inner-bottom"/>
+            <point num="inner-top"/>
+          </reference>
+          <point num="lower-end-bottom"/>
+          <point num="lower-end-top"/>
+          <point num="upper-end-bottom"/>
+          <point num="upper-end-top"/>
+        </interpolate>
+      </else>
+    </if>
+    <interpolate-untouched-points/>
+  </glyph>
+
+</xgridfit>

@@ -14,6 +14,7 @@ FFSCRIPTS=generate.ff make_dup_vertshift.pe new_glyph.ff add_anchor_ext.ff \
 	make_dup_rot.ff add_accented.ff dub_glyph_ch.ff same_cyrext.ff \
 	make_cap_accent.ff make_superscript.ff dub_aligned.ff \
 	cop_kern.ff cop_kern_acc.ff copy_anchors_acc.ff
+COMPRESS=xz -9
 
 INSTALL=install
 DESTDIR=
@@ -26,48 +27,48 @@ all: $(TTFFILES)
 $(FAMILY)-Regular_.sfd: $(FAMILY)-Regular.sfd $(FFSCRIPTS)
 	$(FONTFORGE) -lang=ff -script generate.ff $(FAMILY)-Regular
 
-$(FAMILY)-Regular.ttf: $(FAMILY)-Regular.pe $(FAMILY)-Regular_.sfd
-	$(FONTFORGE) -lang=ff -script $(FAMILY)-Regular.pe
+$(FAMILY)-Regular.ttf: $(FAMILY)-Regular.py $(FAMILY)-Regular_.sfd
+	$(FONTFORGE) -lang=py -script $(FAMILY)-Regular.py
 
-$(FAMILY)-Regular.pe: $(FAMILY)-Regular.xgf upr_*.xgf
+$(FAMILY)-Regular.py: $(FAMILY)-Regular.xgf upr_*.xgf
 	$(XGRIDFIT) $(XGRIDFITFLAGS) $(FAMILY)-Regular.xgf
 
 $(FAMILY)-Bold_.sfd: $(FAMILY)-Bold.sfd $(FFSCRIPTS)
 	$(FONTFORGE) -lang=ff -script generate.ff $(FAMILY)-Bold
 
-$(FAMILY)-Bold.ttf: $(FAMILY)-Bold.pe $(FAMILY)-Bold_.sfd
-	$(FONTFORGE) -lang=ff -script $(FAMILY)-Bold.pe
+$(FAMILY)-Bold.ttf: $(FAMILY)-Bold.py $(FAMILY)-Bold_.sfd
+	$(FONTFORGE) -lang=py -script $(FAMILY)-Bold.py
 
-$(FAMILY)-Bold.pe: $(FAMILY)-Bold.xgf upr_*.xgf
+$(FAMILY)-Bold.py: $(FAMILY)-Bold.xgf upr_*.xgf
 	$(XGRIDFIT) $(XGRIDFITFLAGS) $(FAMILY)-Bold.xgf
 
 $(FAMILY)-Italic_.sfd: $(FAMILY)-Italic.sfd $(FFSCRIPTS)
 	$(FONTFORGE) -lang=ff -script generate.ff $(FAMILY)-Italic
 
-$(FAMILY)-Italic.ttf: $(FAMILY)-Italic.pe $(FAMILY)-Italic_.sfd
-	$(FONTFORGE) -lang=ff -script $(FAMILY)-Italic.pe
+$(FAMILY)-Italic.ttf: $(FAMILY)-Italic.py $(FAMILY)-Italic_.sfd
+	$(FONTFORGE) -lang=py -script $(FAMILY)-Italic.py
 
-$(FAMILY)-Italic.pe: $(FAMILY)-Italic.xgf upr_*.xgf it_*.xgf
+$(FAMILY)-Italic.py: $(FAMILY)-Italic.xgf upr_*.xgf it_*.xgf
 	$(XGRIDFIT) $(XGRIDFITFLAGS) $(FAMILY)-Italic.xgf
 
 $(FAMILY)-BoldItalic_.sfd: $(FAMILY)-BoldItalic.sfd $(FFSCRIPTS)
 	$(FONTFORGE) -lang=ff -script generate.ff $(FAMILY)-BoldItalic
 
-$(FAMILY)-BoldItalic.ttf: $(FAMILY)-BoldItalic.pe $(FAMILY)-BoldItalic_.sfd
-	$(FONTFORGE) -lang=ff -script $(FAMILY)-BoldItalic.pe
+$(FAMILY)-BoldItalic.ttf: $(FAMILY)-BoldItalic.py $(FAMILY)-BoldItalic_.sfd
+	$(FONTFORGE) -lang=py -script $(FAMILY)-BoldItalic.py
 
-$(FAMILY)-BoldItalic.pe: $(FAMILY)-BoldItalic.xgf upr_*.xgf it_*.xgf
+$(FAMILY)-BoldItalic.py: $(FAMILY)-BoldItalic.xgf upr_*.xgf it_*.xgf
 	$(XGRIDFIT) $(XGRIDFITFLAGS) $(FAMILY)-BoldItalic.xgf
 
 dist-src:
 	tar -cvf $(PACKNAME)-src-$(VERSION).tar $(XGFFILES) $(SFDFILES) \
 	Makefile $(DOCUMENTS) $(FFSCRIPTS)
-	xz -9 $(PACKNAME)-src-$(VERSION).tar
+	$(COMPRESS) $(PACKNAME)-src-$(VERSION).tar
 
 dist-ttf: all
 	tar -cvf $(PACKNAME)-ttf-$(VERSION).tar \
 	$(TTFFILES) $(DOCUMENTS)
-	xz -9 $(PACKNAME)-ttf-$(VERSION).tar
+	$(COMPRESS) $(PACKNAME)-ttf-$(VERSION).tar
 
 dist: dist-src dist-ttf
 

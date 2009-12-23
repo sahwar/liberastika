@@ -1,8 +1,10 @@
 <?xml version="1.0"?>
-<!--"yu"-->
-<glyph ps-name="afii10096" init-graphics="yes">
- 
- <!--
+<xgridfit xmlns="http://xgridfit.sourceforge.net/Xgridfit2">
+
+  <!--"yu"-->
+
+  <glyph ps-name="afii10096" init-graphics="yes">
+    <!--
      Copyright (C) 2008, 2009  Andrey V. Panov
      
      This program is free software; you can redistribute it and/or modify
@@ -19,118 +21,114 @@
      along with this program; if not, write to the Free Software
      Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
      -->
- 
- <constant name="left-bottom" value="0"/>
- <constant name="left-top" value="left-bottom + 1"/>
- <constant name="right-top" value="left-top + 1"/>
- <constant name="right-bottom" value="23"/>
- <constant name="outer-left" value="19"/>
- <constant name="outer-top" value="8"/>
- <constant name="outer-right" value="outer-top + 4"/>
- <constant name="outer-bottom" value="outer-right + 4"/>
- <constant name="inner-left" value="24"/>
- <constant name="inner-bottom" value="inner-left + 3"/>
- <constant name="inner-right" value="inner-bottom + 6"/>
- <constant name="inner-top" value="inner-right + 2"/>
- <constant name="joiner-left-top" value="3"/>
- <constant name="joiner-right-top" value="joiner-left-top + 1"/>
- <constant name="joiner-left-bottom" value="22"/>
- <constant name="joiner-right-bottom" value="21"/>
- <constant name="last" value="inner-top + 5"/>
- 
- <push>small-it-y-shift small-it-x-shift 88</push>
- <command name="CALL"/>
- 
- <set-vectors axis="y"/>
- <move distance="zero">
-  <point num="left-bottom"/>
-  <align>
-   <point num="right-bottom"/>
-  </align>
- </move>
- <move distance="small-x-height">
-  <point num="left-top"/>
-  <align>
-   <point num="right-top"/>
-  </align>
- </move>
- <move distance="small-cyrn-intersect-height">
-  <point num="joiner-left-bottom"/>
-  <align>
-   <point num="joiner-right-bottom"/>
-  </align>
-  <move distance="small-horiz-stem" color="black">
-   <point num="joiner-left-top"/>
-   <align>
-    <point num="joiner-right-top"/>
-   </align>
-  </move>
- </move>
- <move distance="small-o-baseline">
-  <point num="outer-bottom"/>
-  <move distance="small-curve-hstem" color="black">
-   <point num="inner-bottom"/>
-  </move>
- </move>
- <move distance="small-o-height">
-  <point num="outer-top"/>
-  <move distance="small-curve-hstem" color="black">
-   <point num="inner-top"/>
-  </move>
- </move>
- 
- <set-vectors axis="x"/>
- <move distance="small-i-lbearing" min-distance="no" color="white">
-  <reference>
-   <point num="left-bearing"/>
-  </reference>
-  <point num="left-bottom"/>
-  <move distance="small-vert-stem" color="black">
-   <point num="right-bottom"/>
-  </move>
- </move>
- <with-projection-vector x-component="variable(6)" y-component="negative(variable(7))">
-  <align>
-   <reference>
-    <point num="left-bottom"/>
-   </reference>
-   <point num="left-top"/>
-  </align>
-  <align>
-   <reference>
-    <point num="right-bottom"/>
-   </reference>
-   <point num="right-top"/>
-   <point num="joiner-left-top"/>
-   <point num="joiner-left-bottom"/>
-  </align>
- </with-projection-vector>
- <move round="no" color="white">
-  <reference>
-   <point num="joiner-left-bottom"/>
-  </reference>
-  <point num="outer-left"/>
- </move>
- <move>
-  <point num="outer-left"/>
-  <move distance="small-o-curve-stem" color="black">
-   <point num="inner-left"/>
-   <interpolate>
-    <point num="joiner-right-top"/>
-    <point num="joiner-right-bottom"/>
-   </interpolate>
-  </move>
-  <move distance="small-o-space" round="no" cut-in="no" color="black">
-   <point num="outer-right"/>
-   <move distance="small-o-curve-stem" color="black">
-    <point num="inner-right"/>
-   </move>
-   <move min-distance="no" color="white">
-    <point num="right-bearing"/>
-   </move>
-  </move>
- </move>
- <!-- <set-equal target="width" source="coord(right-bearing) - initial-coord(right-bearing)"/>
+    <constant name="left-bottom" value="0"/>
+    <constant name="left-top" value="left-bottom + 1"/>
+    <constant name="right-top" value="left-top + 1"/>
+    <constant name="right-bottom" value="23"/>
+    <constant name="outer-left" value="19"/>
+    <constant name="outer-top" value="8"/>
+    <constant name="outer-right" value="outer-top + 4"/>
+    <constant name="outer-bottom" value="outer-right + 4"/>
+    <constant name="inner-left" value="24"/>
+    <constant name="inner-bottom" value="inner-left + 3"/>
+    <constant name="inner-right" value="inner-bottom + 6"/>
+    <constant name="inner-top" value="inner-right + 2"/>
+    <constant name="joiner-left-top" value="3"/>
+    <constant name="joiner-right-top" value="joiner-left-top + 1"/>
+    <constant name="joiner-left-bottom" value="22"/>
+    <constant name="joiner-right-bottom" value="21"/>
+    <constant name="last" value="inner-top + 5"/>
+    <push>small-it-y-shift small-it-x-shift 88</push>
+    <command name="CALL"/>
+    <set-vectors axis="y"/>
+    <move distance="zero">
+      <point num="left-bottom"/>
+      <align>
+        <point num="right-bottom"/>
+      </align>
+    </move>
+    <move distance="small-x-height">
+      <point num="left-top"/>
+      <align>
+        <point num="right-top"/>
+      </align>
+    </move>
+    <move distance="small-cyrn-intersect-height">
+      <point num="joiner-left-bottom"/>
+      <align>
+        <point num="joiner-right-bottom"/>
+      </align>
+      <move distance="small-horiz-stem" color="black">
+        <point num="joiner-left-top"/>
+        <align>
+          <point num="joiner-right-top"/>
+        </align>
+      </move>
+    </move>
+    <move distance="small-o-baseline">
+      <point num="outer-bottom"/>
+      <move distance="small-curve-hstem" color="black">
+        <point num="inner-bottom"/>
+      </move>
+    </move>
+    <move distance="small-o-height">
+      <point num="outer-top"/>
+      <move distance="small-curve-hstem" color="black">
+        <point num="inner-top"/>
+      </move>
+    </move>
+    <set-vectors axis="x"/>
+    <move distance="small-i-lbearing" min-distance="no" color="white">
+      <reference>
+        <point num="left-bearing"/>
+      </reference>
+      <point num="left-bottom"/>
+      <move distance="small-vert-stem" color="black">
+        <point num="right-bottom"/>
+      </move>
+    </move>
+    <with-projection-vector x-component="variable(6)" y-component="negative(variable(7))">
+      <align>
+        <reference>
+          <point num="left-bottom"/>
+        </reference>
+        <point num="left-top"/>
+      </align>
+      <align>
+        <reference>
+          <point num="right-bottom"/>
+        </reference>
+        <point num="right-top"/>
+        <point num="joiner-left-top"/>
+        <point num="joiner-left-bottom"/>
+      </align>
+    </with-projection-vector>
+    <move round="no" color="white">
+      <reference>
+        <point num="joiner-left-bottom"/>
+      </reference>
+      <point num="outer-left"/>
+    </move>
+    <move>
+      <point num="outer-left"/>
+      <move distance="small-o-curve-stem" color="black">
+        <point num="inner-left"/>
+        <interpolate>
+          <point num="joiner-right-top"/>
+          <point num="joiner-right-bottom"/>
+        </interpolate>
+      </move>
+      <move distance="small-o-space" round="no" cut-in="no" color="black">
+        <point num="outer-right"/>
+        <move distance="small-o-curve-stem" color="black">
+          <point num="inner-right"/>
+        </move>
+        <move min-distance="no" color="white">
+          <point num="right-bearing"/>
+        </move>
+      </move>
+    </move>
+    <!-- <set-equal target="width" source="coord(right-bearing) - initial-coord(right-bearing)"/>
  <if test="width &gt; 0.5p">
   <if test="joiner-left-bottom - - joiner-right-bottom &gt;= 2.0p">
    <shift-absolute pixel-distance="-1.0p">
@@ -157,27 +155,27 @@
    </if>
   </else>
  </if>-->
- <with-projection-vector x-component="variable(6)" y-component="negative(variable(7))">
-  <interpolate>
-   <reference>
-    <point num="outer-left"/>
-    <point num="outer-right"/>
-   </reference>
-   <point num="outer-top"/>
-   <point num="outer-bottom"/>
-   <point num="inner-bottom"/>
-   <point num="inner-top"/>
-  </interpolate>
-<!--   <set-equal target="width" source="rbearing-o - (outer-right - - right-bearing)"/> -->
- </with-projection-vector>
-<!--  <round value="width"/> -->
- <set-equal target="width" source="round-white(rbearing-o - (outer-right -- right-bearing))"/>
- <if test="width &gt; 0.0p">
-  <shift-absolute pixel-distance="width">
-   <point num="right-bearing"/>
-  </shift-absolute>
- </if>
- 
- <interpolate-untouched-points/>
- 
-</glyph>
+    <with-projection-vector x-component="variable(6)" y-component="negative(variable(7))">
+      <interpolate>
+        <reference>
+          <point num="outer-left"/>
+          <point num="outer-right"/>
+        </reference>
+        <point num="outer-top"/>
+        <point num="outer-bottom"/>
+        <point num="inner-bottom"/>
+        <point num="inner-top"/>
+      </interpolate>
+      <!--   <set-equal target="width" source="rbearing-o - (outer-right - - right-bearing)"/> -->
+    </with-projection-vector>
+    <!--  <round value="width"/> -->
+    <set-equal target="width" source="round-white(rbearing-o - (outer-right -- right-bearing))"/>
+    <if test="width &gt; 0.0p">
+      <shift-absolute pixel-distance="width">
+        <point num="right-bearing"/>
+      </shift-absolute>
+    </if>
+    <interpolate-untouched-points/>
+  </glyph>
+
+</xgridfit>

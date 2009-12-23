@@ -1,8 +1,10 @@
 <?xml version="1.0"?>
-<!--Cyr Ya (Я)-->
-<glyph ps-name="afii10049" init-graphics="yes">
- 
- <!--
+<xgridfit xmlns="http://xgridfit.sourceforge.net/Xgridfit2">
+
+  <!--Cyr Ya (Я)-->
+
+  <glyph ps-name="afii10049" init-graphics="yes">
+    <!--
      Copyright (C) 2008  Andrey V. Panov
      
      This program is free software; you can redistribute it and/or modify
@@ -19,198 +21,194 @@
      along with this program; if not, write to the Free Software
      Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
      -->
- 
- <constant name="diag-l-bottom" value="0"/>
- <constant name="diag-l-top" value="diag-l-bottom + 1"/>
- <constant name="intersect-left" value="diag-l-top + 3"/>
- <constant name="outer-left" value="intersect-left + 3"/>
- <constant name="left-top" value="outer-left + 3"/>
- <constant name="vstem-right-top" value="left-top + 1"/>
- <constant name="vstem-right-bottom" value="vstem-right-top + 1"/>
- <constant name="vstem-left-bottom" value="vstem-right-bottom + 1"/>
- <constant name="outer-right-bottom" value="vstem-left-bottom + 1"/>
- <constant name="intersect-right" value="outer-right-bottom + 1"/>
- <constant name="diag-r-top" value="intersect-right + 3"/>
- <constant name="diag-r-bottom" value="diag-r-top + 1"/>
- <constant name="inner-left" value="20"/>
- <constant name="inner-left-bottom" value="inner-left + 3"/>
- <constant name="inner-right-bottom" value="inner-left-bottom + 1"/>
- <constant name="inner-right-top" value="inner-right-bottom + 1"/>
- <constant name="inner-left-top" value="inner-right-top + 1"/>
- <constant name="last" value="inner-left-top + 2"/>
- <line name="diag-l">
-  <point num="diag-l-top"/>
-  <point num="diag-l-bottom"/>
- </line>
- <line name="diag-r">
-  <point num="diag-r-top"/>
-  <point num="diag-r-bottom"/>
- </line>
- 
- <compile-if test="slanted">
-  <push>cap-it-y-shift cap-it-x-shift 88</push>
-  <command name="CALL"/>
- </compile-if>
- 
- <set-vectors axis="y"/>
- <move distance="cap-x-baseline">
-  <point num="vstem-left-bottom"/>
-  <align>
-   <point num="vstem-right-bottom"/>
-   <point num="diag-r-bottom"/>
-   <point num="diag-l-bottom"/>
-  </align>
- </move>
- <move distance="cap-x-height">
-  <point num="left-top"/>
-  <align>
-   <point num="vstem-right-top"/>
-  </align>
-  <move distance="cap-horiz-stem" color="black">
-   <point num="inner-left-top"/>
-   <align>
-    <point num="inner-right-top"/>
-   </align>
-  </move>
-  <move>
-   <point num="inner-left-bottom"/>
-   <align>
-    <point num="inner-right-bottom"/>
-   </align>
-   <move distance="cap-horiz-stem" color="black">
-    <point num="outer-right-bottom"/>
-    <align>
-     <point num="intersect-right"/>
-    </align>
+    <constant name="diag-l-bottom" value="0"/>
+    <constant name="diag-l-top" value="diag-l-bottom + 1"/>
+    <constant name="intersect-left" value="diag-l-top + 3"/>
+    <constant name="outer-left" value="intersect-left + 3"/>
+    <constant name="left-top" value="outer-left + 3"/>
+    <constant name="vstem-right-top" value="left-top + 1"/>
+    <constant name="vstem-right-bottom" value="vstem-right-top + 1"/>
+    <constant name="vstem-left-bottom" value="vstem-right-bottom + 1"/>
+    <constant name="outer-right-bottom" value="vstem-left-bottom + 1"/>
+    <constant name="intersect-right" value="outer-right-bottom + 1"/>
+    <constant name="diag-r-top" value="intersect-right + 3"/>
+    <constant name="diag-r-bottom" value="diag-r-top + 1"/>
+    <constant name="inner-left" value="20"/>
+    <constant name="inner-left-bottom" value="inner-left + 3"/>
+    <constant name="inner-right-bottom" value="inner-left-bottom + 1"/>
+    <constant name="inner-right-top" value="inner-right-bottom + 1"/>
+    <constant name="inner-left-top" value="inner-right-top + 1"/>
+    <constant name="last" value="inner-left-top + 2"/>
+    <line name="diag-l">
+      <point num="diag-l-top"/>
+      <point num="diag-l-bottom"/>
+    </line>
+    <line name="diag-r">
+      <point num="diag-r-top"/>
+      <point num="diag-r-bottom"/>
+    </line>
+    <compile-if test="slanted">
+      <push>cap-it-y-shift cap-it-x-shift 88</push>
+      <command name="CALL"/>
+    </compile-if>
+    <set-vectors axis="y"/>
+    <move distance="cap-x-baseline">
+      <point num="vstem-left-bottom"/>
+      <align>
+        <point num="vstem-right-bottom"/>
+        <point num="diag-r-bottom"/>
+        <point num="diag-l-bottom"/>
+      </align>
+    </move>
+    <move distance="cap-x-height">
+      <point num="left-top"/>
+      <align>
+        <point num="vstem-right-top"/>
+      </align>
+      <move distance="cap-horiz-stem" color="black">
+        <point num="inner-left-top"/>
+        <align>
+          <point num="inner-right-top"/>
+        </align>
+      </move>
+      <move>
+        <point num="inner-left-bottom"/>
+        <align>
+          <point num="inner-right-bottom"/>
+        </align>
+        <move distance="cap-horiz-stem" color="black">
+          <point num="outer-right-bottom"/>
+          <align>
+            <point num="intersect-right"/>
+          </align>
+          <interpolate>
+            <point num="intersect-left"/>
+          </interpolate>
+        </move>
+      </move>
+    </move>
     <interpolate>
-     <point num="intersect-left"/>
+      <reference>
+        <point num="outer-right-bottom"/>
+        <point num="vstem-left-bottom"/>
+      </reference>
+      <point num="diag-l-top"/>
     </interpolate>
-   </move>
-  </move>
- </move>
- <interpolate>
-  <reference>
-   <point num="outer-right-bottom"/>
-   <point num="vstem-left-bottom"/>
-  </reference>
-  <point num="diag-l-top"/>
- </interpolate>
- 
- <set-vectors axis="x"/>
- <move>
-  <reference>
-   <point num="left-bearing"/>
-  </reference>
-  <point num="vstem-right-bottom"/>
-  <align compile-if="slanted = 0">
-   <point num="vstem-right-top"/>
-  </align>
-  <move distance="cap-vert-stem" color="black">
-   <point num="vstem-left-bottom"/>
-   <align compile-if="slanted = 0">
-    <point num="outer-right-bottom"/>
-    <point num="inner-right-bottom"/>
-    <point num="inner-right-top"/>
-   </align>
-  </move>
- </move>
- <set-equal target="width" source="(vstem-right-bottom -- right-bearing) - rbearing"/>
- <if test="width &lt; 0.0p">
-  <compile-if test="slanted">
-   <shift-absolute pixel-distance="width">
-    <point num="vstem-left-bottom"/>
-    <point num="vstem-right-bottom"/>
-   </shift-absolute>
-   <else>
-    <shift-absolute pixel-distance="width">
-     <point num="vstem-left-bottom"/>
-     <point num="outer-right-bottom"/>
-     <point num="inner-right-bottom"/>
-     <point num="inner-right-top"/>
-     <point num="vstem-right-top"/>
-     <point num="vstem-right-bottom"/>
-    </shift-absolute>
-   </else>
-  </compile-if>
- </if>
- <interpolate>
-  <reference>
-   <point num="left-bearing"/>
-   <point num="vstem-left-bottom"/>
-  </reference>
-  <point num="outer-left"/>
-  <point num="diag-l-bottom"/>
-  <point num="diag-l-top"/>
- </interpolate>
- <mdap round="yes">
-  <point num="outer-left"/>
- </mdap>
- <mdap round="yes">
-  <point num="diag-l-bottom"/>
- </mdap>
- <move distance="cap-o-curve-stem" color="black">
-  <reference>
-   <point num="outer-left"/>
-  </reference>
-  <point num="inner-left"/>
- </move>
- <compile-if test="slanted">
-  <with-projection-vector x-component="variable(6)" y-component="negative(variable(7))">
-   <align>
-    <reference>
-     <point num="vstem-right-bottom"/>
-    </reference>
-    <point num="vstem-right-top"/>
-   </align>
-  </with-projection-vector>
-  <mdap round="yes">
-   <point num="vstem-right-top"/>
-  </mdap>
-  <with-projection-vector to-line="orthogonal">
-   <line>
-    <point num="vstem-right-bottom"/>
-    <point num="vstem-right-top"/>
-   </line>
-   <align>
-    <reference>
-     <point num="vstem-left-bottom"/>
-    </reference>
-    <point num="outer-right-bottom"/>
-    <point num="inner-right-bottom"/>
-    <point num="inner-right-top"/>
-   </align>
-  </with-projection-vector>
- </compile-if>
- <!-- <if test="pixels-per-em &lt; 20">
+    <set-vectors axis="x"/>
+    <move>
+      <reference>
+        <point num="left-bearing"/>
+      </reference>
+      <point num="vstem-right-bottom"/>
+      <align compile-if="slanted = 0">
+        <point num="vstem-right-top"/>
+      </align>
+      <move distance="cap-vert-stem" color="black">
+        <point num="vstem-left-bottom"/>
+        <align compile-if="slanted = 0">
+          <point num="outer-right-bottom"/>
+          <point num="inner-right-bottom"/>
+          <point num="inner-right-top"/>
+        </align>
+      </move>
+    </move>
+    <set-equal target="width" source="(vstem-right-bottom -- right-bearing) - rbearing"/>
+    <if test="width &lt; 0.0p">
+      <compile-if test="slanted">
+        <shift-absolute pixel-distance="width">
+          <point num="vstem-left-bottom"/>
+          <point num="vstem-right-bottom"/>
+        </shift-absolute>
+        <else>
+          <shift-absolute pixel-distance="width">
+            <point num="vstem-left-bottom"/>
+            <point num="outer-right-bottom"/>
+            <point num="inner-right-bottom"/>
+            <point num="inner-right-top"/>
+            <point num="vstem-right-top"/>
+            <point num="vstem-right-bottom"/>
+          </shift-absolute>
+        </else>
+      </compile-if>
+    </if>
+    <interpolate>
+      <reference>
+        <point num="left-bearing"/>
+        <point num="vstem-left-bottom"/>
+      </reference>
+      <point num="outer-left"/>
+      <point num="diag-l-bottom"/>
+      <point num="diag-l-top"/>
+    </interpolate>
+    <mdap round="yes">
+      <point num="outer-left"/>
+    </mdap>
+    <mdap round="yes">
+      <point num="diag-l-bottom"/>
+    </mdap>
+    <move distance="cap-o-curve-stem" color="black">
+      <reference>
+        <point num="outer-left"/>
+      </reference>
+      <point num="inner-left"/>
+    </move>
+    <compile-if test="slanted">
+      <with-projection-vector x-component="variable(6)" y-component="negative(variable(7))">
+        <align>
+          <reference>
+            <point num="vstem-right-bottom"/>
+          </reference>
+          <point num="vstem-right-top"/>
+        </align>
+      </with-projection-vector>
+      <mdap round="yes">
+        <point num="vstem-right-top"/>
+      </mdap>
+      <with-projection-vector to-line="orthogonal">
+        <line>
+          <point num="vstem-right-bottom"/>
+          <point num="vstem-right-top"/>
+        </line>
+        <align>
+          <reference>
+            <point num="vstem-left-bottom"/>
+          </reference>
+          <point num="outer-right-bottom"/>
+          <point num="inner-right-bottom"/>
+          <point num="inner-right-top"/>
+        </align>
+      </with-projection-vector>
+    </compile-if>
+    <!-- <if test="pixels-per-em &lt; 20">
   <if test="(diag-l-bottom - - outer-left) &gt; 0.0p">
    <shift-absolute pixel-distance="1.0p">
     <point num="diag-l-bottom"/>
    </shift-absolute>
   </if>
  </if>-->
- <!-- <interpolate>
+    <!-- <interpolate>
   <reference>
    <point num="inner-left"/>
    <point num="vstem-left-bottom"/>
   </reference>
   <point num="diag-l-top"/>
  </interpolate>-->
- <!-- <shift-absolute pixel-distance="0.05p">
+    <!-- <shift-absolute pixel-distance="0.05p">
   <point num="diag-l-bottom"/>
  </shift-absolute>-->
- 
- <!--  <call-function name="make-diagonal"> -->
-  <call-macro name="make-diagonal">
-   <with-param name="first-diag-first-point" value="diag-l-bottom"/>
-   <with-param name="first-diag-second-point" value="diag-l-top"/>
-   <with-param name="second-diag-first-point" value="diag-r-bottom"/>
-   <with-param name="second-diag-second-point" value="diag-r-top"/>
-   <with-param name="diag-width" value="cap-diag"/>
-   <with-param name="interpolation-point" value="intersect-left"/>
-   <!--   <with-param name="diag-width" value="index(cap-diag)"/> -->
-  </call-macro>
-  <!--  </call-function> -->
- 
- <interpolate-untouched-points/>
- 
-</glyph><!--Cyr ya-->
+    <!--  <call-function name="make-diagonal"> -->
+    <call-macro name="make-diagonal">
+      <with-param name="first-diag-first-point" value="diag-l-bottom"/>
+      <with-param name="first-diag-second-point" value="diag-l-top"/>
+      <with-param name="second-diag-first-point" value="diag-r-bottom"/>
+      <with-param name="second-diag-second-point" value="diag-r-top"/>
+      <with-param name="diag-width" value="cap-diag"/>
+      <with-param name="interpolation-point" value="intersect-left"/>
+      <!--   <with-param name="diag-width" value="index(cap-diag)"/> -->
+    </call-macro>
+    <!--  </call-function> -->
+    <interpolate-untouched-points/>
+  </glyph>
+  <!--Cyr ya-->
+
+</xgridfit>
