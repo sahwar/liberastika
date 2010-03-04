@@ -3,7 +3,7 @@
 <xgridfit xmlns="http://xgridfit.sourceforge.net/Xgridfit2">
 
   <!--
-     Copyright (C) 2008  Andrey V. Panov
+     Copyright (C) 2008, 2010  Andrey V. Panov
      
      This program is free software; you can redistribute it and/or modify
      it under the terms of the GNU General Public License as published by
@@ -19,6 +19,7 @@
      along with this program; if not, write to the Free Software
      Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
      -->
+
   <!--  <function name="make-diagonal"> -->
 
   <macro name="make-diagonal">
@@ -137,4 +138,63 @@
   </function>
   <!-- center-accent-with-anchor-and-two-reper-points -->
 
+ <macro name="shift-accent">
+  <param name="point-base-left"/>
+  <param name="point-base-right"/>
+  <param name="point-acc-left"/>
+  <param name="point-acc-right"/>
+  
+  <if test="pixels-per-em &lt; max-x-shift">
+   <set-equal target="width-left" source="round(point-base-left -- point-acc-left)"/>
+   <set-equal target="width-right" source="round(point-base-right -- point-acc-right)"/>
+   <if test="(width-right &gt; 0) and (width-left &gt; 0)">
+    <shift-absolute pixel-distance="-1.0p">
+     <point num="point-acc-left"/>
+    </shift-absolute>
+   </if>
+   <else>
+    <if test="(width-right &lt; 0) and (width-left &lt; 0)">
+     <shift-absolute pixel-distance="1.0p">
+      <point num="point-acc-left"/>
+     </shift-absolute>
+    </if>
+   </else>
+  </if>
+ </macro>
+ 
+ <macro name="center-accent">
+  <param name="point-base-left"/>
+  <param name="point-base-right"/>
+  <param name="point-acc-left"/>
+  <param name="point-acc-right"/>
+  
+  <if test="pixels-per-em &lt; max-x-shift">
+   <with-round-state round="down-to-grid">
+    <set-equal target="temp" source="round((((coord(point-base-right) + coord(point-base-left)) - coord(point-acc-left)) - coord(point-acc-right)) / 2.0)"/>
+    <if test="temp != 0.0">
+     <shift-absolute pixel-distance="temp">
+      <point num="point-acc-left"/>
+     </shift-absolute>
+    </if>
+   </with-round-state>
+  </if>
+ </macro>
+ 
+ <macro name="center-accent-extremum">
+  <param name="point-base-anchor"/>
+  <param name="point-acc-left"/>
+  <param name="point-acc-right"/>
+  
+  <if test="pixels-per-em &lt; max-x-shift">
+   <with-round-state round="down-to-grid">
+    <set-equal target="temp" source="round(coord(point-base-anchor) - ((coord(point-acc-left) + coord(point-acc-right)) / 2.0))"/>
+    <if test="temp != 0.0">
+     <shift-absolute pixel-distance="temp">
+      <point num="point-acc-left"/>
+     </shift-absolute>
+    </if>
+   </with-round-state>
+  </if>
+ </macro>
+ 
 </xgridfit>
