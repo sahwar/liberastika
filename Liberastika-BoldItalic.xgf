@@ -2,7 +2,7 @@
 <xgridfit xmlns="http://xgridfit.sourceforge.net/Xgridfit2" xmlns:xi="http://www.w3.org/2001/XInclude">
 
   <!--
-     Copyright (C) 2008  Andrey V. Panov
+     Copyright (C) 2008, 2010  Andrey V. Panov
      
      This program is free software; you can redistribute it and/or modify
      it under the terms of the GNU General Public License as published by
@@ -54,6 +54,9 @@
   <constant name="cos-it-ang" value="0.982p"/>
   <constant name="tg-it-ang" value="0.194p"/>
   <constant name="tg-y-delta" value="0.3p"/>
+ <constant name="max-x-shift" value="40"/>
+ <variable name="width-left"/>
+ <variable name="width-right"/>
   <variable name="temp"/>
   <variable name="width"/>
   <variable name="rbearing"/>
@@ -24090,5 +24093,6 @@
   <xi:include href="upr_dotlessj.xgf" xpointer="xmlns(x=http://xgridfit.sourceforge.net/Xgridfit2)xpointer(//x:glyph)"/>
   <xi:include href="upr_dblgrave.xgf" xpointer="xmlns(x=http://xgridfit.sourceforge.net/Xgridfit2)xpointer(//x:glyph)"/>
   <xi:include href="upr_uni0311.xgf" xpointer="xmlns(x=http://xgridfit.sourceforge.net/Xgridfit2)xpointer(//x:glyph)"/>
+ <xi:include href="Liberastika-BoldItalic_acc.xgf" xpointer="xmlns(x=http://xgridfit.sourceforge.net/Xgridfit2)xpointer(//x:glyph)"/>
 
 </xgridfit>
