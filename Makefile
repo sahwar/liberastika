@@ -2,8 +2,9 @@ FONTFORGE:=/usr/bin/env fontforge
 XGRIDFIT:=/usr/bin/env xgridfit
 VERSION:=$(shell date +"%Y%m%d")
 FAMILY=Liberastika
-PACKNAME=Liberastika
-XGFFILES=$(FAMILY)-Regular.xgf $(FAMILY)-Bold.xgf $(FAMILY)-Italic.xgf $(FAMILY)-BoldItalic.xgf upr_*.xgf it_*.xgf
+PKGNAME=Liberastika
+XGFFILES=$(FAMILY)-Regular.xgf $(FAMILY)-Bold.xgf $(FAMILY)-Italic.xgf $(FAMILY)-BoldItalic.xgf upr_*.xgf it_*.xgf \
+		inst_acc.py
 SFDFILES=$(FAMILY)-Regular.sfd $(FAMILY)-Bold.sfd $(FAMILY)-Italic.sfd $(FAMILY)-BoldItalic.sfd
 DOCUMENTS=AUTHORS ChangeLog COPYING README
 TTFFILES=$(FAMILY)-Regular.ttf $(FAMILY)-Bold.ttf $(FAMILY)-Italic.ttf $(FAMILY)-BoldItalic.ttf
@@ -13,13 +14,17 @@ FFSCRIPTS=generate.ff make_dup_vertshift.pe new_glyph.ff add_anchor_ext.ff \
 	dub_glyph.pe spaces_dashes.ff case_sub.ff add_ipa.ff hflip_glyph.ff \
 	make_dup_rot.ff add_accented.ff dub_glyph_ch.ff same_cyrext.ff \
 	make_cap_accent.ff make_superscript.ff dub_aligned.ff \
-	cop_kern.ff cop_kern_acc.ff copy_anchors_acc.ff
+	cop_kern.ff cop_kern_acc.ff copy_anchors_acc.ff 
 COMPRESS=xz -9
+TEXENC=t1,t2a,t2b,t2c
+#PYTHON=python -W all
+PYTHON=fontforge -lang=py -script 
 
 INSTALL=install
 DESTDIR=
-fontdir=/usr/share/fonts/TTF
-docdir=/usr/doc/$(PACKNAME)
+prefix=/usr
+fontdir=$(prefix)/share/fonts/TTF
+docdir=$(prefix)/doc/$(PKGNAME)
 
 
 all: $(TTFFILES)
@@ -30,7 +35,7 @@ $(FAMILY)-Regular_.sfd: $(FAMILY)-Regular.sfd $(FFSCRIPTS)
 $(FAMILY)-Regular.ttf: $(FAMILY)-Regular.py $(FAMILY)-Regular_.sfd
 	$(FONTFORGE) -lang=py -script $(FAMILY)-Regular.py
 
-$(FAMILY)-Regular.py: $(FAMILY)-Regular.xgf upr_*.xgf
+$(FAMILY)-Regular.py: $(FAMILY)-Regular.xgf upr_*.xgf $(FAMILY)-Regular_acc.xgf
 	$(XGRIDFIT) $(XGRIDFITFLAGS) $(FAMILY)-Regular.xgf
 
 $(FAMILY)-Bold_.sfd: $(FAMILY)-Bold.sfd $(FFSCRIPTS)
@@ -39,7 +44,7 @@ $(FAMILY)-Bold_.sfd: $(FAMILY)-Bold.sfd $(FFSCRIPTS)
 $(FAMILY)-Bold.ttf: $(FAMILY)-Bold.py $(FAMILY)-Bold_.sfd
 	$(FONTFORGE) -lang=py -script $(FAMILY)-Bold.py
 
-$(FAMILY)-Bold.py: $(FAMILY)-Bold.xgf upr_*.xgf
+$(FAMILY)-Bold.py: $(FAMILY)-Bold.xgf upr_*.xgf $(FAMILY)-Bold_acc.xgf
 	$(XGRIDFIT) $(XGRIDFITFLAGS) $(FAMILY)-Bold.xgf
 
 $(FAMILY)-Italic_.sfd: $(FAMILY)-Italic.sfd $(FFSCRIPTS)
@@ -48,7 +53,7 @@ $(FAMILY)-Italic_.sfd: $(FAMILY)-Italic.sfd $(FFSCRIPTS)
 $(FAMILY)-Italic.ttf: $(FAMILY)-Italic.py $(FAMILY)-Italic_.sfd
 	$(FONTFORGE) -lang=py -script $(FAMILY)-Italic.py
 
-$(FAMILY)-Italic.py: $(FAMILY)-Italic.xgf upr_*.xgf it_*.xgf
+$(FAMILY)-Italic.py: $(FAMILY)-Italic.xgf upr_*.xgf it_*.xgf $(FAMILY)-Italic_acc.xgf
 	$(XGRIDFIT) $(XGRIDFITFLAGS) $(FAMILY)-Italic.xgf
 
 $(FAMILY)-BoldItalic_.sfd: $(FAMILY)-BoldItalic.sfd $(FFSCRIPTS)
@@ -57,18 +62,27 @@ $(FAMILY)-BoldItalic_.sfd: $(FAMILY)-BoldItalic.sfd $(FFSCRIPTS)
 $(FAMILY)-BoldItalic.ttf: $(FAMILY)-BoldItalic.py $(FAMILY)-BoldItalic_.sfd
 	$(FONTFORGE) -lang=py -script $(FAMILY)-BoldItalic.py
 
-$(FAMILY)-BoldItalic.py: $(FAMILY)-BoldItalic.xgf upr_*.xgf it_*.xgf
+$(FAMILY)-BoldItalic.py: $(FAMILY)-BoldItalic.xgf upr_*.xgf it_*.xgf  $(FAMILY)-BoldItalic_acc.xgf
 	$(XGRIDFIT) $(XGRIDFITFLAGS) $(FAMILY)-BoldItalic.xgf
 
+$(FAMILY)-Regular_acc.xgf: $(FAMILY)-Regular_.sfd
+	$(PYTHON) inst_acc.py -c -j -i $(FAMILY)-Regular_.sfd  -o $(FAMILY)-Regular_acc.xgf
+
+$(FAMILY)-Bold_acc.xgf: $(FAMILY)-Bold_.sfd
+	$(PYTHON) inst_acc.py -c -j -i $(FAMILY)-Bold_.sfd  -o $(FAMILY)-Bold_acc.xgf
+
+%_acc.xgf: %_.sfd
+	$(PYTHON) inst_acc.py -i $*_.sfd  -o $*_acc.xgf
+
 dist-src:
-	tar -cvf $(PACKNAME)-src-$(VERSION).tar $(XGFFILES) $(SFDFILES) \
+	tar -cvf $(PKGNAME)-src-$(VERSION).tar $(XGFFILES) $(SFDFILES) \
 	Makefile $(DOCUMENTS) $(FFSCRIPTS)
-	$(COMPRESS) $(PACKNAME)-src-$(VERSION).tar
+	$(COMPRESS) $(PKGNAME)-src-$(VERSION).tar
 
 dist-ttf: all
-	tar -cvf $(PACKNAME)-ttf-$(VERSION).tar \
+	tar -cvf $(PKGNAME)-ttf-$(VERSION).tar \
 	$(TTFFILES) $(DOCUMENTS)
-	$(COMPRESS) $(PACKNAME)-ttf-$(VERSION).tar
+	$(COMPRESS) $(PKGNAME)-ttf-$(VERSION).tar
 
 dist: dist-src dist-ttf
 
@@ -81,4 +95,7 @@ install:
 	$(INSTALL) -p --mode=644 $(TTFFILES) $(DESTDIR)$(fontdir)/
 	mkdir -p $(DESTDIR)$(docdir)
 	$(INSTALL) -p --mode=644 $(DOCUMENTS) $(DESTDIR)$(docdir)/
+
+%.pe-dist:
+	$(XGRIDFIT) -p 25 -G no -l ff -i $*_.sfd -o $*.ttf -S pe/$* $*.xgf
 
