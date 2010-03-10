@@ -1,205 +1,243 @@
 <?xml version="1.0"?>
 <xgridfit xmlns="http://xgridfit.sourceforge.net/Xgridfit2">
-
-  <!--Cyr z (з)-->
-
-  <glyph ps-name="afii10073" init-graphics="yes">
-    <!--
-     Copyright (C) 2008  Andrey V. Panov
-     
-     This program is free software; you can redistribute it and/or modify
-     it under the terms of the GNU General Public License as published by
-     the Free Software Foundation; either version 2 of the License, or
-     (at your option) any later version.
-     
-     This program is distributed in the hope that it will be useful,
-     but WITHOUT ANY WARRANTY; without even the implied warranty of
-     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-     GNU General Public License for more details.
-     
-     You should have received a copy of the GNU General Public License
-     along with this program; if not, write to the Free Software
-     Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
-     -->
-    <constant name="lower-end-bottom" value="0"/>
-    <constant name="lower-end-top" value="lower-end-bottom + 1"/>
-    <constant name="inner-bottom" value="lower-end-top + 3"/>
-    <constant name="inner-right-low" value="inner-bottom + 3"/>
-    <constant name="hstem-left-bottom" value="inner-right-low + 4"/>
-    <constant name="hstem-left-top" value="hstem-left-bottom + 1"/>
-    <constant name="inner-right-top" value="hstem-left-top + 4"/>
-    <constant name="inner-top" value="inner-right-top + 3"/>
-    <constant name="upper-end-bottom" value="inner-top + 3"/>
-    <constant name="upper-end-top" value="upper-end-bottom + 1"/>
-    <constant name="outer-top" value="upper-end-top + 3"/>
-    <constant name="outer-right-top" value="outer-top + 3"/>
-    <constant name="outer-intersect-top" value="outer-right-top + 3"/>
-    <constant name="outer-intersect-low" value="outer-intersect-top + 1"/>
-    <constant name="outer-right-low" value="outer-intersect-low + 3"/>
-    <constant name="outer-bottom" value="outer-right-low + 3"/>
-    <constant name="last" value="outer-bottom + 2"/>
-    <compile-if test="slanted">
-      <push>small-it-y-shift small-it-x-shift 88</push>
-      <command name="CALL"/>
-    </compile-if>
-    <set-vectors axis="x"/>
-    <move distance="small-cyrz-lbearing" min-distance="no" color="white">
-      <reference>
-        <point num="left-bearing"/>
-      </reference>
-      <point num="lower-end-bottom"/>
-      <move distance="small-vert-stem">
-        <point num="lower-end-top"/>
-      </move>
-      <move>
-        <point num="outer-right-low"/>
-        <move distance="small-o-curve-stem" color="black">
-          <point num="inner-right-low"/>
-        </move>
-      </move>
+ <!--Cyr z (з)-->
+ 
+ <glyph ps-name="afii10073" init-graphics="yes">
+  <!--
+      
+      Copyright (C) 2008, 2010  Andrey V. Panov
+      
+      This program is free software; you can redistribute it and/or modify
+      it under the terms of the GNU General Public License as published by
+      the Free Software Foundation; either version 2 of the License, or
+      (at your option) any later version.
+      
+      This program is distributed in the hope that it will be useful,
+      but WITHOUT ANY WARRANTY; without even the implied warranty of
+      MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+      GNU General Public License for more details.
+      
+      You should have received a copy of the GNU General Public License
+      along with this program.  If not, see "http://www.gnu.org/licenses/".
+      
+      -->
+  
+  <constant name="lower-end-bottom" value="0"/>
+  <constant name="lower-end-top" value="lower-end-bottom + 1"/>
+  <constant name="inner-bottom" value="lower-end-top + 3"/>
+  <constant name="inner-right-low" value="inner-bottom + 3"/>
+  <constant name="hstem-left-bottom" value="inner-right-low + 4"/>
+  <constant name="hstem-left-top" value="hstem-left-bottom + 1"/>
+  <constant name="inner-right-top" value="hstem-left-top + 4"/>
+  <constant name="inner-top" value="inner-right-top + 3"/>
+  <constant name="upper-end-bottom" value="inner-top + 3"/>
+  <constant name="upper-end-top" value="upper-end-bottom + 1"/>
+  <constant name="outer-top" value="upper-end-top + 3"/>
+  <constant name="outer-right-top" value="outer-top + 3"/>
+  <constant name="outer-intersect-top" value="outer-right-top + 3"/>
+  <constant name="outer-intersect-low" value="outer-intersect-top + 1"/>
+  <constant name="outer-right-low" value="outer-intersect-low + 3"/>
+  <constant name="outer-bottom" value="outer-right-low + 3"/>
+  <constant name="last" value="outer-bottom + 2"/>
+  
+  <compile-if test="slanted">
+   <push>small-it-y-shift small-it-x-shift 88</push>
+   <command name="CALL"/>
+  </compile-if>
+  
+  <set-vectors axis="x"/>
+  <move distance="small-cyrz-lbearing" min-distance="no" color="white">
+   <reference>
+    <point num="left-bearing"/>
+   </reference>
+   <point num="lower-end-bottom"/>
+   <move distance="small-vert-stem">
+    <point num="lower-end-top"/>
+   </move>
+   <move>
+    <point num="outer-right-low"/>
+    <move distance="small-o-curve-stem" color="black">
+     <point num="inner-right-low"/>
     </move>
-    <compile-if test="slanted">
-      <set-projection-vector x-component="variable(6)" y-component="negative(variable(7))"/>
-    </compile-if>
-    <set-equal target="width" source="(outer-right-low -- right-bearing) - rbearing"/>
-    <compile-if test="slanted">
-      <set-projection-vector axis="x"/>
-      <round value="width"/>
-    </compile-if>
-    <if test="width &lt; 0.0p">
-      <shift-absolute pixel-distance="width">
-        <point num="inner-right-low"/>
-        <point num="outer-right-low"/>
-      </shift-absolute>
-    </if>
+   </move>
+  </move>
+  <compile-if test="slanted">
+   <set-projection-vector x-component="variable(6)" y-component="negative(variable(7))"/>
+  </compile-if>
+  <set-equal target="width" source="(outer-right-low -- right-bearing) - rbearing"/>
+  <compile-if test="slanted">
+   <set-projection-vector axis="x"/>
+   <round value="width"/>
+  </compile-if>
+  <if test="width &lt; 0.0p">
+   <shift-absolute pixel-distance="width">
+    <point num="inner-right-low"/>
+    <point num="outer-right-low"/>
+   </shift-absolute>
+  </if>
+  <interpolate>
+   <reference>
+    <point num="lower-end-bottom"/>
+    <point num="inner-right-low"/>
+   </reference>
+   <point num="upper-end-top"/>
+   <point num="hstem-left-bottom"/>
+   <point num="hstem-left-top"/>
+  </interpolate>
+  <mdap round="yes">
+   <point num="upper-end-top"/>
+  </mdap>
+  <interpolate round="yes">
+   <reference>
+    <point num="inner-right-low"/>
+    <point num="outer-right-low"/>
+   </reference>
+   <point num="outer-right-top"/>
+  </interpolate>
+  <move distance="small-vert-stem" color="black">
+   <reference>
+    <point num="outer-right-top"/>
+   </reference>
+   <point num="inner-right-top"/>
+  </move>
+  <move distance="small-vert-stem">
+   <reference>
+    <point num="upper-end-top"/>
+   </reference>
+   <point num="upper-end-bottom"/>
+  </move>
+  <move color="black">
+   <reference>
+    <point num="hstem-left-bottom"/>
+   </reference>
+   <point num="outer-intersect-low"/>
+  </move>
+  <move min-distance="no" color="white">
+   <reference>
+    <point num="outer-right-low"/>
+   </reference>
+   <point num="right-bearing"/>
+  </move>
+  <if test="control-value(index(small-i-lbearing)) = 0.0">
+   <if test="(outer-right-low -- right-bearing) = 0.0p">
+    <shift-absolute pixel-distance="1.0p">
+     <point num="right-bearing"/>
+    </shift-absolute>
+   </if>
+  </if>
+  <compile-if test="fix-arcs">
+   <if test="pixels-per-em &lt;= small-fix-arcs">
     <interpolate>
-      <reference>
-        <point num="lower-end-bottom"/>
-        <point num="inner-right-low"/>
-      </reference>
-      <point num="upper-end-top"/>
-      <point num="hstem-left-bottom"/>
-      <point num="hstem-left-top"/>
+     <reference>
+      <point num="lower-end-bottom"/>
+      <point num="inner-right-low"/>
+     </reference>
+     <point num="outer-bottom - 1"/>
+     <point num="outer-bottom"/>
+     <point num="outer-bottom + 1"/>
+     <!--     <point num="inner-bottom - 1"/>
+     <point num="inner-bottom + 1"/>
+     <point num="inner-top - 1"/>
+     <point num="inner-top + 1"/>-->
     </interpolate>
-    <mdap round="yes">
+    <interpolate>
+     <reference>
       <point num="upper-end-top"/>
-    </mdap>
-    <interpolate round="yes">
-      <reference>
-        <point num="inner-right-low"/>
-        <point num="outer-right-low"/>
-      </reference>
-      <point num="outer-right-top"/>
-    </interpolate>
-    <move distance="small-vert-stem" color="black">
-      <reference>
-        <point num="outer-right-top"/>
-      </reference>
       <point num="inner-right-top"/>
-    </move>
-    <move distance="small-vert-stem">
-      <reference>
-        <point num="upper-end-top"/>
-      </reference>
-      <point num="upper-end-bottom"/>
-    </move>
-    <move color="black">
-      <reference>
-        <point num="hstem-left-bottom"/>
-      </reference>
-      <point num="outer-intersect-low"/>
-    </move>
-    <move min-distance="no" color="white">
-      <reference>
-        <point num="outer-right-low"/>
-      </reference>
-      <point num="right-bearing"/>
-    </move>
-    <if test="control-value(index(small-i-lbearing)) = 0.0">
-      <if test="(outer-right-low -- right-bearing) = 0.0p">
-        <shift-absolute pixel-distance="1.0p">
-          <point num="right-bearing"/>
-        </shift-absolute>
-      </if>
-    </if>
-    <set-vectors axis="y"/>
-    <move distance="small-o-baseline">
-      <point num="outer-bottom"/>
-      <move distance="small-curve-hstem" color="black">
-        <point num="inner-bottom"/>
-      </move>
-    </move>
-    <move distance="small-o-height" color="black">
-      <point num="outer-top"/>
-      <move distance="small-curve-hstem" color="black">
-        <point num="inner-top"/>
-      </move>
-    </move>
-    <move distance="small-cyrn-intersect-height">
+     </reference>
+     <point num="outer-top - 1"/>
+     <point num="outer-top"/>
+     <point num="outer-top + 1"/>
+    </interpolate>
+    <shift-absolute pixel-distance="-0.2p">
+     <point num="outer-bottom - 1"/>
+     <point num="outer-top + 1"/>
+    </shift-absolute>
+    <shift-absolute pixel-distance="0.2p">
+     <point num="outer-bottom + 1"/>
+     <point num="outer-top - 1"/>
+    </shift-absolute>
+   </if>
+  </compile-if>
+  
+  <set-vectors axis="y"/>
+  <move distance="small-o-baseline">
+   <point num="outer-bottom"/>
+   <move distance="small-curve-hstem" color="black">
+    <point num="inner-bottom"/>
+   </move>
+  </move>
+  <move distance="small-o-height" color="black">
+   <point num="outer-top"/>
+   <move distance="small-curve-hstem" color="black">
+    <point num="inner-top"/>
+   </move>
+  </move>
+  <move distance="small-cyrn-intersect-height">
+   <point num="hstem-left-bottom"/>
+   <move distance="small-horiz-stem" color="black">
+    <point num="hstem-left-top"/>
+    <interpolate>
+     <point num="outer-intersect-low"/>
+    </interpolate>
+   </move>
+  </move>
+  <!-- <call-function name="center-point-with-two-reper-points">
+   <with-param name="point-left" value="hstem-left-bottom"/>
+   <with-param name="point-center" value="outer-intersect"/>
+   <with-param name="point-right" value="hstem-left-top"/>
+  </call-function>-->
+  <if test="(hstem-left-top -- inner-top) &gt; (inner-bottom -- hstem-left-bottom)">
+   <shift-absolute pixel-distance="1.0p">
+    <point num="hstem-left-bottom"/>
+    <point num="outer-intersect-low"/>
+    <point num="hstem-left-top"/>
+   </shift-absolute>
+  </if>
+  <if test="pixels-per-em &lt; small-c-flat-ends">
+   <align>
+    <reference>
+     <point num="outer-bottom"/>
+    </reference>
+    <point num="lower-end-bottom"/>
+   </align>
+   <align>
+    <reference>
+     <point num="inner-bottom"/>
+    </reference>
+    <point num="lower-end-top"/>
+   </align>
+   <align>
+    <reference>
+     <point num="inner-top"/>
+    </reference>
+    <point num="upper-end-bottom"/>
+   </align>
+   <align>
+    <reference>
+     <point num="outer-top"/>
+    </reference>
+    <point num="upper-end-top"/>
+   </align>
+   <else>
+    <interpolate>
+     <reference>
+      <point num="inner-bottom"/>
       <point num="hstem-left-bottom"/>
-      <move distance="small-horiz-stem" color="black">
-        <point num="hstem-left-top"/>
-        <interpolate>
-          <point num="outer-intersect-low"/>
-        </interpolate>
-      </move>
-    </move>
-    <!-- <call-function name="center-point-with-two-reper-points">
-  <with-param name="point-left" value="hstem-left-bottom"/>
-  <with-param name="point-center" value="outer-intersect"/>
-  <with-param name="point-right" value="hstem-left-top"/>
- </call-function>-->
-    <if test="(hstem-left-top -- inner-top) &gt; (inner-bottom -- hstem-left-bottom)">
-      <shift-absolute pixel-distance="1.0p">
-        <point num="hstem-left-bottom"/>
-        <point num="outer-intersect-low"/>
-        <point num="hstem-left-top"/>
-      </shift-absolute>
-    </if>
-    <if test="pixels-per-em &lt; small-c-flat-ends">
-      <align>
-        <reference>
-          <point num="outer-bottom"/>
-        </reference>
-        <point num="lower-end-bottom"/>
-      </align>
-      <align>
-        <reference>
-          <point num="inner-bottom"/>
-        </reference>
-        <point num="lower-end-top"/>
-      </align>
-      <align>
-        <reference>
-          <point num="inner-top"/>
-        </reference>
-        <point num="upper-end-bottom"/>
-      </align>
-      <align>
-        <reference>
-          <point num="outer-top"/>
-        </reference>
-        <point num="upper-end-top"/>
-      </align>
-      <else>
-        <interpolate>
-          <reference>
-            <point num="inner-bottom"/>
-            <point num="hstem-left-bottom"/>
-          </reference>
-          <point num="lower-end-bottom"/>
-        </interpolate>
-        <interpolate>
-          <reference>
-            <point num="hstem-left-top"/>
-            <point num="inner-top"/>
-          </reference>
-          <point num="upper-end-bottom"/>
-          <point num="upper-end-top"/>
-        </interpolate>
-      </else>
-    </if>
-    <interpolate-untouched-points/>
-  </glyph>
-
+     </reference>
+     <point num="lower-end-bottom"/>
+    </interpolate>
+    <interpolate>
+     <reference>
+      <point num="hstem-left-top"/>
+      <point num="inner-top"/>
+     </reference>
+     <point num="upper-end-bottom"/>
+     <point num="upper-end-top"/>
+    </interpolate>
+   </else>
+  </if>
+  <interpolate-untouched-points/>
+ </glyph>
+ 
 </xgridfit>
