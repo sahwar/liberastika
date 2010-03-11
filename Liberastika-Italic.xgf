@@ -42,6 +42,8 @@
   <constant name="bold" value="0"/>
   <constant name="slanted" value="1"/>
   <constant name="smooth" value="0"/>
+ <constant name="fix-arcs" value="0"/>
+ <constant name="small-fix-arcs" value="17"/>
   <constant name="first-point" value="0"/>
   <constant name="last-count" value="0"/>
   <constant name="hstem-vcount" value="1"/>
