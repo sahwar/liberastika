@@ -19,6 +19,7 @@ import sys, re, getopt
 import unicodedata
 
 strip_suff = re.compile("\..*$", re.I)
+
 # Symmetric accents which should be centered
 sym_accents = ("cyrbreve", "cyrBreve", "dotaccent", "macron", "circumflex", \
 "caron", "breve", "dieresis", "dotbelowcomb", "tidle", "ring", "uni0302", \
@@ -29,8 +30,14 @@ sym_bases = (u'A', u'H', u'I', u'M', u'N', u'O', u'T', u'U', u'V', u'W', u'X', u
 
 up_anc_bases = (u'C', u'G', u'Q', u'S', u'a', u'c', u'e', u'f', u's', u'ſ', u'З', u'О', u'С', u'Э', u'а', u'е', u'з', u'о', u'с', u'э', u'Ә', u'ә')
 
+tm = (1.0, 0.0, 0.0, 1.0)
+
+def mat_mult(m1,m2):
+  return (m1[0]*m2[0] + m1[2]*m2[1], m1[1]*m2[0] + m1[3]*m2[1], \
+  m1[0]*m2[2] + m1[2]*m2[3], m1[1]*m2[2] + m1[3]*m2[3])
+
 def extrema_points(glyf):
-  global font, subref, point_bot, point_left, point_top, point_right, point_num, point_bot2, point_top2
+  global font, subref, point_bot, point_left, point_top, point_right, point_num, point_bot2, point_top2, tm
   if  not(subref):
     point_bot = (0.0, 32768.0, 0)
     point_top = (0.0, -32768.0, 0)
@@ -40,26 +47,26 @@ def extrema_points(glyf):
     point_top2 = (0.0, -32768.0, 0)
   for contour in font[glyf].foreground:
     for point in contour:
-      #print point.x+shift_x, point.y+shift_y, point_num
-      if point.y+shift_y < point_bot[1]:
-        point_bot = (point.x+shift_x, point.y+shift_y, point_num)
-      if point.y+shift_y > point_top[1]:
-        point_top = (point.x+shift_x, point.y+shift_y, point_num)
-      if point.x+shift_x < point_left[0]:
-        point_left = (point.x+shift_x, point.y+shift_y, point_num)
-      if point.x+shift_x > point_right[0]:
-        point_right = (point.x+shift_x, point.y+shift_y, point_num)
-      if point.y+shift_y <= point_bot[1]:
-        point_bot2 = (point.x+shift_x, point.y+shift_y, point_num)
-      if point.y+shift_y >= point_top[1]:
-        point_top2 = (point.x+shift_x, point.y+shift_y, point_num)
+      point_x = point.x*tm[0]+point.y*tm[2]+shift_x
+      point_y = point.x*tm[1]+point.y*tm[3]+shift_y
+      #print point_x, point_y, point_num
+      if point_y < point_bot[1]:
+        point_bot = (point_x, point_y, point_num)
+      if point_y > point_top[1]:
+        point_top = (point_x, point_y, point_num)
+      if point_x < point_left[0]:
+        point_left = (point_x, point_y, point_num)
+      if point_x > point_right[0]:
+        point_right = (point_x, point_y, point_num)
+      if point_y <= point_bot[1]:
+        point_bot2 = (point_x, point_y, point_num)
+      if point_y >= point_top[1]:
+        point_top2 = (point_x, point_y, point_num)
       point_num += 1
 
 def ref_data(ref, ref_cont, glyfname):
   global shift_x, shift_y, cont_num, point_num, ref_type, basedata, accdata, point_bot, point_left, point_top, point_right, point_bot2, point_top2
   #print ref[0], ref_cont,  len(font[ref[0]].references)
-  #shift_x += ref[1][4]
-  #shift_y += ref[1][5]
   cont_num_prev = cont_num
   cont_num += ref_cont
   reftemp = extrema_points(ref[0])
@@ -71,23 +78,27 @@ def ref_data(ref, ref_cont, glyfname):
     range(cont_num_prev,cont_num), glyfname, point_bot2, point_top2),
 
 def dig_subrefs(refs, glyfname):
-  global font, shift_x, shift_y, cont_num, point_num, ref_type, basedata, accdata, cont_num_prev
+  global font, shift_x, shift_y, cont_num, point_num, ref_type, basedata, accdata, cont_num_prev, tm
   for ref in refs:
-    if ref[1][0:4] != (1.0, 0.0, 0.0, 1.0): # use only translated references
-      break
-    shift_x += ref[1][4]
-    shift_y += ref[1][5]
+    tm_prev = tm
+    shift_x_prev = shift_x
+    shift_y_prev = shift_y
+    tm = mat_mult(ref[1][0:4], tm) # multiply transform matrices
+    #det = ref[1][0]*ref[1][3] - ref[1][1]*ref[1][2]
+    #repm = (ref[1][3]/det, -ref[1][2]/det, -ref[1][1]/det, ref[1][0]/det)
+    shift_x = ref[1][4]*tm_prev[0] + ref[1][5]*tm_prev[2] + shift_x_prev
+    shift_y = ref[1][4]*tm_prev[1] + ref[1][5]*tm_prev[3] + shift_y_prev
     ref_cont = len(font[ref[0]].foreground)
     ref_ref = font[ref[0]].references
     if ref_cont > 0:
       cont_num += ref_cont
       reftemp = extrema_points(ref[0])
-      shift_x -= ref[1][4]
-      shift_y -= ref[1][5]
     elif len(ref_ref) >= 1:
       dig_subrefs(ref_ref, glyfname)
-      shift_x -= ref[1][4]
-      shift_y -= ref[1][5]
+    shift_x = shift_x_prev
+    shift_y = shift_y_prev
+    tm = tm_prev
+    #tm = mat_mult(repm, tm)
 
 def print_center_accent(f, point_base_left, point_base_right, point_acc_left, point_acc_right):
   global glyph_head_printed, macfun
@@ -124,21 +135,26 @@ def print_shift_accent(f, point_base_left, point_base_right, point_acc_left, poi
 def usage():
   print " -i file, --input=file     input truetype font file"
   print " -o file, --output=file    output xgridfit file"
+  print " -s file, --skipfile=file  skip from instructing glyphs whose names are listed in file"
   print " -v , --only-vertical      add only instructions for vertical placement (off)"
   print " -c , --center             add instructions for centering some accents (off)"
   print " -j , --instruct-j         instruct \"j\" (off)"
+  print " -f , --function           use function tags instead of macros (off)"
 
 try:
-  opts, args = getopt.getopt(sys.argv[1:], "hvcjfi:o:", ["help", "only-vertical", "center", "instruct-j", "function", "input=", "output="])
+  opts, args = getopt.getopt(sys.argv[1:], "hvcjfi:o:s:", ["help", "only-vertical", "center", "instruct-j", "function", "input=", "output=", "skipfile="])
 except getopt.GetoptError, err:
   print "unrecognized option"
   usage()
   sys.exit(2)
 outfile = None
 font_name = None
+skipfile = None
 only_vertical = 0
 inst_sym = 0
 inst_j = 0
+skiplist = []
+skip = 0
 for (o, a) in opts:
   if o in ("-i", "--input"):
     font_name = a
@@ -155,15 +171,24 @@ for (o, a) in opts:
     inst_j = 1
   elif o in ("-f", "--function") and not only_vertical:
     macfun="call-function"
+  elif o in ("-s", "skipfile"):
+    skipfile = a
 #font_name = sys.argv[1]
+if skipfile:
+  f = open(skipfile, 'r')
+  skiplist = re.split('\s',f.read())
+  f.close()
+  skip = len(skiplist)
 font = fontforge.open(font_name)
 f = open(outfile, 'w')
 font.selection.all()
-#font.selection.select("aacute,edieresis,uni1E69,afii10110,uni04F3,Ncaron,uni0213")
+#font.selection.select("aacute","edieresis","uni1E69","afii10110","uni04F3","Ncaron","uni0213")
 selection = font.selection.byGlyphs
 f.write("<?xml version=\"1.0\"?>\n<xgridfit xmlns=\"http://xgridfit.sourceforge.net/Xgridfit2\">\n<!-- GENERATED FILE, DO NOT EDIT -->\n")
 for glyf in selection:
   if glyf.isWorthOutputting and not(len(glyf.ttinstrs)):
+    if skip and glyf.glyphname in skiplist:
+      continue
     #print glyf.glyphname
     refs = glyf.references
     #print len(refs), refs, len(glyf.foreground)
@@ -173,8 +198,7 @@ for glyf in selection:
     basedata = ()
     accdata = ()
     for ref in refs:
-      if ref[1][0:4] != (1.0, 0.0, 0.0, 1.0):
-        break
+      tm = ref[1][0:4] # transform matrix of reference
       shift_x = ref[1][4]
       shift_y = ref[1][5]
       ref_cont = len(font[ref[0]].foreground)
@@ -218,8 +242,9 @@ for glyf in selection:
 	    glyph_head_printed = 1
 	    f.write(glyph_head % glyf.glyphname)
 	  f.write("  <set-vectors axis=\"y\"/>\n")
-	  f.write("  <if test=\"(%d -- %d) &lt; 0.6p\">\n" % (basedata[2][2], t[0][2]))
-	  f.write("   <shift-absolute pixel-distance=\"1.0p\">\n    <point num=\"%d\"/>\n" % t[0][2])
+	  f.write("  <set-equal target=\"temp\" source=\"%d -- %d\"/>\n" % (basedata[2][2], t[0][2]))
+	  f.write("  <if test=\"temp &lt; 0.6p\">\n")
+	  f.write("   <shift-absolute pixel-distance=\"negative(round(temp)) + 1.0p\">\n    <point num=\"%d\"/>\n" % t[0][2])
 	  f.write("   </shift-absolute>\n   <shift>\n    <reference>\n     <point num=\"%d\"/>\n    </reference>\n" % t[0][2])
 	  for i in t[4]:
 	    f.write("    <contour num=\"%d\"/>\n" % i)
@@ -229,9 +254,10 @@ for glyf in selection:
 	    glyph_head_printed = 1
 	    f.write(glyph_head % glyf.glyphname)
 	  f.write("  <set-vectors axis=\"y\"/>\n")
-	  f.write("  <if test=\"(%d -- %d) &lt; 0.6p\">\n" % (t[2][2], basedata[0][2] ))
-	  f.write("   <shift-absolute pixel-distance=\"-1.0p\">\n    <point num=\"%d\"/>\n" % t[2][2])
-	  f.write("   </shift-absolute>\n   <shift>\n    <reference>\n     <point num=\"%d\"/>\n    </reference>\n" % t[2][2])
+	  f.write("  <set-equal target=\"temp\" source=\"%d -- %d\"/>\n" % (t[2][2], basedata[0][2]))
+	  f.write("  <if test=\"temp &lt; 0.6p\">\n   <command name=\"RDTG\"/>\n" )
+	  f.write("   <shift-absolute pixel-distance=\"round(temp) - 1.0p\">\n    <point num=\"%d\"/>\n" % t[2][2])
+	  f.write("   </shift-absolute>\n   <command name=\"RTG\"/>\n   <shift>\n    <reference>\n     <point num=\"%d\"/>\n    </reference>\n" % t[2][2])
 	  for i in t[4]:
 	    f.write("    <contour num=\"%d\"/>\n" % i)
 	  f.write("   </shift>\n  </if>\n")
