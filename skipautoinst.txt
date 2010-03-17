@@ -1,0 +1,17 @@
+ograve
+oacute
+ocircumflex
+otilde
+odieresis
+omacron
+obreve
+ohungarumlaut
+afii10052
+afii10061
+afii10062
+afii10027
+afii10075
+afii10100
+afii10109
+afii10110
+omicrontonos
