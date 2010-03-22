@@ -1,49 +1,56 @@
 <?xml version="1.0"?>
 <xgridfit xmlns="http://xgridfit.sourceforge.net/Xgridfit2">
-
-  <!--ы-->
-
-  <glyph ps-name="afii10093" init-graphics="yes">
-    <!--
-     Copyright (C) 2008  Andrey V. Panov
-     
-     This program is free software; you can redistribute it and/or modify
-     it under the terms of the GNU General Public License as published by
-     the Free Software Foundation; either version 2 of the License, or
-     (at your option) any later version.
-     
-     This program is distributed in the hope that it will be useful,
-     but WITHOUT ANY WARRANTY; without even the implied warranty of
-     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-     GNU General Public License for more details.
-     
-     You should have received a copy of the GNU General Public License
-     along with this program; if not, write to the Free Software
-     Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
-     -->
-    <constant name="last" value="afii10094/total + 3"/>
-    <set-vectors axis="x"/>
-    <!-- <shift-absolute pixel-distance="round-white(afii10094/total - - - afii10094/low-outer-right) - (afii10094/total - - afii10094/low-outer-right)">
-  <point num="afii10094/total + 0"/>
- </shift-absolute>-->
-    <move color="white">
-      <reference>
-        <point num="afii10094/low-outer-right"/>
-      </reference>
-      <point num="afii10094/total + 0"/>
-    </move>
-    <shift>
-      <reference>
-        <point num="afii10094/total + 0"/>
-      </reference>
-      <contour num="2"/>
-    </shift>
-    <move color="white">
-      <reference>
-        <point num="last"/>
-      </reference>
-      <point num="right-bearing"/>
-    </move>
-  </glyph>
-
+ <!--ы-->
+ <glyph ps-name="afii10093" init-graphics="yes">
+  
+  <!--
+      
+      Copyright (C) 2008, 2010  Andrey V. Panov
+      
+      This program is free software; you can redistribute it and/or modify
+      it under the terms of the GNU General Public License as published by
+      the Free Software Foundation; either version 2 of the License, or
+      (at your option) any later version.
+      
+      This program is distributed in the hope that it will be useful,
+      but WITHOUT ANY WARRANTY; without even the implied warranty of
+      MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+      GNU General Public License for more details.
+      
+      You should have received a copy of the GNU General Public License
+      along with this program.  If not, see "http://www.gnu.org/licenses/".
+      
+      -->
+  
+  <constant name="last" value="afii10094/total + 3"/>
+  <set-vectors axis="x"/>
+  <!-- <shift-absolute pixel-distance="round-white(afii10094/total - - - afii10094/low-outer-right) - (afii10094/total - - afii10094/low-outer-right)">
+   <point num="afii10094/total + 0"/>
+  </shift-absolute>-->
+  <move distance="small-vert-stem" color="white" compile-if="regular and (slanted = 0)">
+   <reference>
+    <point num="afii10094/low-outer-right"/>
+   </reference>
+   <point num="afii10094/total + 0"/>
+  </move>
+  <move distance="small-horiz-stem" color="white" compile-if="bold and (slanted = 0)">
+   <reference>
+    <point num="afii10094/low-outer-right"/>
+   </reference>
+   <point num="afii10094/total + 0"/>
+  </move>
+  <shift>
+   <reference>
+    <point num="afii10094/total + 0"/>
+   </reference>
+   <contour num="2"/>
+  </shift>
+  <move color="white">
+   <reference>
+    <point num="last"/>
+   </reference>
+   <point num="right-bearing"/>
+  </move>
+ </glyph>
+ 
 </xgridfit>

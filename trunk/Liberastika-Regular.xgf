@@ -2135,6 +2135,7 @@
    <delta-set cv="small-o-space" size="8" distance="-8"/>
    <delta-set cv="small-o-space" size="9" distance="-8"/>
    <delta-set cv="small-o-space" size="10" distance="-8"/>
+   <delta-set cv="small-cyrl-space" size="10" distance="-8"/>
    <delta-set cv="small-cyrl-space" size="16" distance="-8"/>
    <delta-set cv="small-cyrn-intersect-height" size="9" distance="8"/>
    <delta-set cv="small-cyrn-intersect-height" size="13" distance="8"/>

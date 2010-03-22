@@ -1,165 +1,169 @@
 <?xml version="1.0"?>
 <xgridfit xmlns="http://xgridfit.sourceforge.net/Xgridfit2">
-
-  <!--Cyr d (д)-->
-
-  <glyph ps-name="afii10069" init-graphics="yes">
-    <!--
-     Copyright (C) 2008  Andrey V. Panov
-     
-     This program is free software; you can redistribute it and/or modify
-     it under the terms of the GNU General Public License as published by
-     the Free Software Foundation; either version 2 of the License, or
-     (at your option) any later version.
-     
-     This program is distributed in the hope that it will be useful,
-     but WITHOUT ANY WARRANTY; without even the implied warranty of
-     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-     GNU General Public License for more details.
-     
-     You should have received a copy of the GNU General Public License
-     along with this program; if not, write to the Free Software
-     Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
-     -->
-    <constant name="ldesc-left-bottom" value="0"/>
-    <constant name="ldesc-left-top" value="ldesc-left-bottom + 1"/>
-    <constant name="lstem-left-bottom" value="6"/>
-    <constant name="lstem-left-top" value="lstem-left-bottom + 1"/>
-    <constant name="rstem-right-top" value="lstem-left-top + 1"/>
-    <constant name="rstem-right-bottom" value="rstem-right-top + 1"/>
-    <constant name="rdesc-right-top" value="rstem-right-bottom + 1"/>
-    <constant name="rdesc-right-bottom" value="rdesc-right-top + 1"/>
-    <constant name="rdesc-left-bottom" value="rdesc-right-bottom + 1"/>
-    <constant name="rdesc-left-top" value="rdesc-left-bottom + 1"/>
-    <constant name="ldesc-right-top" value="rdesc-left-top + 1"/>
-    <constant name="ldesc-right-bottom" value="ldesc-right-top + 1"/>
-    <constant name="lhstem-left-top" value="16"/>
-    <constant name="rstem-left-bottom" value="lhstem-left-top + 1"/>
-    <constant name="rstem-left-top" value="rstem-left-bottom + 1"/>
-    <constant name="lstem-right-top" value="rstem-left-top + 1"/>
-    <constant name="lstem-right-bottom" value="lstem-right-top + 1"/>
-    <constant name="last" value="lstem-right-bottom + 2"/>
-    <constant name="left-bearing" value="last + 1"/>
-    <set-vectors axis="x"/>
-    <move round="down-to-grid" color="white">
-      <reference>
-        <point num="left-bearing"/>
-      </reference>
-      <point num="lstem-left-bottom"/>
-      <delta compile-if="regular">
-        <delta-set size="3" distance="8"/>
-        <delta-set size="4" distance="8"/>
-      </delta>
-      <align>
-        <point num="lstem-left-top"/>
-      </align>
-      <interpolate round="yes">
-        <point num="ldesc-left-top"/>
-      </interpolate>
-      <move distance="small-vert-thinstem" color="black">
-        <point num="lstem-right-top"/>
-        <align>
-          <point num="lstem-right-bottom"/>
-        </align>
-      </move>
-      <move distance="small-cyrl-space" color="white">
-        <point num="rstem-right-top"/>
-        <align>
-          <point num="rstem-right-bottom"/>
-        </align>
-        <move distance="small-vert-stem" color="black">
-          <point num="rstem-left-bottom"/>
-          <align>
-            <point num="rstem-left-top"/>
-          </align>
-        </move>
-        <move>
-          <point num="rdesc-right-bottom"/>
-          <align>
-            <point num="rdesc-right-top"/>
-          </align>
-          <move distance="small-vert-thinstem" color="black">
-            <point num="rdesc-left-top"/>
-            <align>
-              <point num="rdesc-left-bottom"/>
-            </align>
-          </move>
-        </move>
-      </move>
-    </move>
-    <if test="pixels-per-em &gt; 25">
-      <set-equal target="width" source="(left-bearing -- ldesc-left-top) - 1.0p"/>
-      <if test="width &lt; 0">
-        <shift-absolute pixel-distance="negative(width)">
-          <point num="ldesc-left-top"/>
-        </shift-absolute>
-      </if>
-    </if>
-    <move distance="small-vert-thinstem">
-      <reference>
-        <point num="ldesc-left-top"/>
-      </reference>
-      <point num="ldesc-right-top"/>
-      <align>
-        <point num="ldesc-right-bottom"/>
-      </align>
-    </move>
+ <!--Cyr d (д)-->
+ <glyph ps-name="afii10069" init-graphics="yes">
+  
+  <!--
+      
+      Copyright (C) 2008, 2010  Andrey V. Panov
+      
+      This program is free software; you can redistribute it and/or modify
+      it under the terms of the GNU General Public License as published by
+      the Free Software Foundation; either version 2 of the License, or
+      (at your option) any later version.
+      
+      This program is distributed in the hope that it will be useful,
+      but WITHOUT ANY WARRANTY; without even the implied warranty of
+      MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+      GNU General Public License for more details.
+      
+      You should have received a copy of the GNU General Public License
+      along with this program.  If not, see "http://www.gnu.org/licenses/".
+      
+      -->
+  
+  <constant name="ldesc-left-bottom" value="0"/>
+  <constant name="ldesc-left-top" value="ldesc-left-bottom + 1"/>
+  <constant name="lstem-left-bottom" value="6"/>
+  <constant name="lstem-left-top" value="lstem-left-bottom + 1"/>
+  <constant name="rstem-right-top" value="lstem-left-top + 1"/>
+  <constant name="rstem-right-bottom" value="rstem-right-top + 1"/>
+  <constant name="rdesc-right-top" value="rstem-right-bottom + 1"/>
+  <constant name="rdesc-right-bottom" value="rdesc-right-top + 1"/>
+  <constant name="rdesc-left-bottom" value="rdesc-right-bottom + 1"/>
+  <constant name="rdesc-left-top" value="rdesc-left-bottom + 1"/>
+  <constant name="ldesc-right-top" value="rdesc-left-top + 1"/>
+  <constant name="ldesc-right-bottom" value="ldesc-right-top + 1"/>
+  <constant name="lhstem-left-top" value="16"/>
+  <constant name="rstem-left-bottom" value="lhstem-left-top + 1"/>
+  <constant name="rstem-left-top" value="rstem-left-bottom + 1"/>
+  <constant name="lstem-right-top" value="rstem-left-top + 1"/>
+  <constant name="lstem-right-bottom" value="lstem-right-top + 1"/>
+  <constant name="last" value="lstem-right-bottom + 2"/>
+  <constant name="left-bearing" value="last + 1"/>
+  
+  <set-vectors axis="x"/>
+  <move round="down-to-grid" color="white">
+   <reference>
+    <point num="left-bearing"/>
+   </reference>
+   <point num="lstem-left-bottom"/>
+   <delta compile-if="regular">
+    <delta-set size="3" distance="8"/>
+    <delta-set size="4" distance="8"/>
+    <delta-set size="10" distance="8"/>
+   </delta>
+   <align>
+    <point num="lstem-left-top"/>
+   </align>
+   <interpolate round="yes">
+    <point num="ldesc-left-top"/>
+   </interpolate>
+   <move distance="small-vert-thinstem" color="black">
+    <point num="lstem-right-top"/>
     <align>
-      <reference>
-        <point num="ldesc-left-top"/>
-      </reference>
-      <point num="ldesc-left-bottom"/>
+     <point num="lstem-right-bottom"/>
     </align>
-    <set-equal target="width" source="round(rdesc-right-top -- right-bearing)"/>
-    <if test="pixels-per-em &gt;= 17">
-      <subtract minuend="width" subtrahend="1.0p"/>
-    </if>
-    <if test="width &lt; 0">
-      <shift-absolute pixel-distance="negative(width)">
-        <point num="right-bearing"/>
-      </shift-absolute>
-    </if>
-    <interpolate-untouched-points axis="x"/>
-    <set-vectors axis="y"/>
-    <move distance="zero">
-      <point num="ldesc-right-top"/>
-      <align>
-        <point num="rdesc-left-top"/>
-      </align>
-      <move distance="small-horiz-stem">
-        <point num="ldesc-left-top"/>
-        <align>
-          <point num="ldesc-left-top + 1"/>
-          <point num="lhstem-left-top"/>
-          <point num="rstem-left-bottom"/>
-          <point num="rdesc-right-top"/>
-        </align>
-      </move>
+   </move>
+   <move distance="small-cyrl-space" color="white">
+    <point num="rstem-right-top"/>
+    <align>
+     <point num="rstem-right-bottom"/>
+    </align>
+    <move distance="small-vert-stem" color="black">
+     <point num="rstem-left-bottom"/>
+     <align>
+      <point num="rstem-left-top"/>
+     </align>
     </move>
-    <move distance="small-x-height">
-      <point num="lstem-left-top"/>
+    <move>
+     <point num="rdesc-right-bottom"/>
+     <align>
+      <point num="rdesc-right-top"/>
+     </align>
+     <move distance="small-vert-thinstem" color="black">
+      <point num="rdesc-left-top"/>
       <align>
-        <point num="rstem-right-top"/>
+       <point num="rdesc-left-bottom"/>
       </align>
-      <move distance="small-horiz-stem">
-        <point num="lstem-right-top"/>
-        <align>
-          <point num="rstem-left-top"/>
-        </align>
-      </move>
+     </move>
     </move>
-    <move distance="small-tse-desc">
-      <reference>
-        <point num="ldesc-right-top"/>
-      </reference>
-      <point num="ldesc-left-bottom"/>
-      <align>
-        <point num="ldesc-right-bottom"/>
-        <point num="rdesc-left-bottom"/>
-        <point num="rdesc-right-bottom"/>
-      </align>
-    </move>
-    <interpolate-untouched-points axis="y"/>
-  </glyph>
-
+   </move>
+  </move>
+  <if test="pixels-per-em &gt; 25">
+   <set-equal target="width" source="(left-bearing -- ldesc-left-top) - 1.0p"/>
+   <if test="width &lt; 0">
+    <shift-absolute pixel-distance="negative(width)">
+     <point num="ldesc-left-top"/>
+    </shift-absolute>
+   </if>
+  </if>
+  <move distance="small-vert-thinstem">
+   <reference>
+    <point num="ldesc-left-top"/>
+   </reference>
+   <point num="ldesc-right-top"/>
+   <align>
+    <point num="ldesc-right-bottom"/>
+   </align>
+  </move>
+  <align>
+   <reference>
+    <point num="ldesc-left-top"/>
+   </reference>
+   <point num="ldesc-left-bottom"/>
+  </align>
+  <set-equal target="width" source="round(rdesc-right-top -- right-bearing)"/>
+  <if test="pixels-per-em &gt;= 17">
+   <subtract minuend="width" subtrahend="1.0p"/>
+  </if>
+  <if test="width &lt; 0">
+   <shift-absolute pixel-distance="negative(width)">
+    <point num="right-bearing"/>
+   </shift-absolute>
+  </if>
+  
+  <set-vectors axis="y"/>
+  <move distance="zero">
+   <point num="ldesc-right-top"/>
+   <align>
+    <point num="rdesc-left-top"/>
+   </align>
+   <move distance="small-horiz-stem">
+    <point num="ldesc-left-top"/>
+    <align>
+     <point num="ldesc-left-top + 1"/>
+     <point num="lhstem-left-top"/>
+     <point num="rstem-left-bottom"/>
+     <point num="rdesc-right-top"/>
+    </align>
+   </move>
+  </move>
+  <move distance="small-x-height">
+   <point num="lstem-left-top"/>
+   <align>
+    <point num="rstem-right-top"/>
+   </align>
+   <move distance="small-horiz-stem">
+    <point num="lstem-right-top"/>
+    <align>
+     <point num="rstem-left-top"/>
+    </align>
+   </move>
+  </move>
+  <move distance="small-tse-desc">
+   <reference>
+    <point num="ldesc-right-top"/>
+   </reference>
+   <point num="ldesc-left-bottom"/>
+   <align>
+    <point num="ldesc-right-bottom"/>
+    <point num="rdesc-left-bottom"/>
+    <point num="rdesc-right-bottom"/>
+   </align>
+  </move>
+  
+  <interpolate-untouched-points/>
+ </glyph>
+ 
 </xgridfit>
