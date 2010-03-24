@@ -16,7 +16,7 @@ FFSCRIPTS=generate.ff make_dup_vertshift.pe new_glyph.ff add_anchor_ext.ff \
 	make_cap_accent.ff make_superscript.ff dub_aligned.ff \
 	cop_kern.ff cop_kern_acc.ff copy_anchors_acc.ff 
 COMPRESS=xz -9
-TEXENC=t1,t2a,t2b,t2c
+TEXENC=ot1,t1,t2a
 #PYTHON=python -W all
 PYTHON=fontforge -lang=py -script 
 
@@ -25,7 +25,6 @@ DESTDIR=
 prefix=/usr
 fontdir=$(prefix)/share/fonts/TTF
 docdir=$(prefix)/doc/$(PKGNAME)
-
 
 all: $(TTFFILES)
 
@@ -74,6 +73,28 @@ $(FAMILY)-Bold_acc.xgf: $(FAMILY)-Bold_.sfd
 %_acc.xgf: %_.sfd
 	$(PYTHON) inst_acc.py -s skipautoinst.txt -i $*_.sfd  -o $*_acc.xgf
 
+tex-support: all
+	mkdir -p texmf
+	-rm -rf ./texmf/*
+	mkdir -p texmf/fonts/truetype/public/$(PKGNAME)
+	cp -a $(TTFFILES) texmf/fonts/truetype/public/$(PKGNAME)/
+	TEXMFVAR=`pwd`/texmf autoinst --encoding=$(TEXENC) \
+	--extra="--typeface=$(PKGNAME) --no-updmap  --vendor=public  --type42" \
+	--sanserif \
+	$(TTFFILES)
+	mkdir -p texmf/fonts/enc/dvips/$(PKGNAME)
+	mv texmf/fonts/enc/dvips/public/* texmf/fonts/enc/dvips/$(PKGNAME)/
+	-rm -r texmf/fonts/enc/dvips/public
+	mkdir -p texmf/tex/latex/$(PKGNAME)
+	mkdir -p texmf/fonts/map/dvips/$(PKGNAME)
+	mv *$(FAMILY)-TLF.fd texmf/tex/latex/$(PKGNAME)/
+	mv $(FAMILY).sty texmf/tex/latex/$(PKGNAME)/$(PKGNAME).sty
+	mv $(FAMILY).map texmf/fonts/map/dvips/$(PKGNAME)/$(PKGNAME).map
+	mkdir -p texmf/dvips/$(PKGNAME)
+	echo "p +$(PKGNAME).map" > texmf/dvips/$(PKGNAME)/config.$(PKGNAME)
+	mkdir -p texmf/doc/fonts/$(PKGNAME)
+	cp -p $(DOCUMENTS) texmf/doc/fonts/$(PKGNAME)/
+
 dist-src:
 	tar -cvf $(PKGNAME)-src-$(VERSION).tar $(XGFFILES) $(SFDFILES) \
 	Makefile $(DOCUMENTS) $(FFSCRIPTS)
@@ -84,11 +105,23 @@ dist-ttf: all
 	$(TTFFILES) $(DOCUMENTS)
 	$(COMPRESS) $(PKGNAME)-ttf-$(VERSION).tar
 
+dist-tex:
+	( cd ./texmf ;\
+	tar -cvf ../$(PKGNAME)-tex-$(VERSION).tar \
+	doc dvips fonts tex )
+	$(COMPRESS) $(PKGNAME)-tex-$(VERSION).tar
+
 dist: dist-src dist-ttf
 
 update-version:
 	sed -e "s/^Version: .*$$/Version: $(VERSION)/" -i $(SFDFILES) \
 	-e 's/"Version [0-9\.]*"/"Version $(VERSION)"/' -i $(SFDFILES)
+
+clean :
+	rm *.gen.ttx *.gen.xgf *.tmp.xgf *.gen.ttf 
+
+distclean :
+	-rm $(OTFFILES) $(TTFFILES) $(PFBFILES) $(AFMFILES) $(FAMILY)-*_.sfd $(FAMILY)-*_acc.xgf
 
 install:
 	mkdir -p $(DESTDIR)$(fontdir)

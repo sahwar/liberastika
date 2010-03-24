@@ -18,7 +18,7 @@ extend this exception to your version of the font, but you are not
 obligated to do so. If you do not wish to do so, delete this exception
 statement from your version.
 
-The sources and truetype fonts are at ftp://ftp.dvo.ru/pub/Font/liberastika/
+The sources and truetype fonts are at http://code.google.com/p/liberastika/
 Tarballs are compressed with xz (use http://tukaani.org/xz/ or multiplatform 
 7-Zip archiver http://sourceforge.net/projects/sevenzip/ version greater than 9 
 for decompression).
