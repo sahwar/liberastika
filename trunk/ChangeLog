@@ -1,7 +1,13 @@
+* 2009-03-23 Andrey V. Panov
+  Added U+04AF.
+  Fixed some instructions mostly in Regular.
+  Experimental support for LaTeX.
+  Released as version 1.1.2.
+
 * 2009-03-02 Andrey V. Panov
   Instructed generated accented characters.
 
-* 2009-06-29 Andrey V. Panov
+* 2009-10-29 Andrey V. Panov
   Released as version 1.1.1.
 
 * 2009-10-28 Andrey V. Panov

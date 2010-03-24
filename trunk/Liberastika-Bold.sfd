@@ -4,11 +4,12 @@ FullName: Liberastika Bold
 FamilyName: Liberastika
 Weight: Bold
 Copyright: Digitized data © 2007 Ascender Corporation. All rights reserved.\n\nAndrey V. Panov (C) 2008
-Version: 1.1.1
+Version: 1.1.2
 ItalicAngle: 0
 UnderlinePosition: -538
 UnderlineWidth: 215
 Ascent: 1638
+Descent: 410
 Descent: 410
 LayerCount: 2
 Layer: 0 1 "Back"  1
@@ -20,7 +21,7 @@ OS2Version: 3
 OS2_WeightWidthSlopeOnly: 0
 OS2_UseTypoMetrics: 1
 CreationTime: 1123372800
-ModificationTime: 1256126167
+ModificationTime: 1269346553
 PfmFamily: 33
 TTFWeight: 700
 TTFWidth: 5
@@ -3091,7 +3092,7 @@ ShortTable: maxp 16
   3
   1
 EndShort
-LangName: 1033 "" "" "" "" "" "Version 1.1.1" "" "" "Ascender Corporation" "Steve Matteson, redesign of Cyrillic: Andrey V. Panov" "" "ftp://ftp.dvo.ru/pub/Font/liberastika/" "http://www.ascendercorp.com/typedesigners.html" "GNU General Public License Version 2 with font exception" "http://www.gnu.org/licenses/gpl-2.0.html http://www.gnu.org/licenses/gpl-faq.html#FontException" 
+LangName: 1033 "" "" "" "" "" "Version 1.1.2" "" "" "Ascender Corporation" "Steve Matteson, redesign of Cyrillic: Andrey V. Panov" "" "ftp://ftp.dvo.ru/pub/Font/liberastika/" "http://www.ascendercorp.com/typedesigners.html" "GNU General Public License Version 2 with font exception" "http://www.gnu.org/licenses/gpl-2.0.html http://www.gnu.org/licenses/gpl-faq.html#FontException" 
 LangName: 1049 "" "+BBsEOAQxBDUEQAQwBEEEQgQ4BDoEMAAA" 
 GaspTable: 3 8 2 10 1 65535 3
 Encoding: UnicodeBmp
@@ -3101,8 +3102,8 @@ NameList: Adobe Glyph List
 DisplaySize: -48
 AntiAlias: 1
 FitToEm: 1
-WinInfo: 544 16 13
-BeginChars: 65560 745
+WinInfo: 512 16 13
+BeginChars: 65560 746
 
 StartChar: .notdef
 Encoding: 0 0 0
@@ -3169,7 +3170,7 @@ EndChar
 
 StartChar: space
 Encoding: 32 32 3
-AltUni2: 0000a0.ffffffff.0 0000a0.ffffffff.0 0000a0.ffffffff.0
+AltUni2: 0000a0.ffffffff.0 0000a0.ffffffff.0 0000a0.ffffffff.0 0000a0.ffffffff.0
 Width: 569
 GlyphClass: 2
 Flags: W
@@ -6293,7 +6294,7 @@ EndChar
 
 StartChar: hyphen
 Encoding: 45 45 16
-AltUni2: 0000ad.ffffffff.0 0000ad.ffffffff.0 0000ad.ffffffff.0
+AltUni2: 0000ad.ffffffff.0 0000ad.ffffffff.0 0000ad.ffffffff.0 0000ad.ffffffff.0
 Width: 682
 GlyphClass: 2
 Flags: W
@@ -8206,7 +8207,7 @@ EndChar
 
 StartChar: semicolon
 Encoding: 59 59 30
-AltUni2: 00037e.ffffffff.0 00037e.ffffffff.0 00037e.ffffffff.0
+AltUni2: 00037e.ffffffff.0 00037e.ffffffff.0 00037e.ffffffff.0 00037e.ffffffff.0
 Width: 682
 GlyphClass: 2
 Flags: W
@@ -25466,7 +25467,7 @@ EndChar
 
 StartChar: periodcentered
 Encoding: 183 183 119
-AltUni2: 002219.ffffffff.0 002219.ffffffff.0 002219.ffffffff.0
+AltUni2: 002219.ffffffff.0 002219.ffffffff.0 002219.ffffffff.0 002219.ffffffff.0
 Width: 569
 GlyphClass: 2
 Flags: W
@@ -30555,7 +30556,7 @@ StartChar: Dcroat
 Encoding: 272 272 208
 Width: 1479
 GlyphClass: 2
-Flags: HW
+Flags: W
 LayerCount: 2
 Fore
 Refer: 144 208 N 1 0 0 1 0 0 3
@@ -31280,7 +31281,7 @@ StartChar: gcommaaccent
 Encoding: 291 291 227
 Width: 1251
 GlyphClass: 2
-Flags: HW
+Flags: W
 TtInstrs:
 NPUSHB
  16
@@ -32838,7 +32839,7 @@ StartChar: Lcaron
 Encoding: 317 317 253
 Width: 1251
 GlyphClass: 2
-Flags: HW
+Flags: W
 TtInstrs:
 NPUSHB
  10
@@ -38333,7 +38334,7 @@ StartChar: Alphatonos
 Encoding: 902 902 338
 Width: 1479
 GlyphClass: 2
-Flags: HW
+Flags: W
 TtInstrs:
 PUSHB_4
  2
@@ -52038,7 +52039,7 @@ StartChar: afii10052
 Encoding: 1027 1027 410
 Width: 1161
 GlyphClass: 2
-Flags: HW
+Flags: W
 TtInstrs:
 PUSHB_5
  1
@@ -65136,7 +65137,7 @@ EndChar
 
 StartChar: fraction
 Encoding: 8260 8260 532
-AltUni2: 002215.ffffffff.0 002215.ffffffff.0 002215.ffffffff.0
+AltUni2: 002215.ffffffff.0 002215.ffffffff.0 002215.ffffffff.0 002215.ffffffff.0
 Width: 342
 GlyphClass: 2
 Flags: W
@@ -79592,7 +79593,7 @@ EndChar
 StartChar: uni2010
 Encoding: 8208 8208 668
 Width: 682
-Flags: HW
+Flags: W
 LayerCount: 2
 Fore
 Refer: 16 45 N 1 0 0 1 0 0 3
@@ -79601,7 +79602,7 @@ EndChar
 StartChar: uni2011
 Encoding: 8209 8209 669
 Width: 682
-Flags: HW
+Flags: W
 LayerCount: 2
 Fore
 Refer: 16 45 N 1 0 0 1 0 0 3
@@ -79610,7 +79611,7 @@ EndChar
 StartChar: figuredash
 Encoding: 8210 8210 670
 Width: 1139
-Flags: HW
+Flags: W
 LayerCount: 2
 Fore
 Refer: 510 8211 N 1 0 0 1 0 0 3
@@ -80724,6 +80725,46 @@ SplineSet
  136 1516 136 1516 32 1590 c 128,-1,13
  -72 1664 -72 1664 -80 1824 c 1,0,-1
 EndSplineSet
+EndChar
+
+StartChar: uni04AF
+Encoding: 1199 1199 745
+Width: 1139
+Flags: HW
+LayerCount: 2
+Back
+SplineSet
+8 1082 m 1,0,-1
+ 304 1082 l 1,1,-1
+ 501 476 l 2,2,3
+ 526 400 526 400 540 352.5 c 128,-1,4
+ 554 305 554 305 573 227 c 1,5,6
+ 592 305 592 305 606.5 352.5 c 128,-1,7
+ 621 400 621 400 645 476 c 2,8,-1
+ 834 1082 l 1,9,-1
+ 1130 1082 l 1,10,-1
+ 737 0 l 1,11,-1
+ 401 0 l 1,12,-1
+ 8 1082 l 1,0,-1
+EndSplineSet
+Fore
+SplineSet
+8 1082 m 1,0,-1
+ 304 1082 l 1,1,-1
+ 501 476 l 2,2,3
+ 526 400 526 400 540 347.5 c 128,-1,4
+ 554 295 554 295 573 217 c 1,5,6
+ 592 295 592 295 606.5 348 c 128,-1,7
+ 621 401 621 401 645 476 c 2,8,-1
+ 834 1082 l 1,9,-1
+ 1130 1082 l 1,10,-1
+ 710 -74 l 1,11,-1
+ 710 -425 l 1,12,-1
+ 428 -425 l 1,13,-1
+ 428 -74 l 1,14,-1
+ 8 1082 l 1,0,-1
+EndSplineSet
+Kerns2: 458 -52 "LGC kerning subtable"  465 -46 "LGC kerning subtable" 
 EndChar
 EndChars
 EndSplineFont
