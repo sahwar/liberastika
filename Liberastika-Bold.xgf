@@ -2393,6 +2393,7 @@
     </if>
    </else>
   </if>
+  <set-equal target="rbearing" source="1.0p"/>
  </pre-program>
  
  <glyph ps-name=".notdef">
