@@ -226,12 +226,14 @@
   <delta compile-if="(slanted = 0) and regular">
    <delta-set size="7" distance="-2">
      <point num="outer-top + 1"/>
+   </delta-set>
+   <delta-set size="7" distance="-2">
      <point num="outer-top"/>
    </delta-set>
   </delta>
   </compile-if>
   
-  <diagonal-stem distance="small-thindiag" round="no" save-vectors="yes" min-amount="diag-min-thick" color="black">
+  <diagonal-stem distance="small-thindiag" round="no" save-vectors="yes" min-distance="diag-min-thick" color="black">
    <line ref="diag-top"/>
    <line ref="diag-bottom"/>
   </diagonal-stem>
