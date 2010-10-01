@@ -99,7 +99,7 @@
           <align>
             <point num="right-bottom"/>
           </align>
-          <move pixel-distance="left-hstem-bottom -- l-intersect" color="black">
+          <move pixel-distance="left-hstem-bottom -- l-intersect">
             <point num="right-top"/>
             <align>
               <point num="right-hstem-bottom"/>
