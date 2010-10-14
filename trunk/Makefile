@@ -2,16 +2,17 @@ FONTFORGE:=/usr/bin/env fontforge
 XGRIDFIT:=/usr/bin/env xgridfit
 VERSION:=$(shell date +"%Y%m%d")
 FAMILY=Liberastika
-PKGNAME=Liberastika
+PKGNAME=liberastika
 XGFFILES=$(FAMILY)-Regular.xgf $(FAMILY)-Bold.xgf $(FAMILY)-Italic.xgf $(FAMILY)-BoldItalic.xgf upr_*.xgf it_*.xgf \
-		inst_acc.py skipautoinst.txt
+		skipautoinst.txt
 SFDFILES=$(FAMILY)-Regular.sfd $(FAMILY)-Bold.sfd $(FAMILY)-Italic.sfd $(FAMILY)-BoldItalic.sfd
 DOCUMENTS=AUTHORS ChangeLog COPYING README
 TTFFILES=$(FAMILY)-Regular.ttf $(FAMILY)-Bold.ttf $(FAMILY)-Italic.ttf $(FAMILY)-BoldItalic.ttf
 XGRIDFITFLAGS=-p 25 -G no
-FFSCRIPTS=generate.ff make_dup_vertshift.pe new_glyph.ff add_anchor_ext.ff \
+FFSCRIPTS=generate.ff 
+EXTRAFFSCRIPTS=make_dup_vertshift.ff new_glyph.ff add_anchor_ext.ff \
 	add_anchor_y.ff add_anchor_med.ff anchors.ff combining.ff make_comb.ff \
-	dub_glyph.pe spaces_dashes.ff case_sub.ff add_ipa.ff hflip_glyph.ff \
+	dub_glyph.ff spaces_dashes.ff case_sub.ff add_ipa.ff hflip_glyph.ff \
 	make_dup_rot.ff add_accented.ff dub_glyph_ch.ff same_cyrext.ff \
 	make_cap_accent.ff make_superscript.ff dub_aligned.ff \
 	cop_kern.ff cop_kern_acc.ff copy_anchors_acc.ff 
@@ -28,7 +29,7 @@ docdir=$(prefix)/doc/$(PKGNAME)
 
 all: $(TTFFILES)
 
-$(FAMILY)-Regular_.sfd: $(FAMILY)-Regular.sfd $(FFSCRIPTS)
+$(FAMILY)-Regular_.sfd: $(FAMILY)-Regular.sfd $(FFSCRIPTS) $(EXTRAFFSCRIPTS)
 	$(FONTFORGE) -lang=ff -script generate.ff $(FAMILY)-Regular
 
 $(FAMILY)-Regular.ttf: $(FAMILY)-Regular.py $(FAMILY)-Regular_.sfd
@@ -37,7 +38,7 @@ $(FAMILY)-Regular.ttf: $(FAMILY)-Regular.py $(FAMILY)-Regular_.sfd
 $(FAMILY)-Regular.py: $(FAMILY)-Regular.xgf upr_*.xgf $(FAMILY)-Regular_acc.xgf
 	$(XGRIDFIT) $(XGRIDFITFLAGS) $(FAMILY)-Regular.xgf
 
-$(FAMILY)-Bold_.sfd: $(FAMILY)-Bold.sfd $(FFSCRIPTS)
+$(FAMILY)-Bold_.sfd: $(FAMILY)-Bold.sfd $(FFSCRIPTS) $(EXTRAFFSCRIPTS)
 	$(FONTFORGE) -lang=ff -script generate.ff $(FAMILY)-Bold
 
 $(FAMILY)-Bold.ttf: $(FAMILY)-Bold.py $(FAMILY)-Bold_.sfd
@@ -46,7 +47,7 @@ $(FAMILY)-Bold.ttf: $(FAMILY)-Bold.py $(FAMILY)-Bold_.sfd
 $(FAMILY)-Bold.py: $(FAMILY)-Bold.xgf upr_*.xgf $(FAMILY)-Bold_acc.xgf
 	$(XGRIDFIT) $(XGRIDFITFLAGS) $(FAMILY)-Bold.xgf
 
-$(FAMILY)-Italic_.sfd: $(FAMILY)-Italic.sfd $(FFSCRIPTS)
+$(FAMILY)-Italic_.sfd: $(FAMILY)-Italic.sfd $(FFSCRIPTS) $(EXTRAFFSCRIPTS)
 	$(FONTFORGE) -lang=ff -script generate.ff $(FAMILY)-Italic
 
 $(FAMILY)-Italic.ttf: $(FAMILY)-Italic.py $(FAMILY)-Italic_.sfd
@@ -55,7 +56,7 @@ $(FAMILY)-Italic.ttf: $(FAMILY)-Italic.py $(FAMILY)-Italic_.sfd
 $(FAMILY)-Italic.py: $(FAMILY)-Italic.xgf upr_*.xgf it_*.xgf $(FAMILY)-Italic_acc.xgf
 	$(XGRIDFIT) $(XGRIDFITFLAGS) $(FAMILY)-Italic.xgf
 
-$(FAMILY)-BoldItalic_.sfd: $(FAMILY)-BoldItalic.sfd $(FFSCRIPTS)
+$(FAMILY)-BoldItalic_.sfd: $(FAMILY)-BoldItalic.sfd $(FFSCRIPTS) $(EXTRAFFSCRIPTS)
 	$(FONTFORGE) -lang=ff -script generate.ff $(FAMILY)-BoldItalic
 
 $(FAMILY)-BoldItalic.ttf: $(FAMILY)-BoldItalic.py $(FAMILY)-BoldItalic_.sfd
@@ -64,13 +65,13 @@ $(FAMILY)-BoldItalic.ttf: $(FAMILY)-BoldItalic.py $(FAMILY)-BoldItalic_.sfd
 $(FAMILY)-BoldItalic.py: $(FAMILY)-BoldItalic.xgf upr_*.xgf it_*.xgf  $(FAMILY)-BoldItalic_acc.xgf
 	$(XGRIDFIT) $(XGRIDFITFLAGS) $(FAMILY)-BoldItalic.xgf
 
-$(FAMILY)-Regular_acc.xgf: $(FAMILY)-Regular_.sfd
+$(FAMILY)-Regular_acc.xgf: $(FAMILY)-Regular_.sfd inst_acc.py
 	$(PYTHON) inst_acc.py -c -s skipautoinst.txt -i $(FAMILY)-Regular_.sfd  -o $(FAMILY)-Regular_acc.xgf
 
-$(FAMILY)-Bold_acc.xgf: $(FAMILY)-Bold_.sfd
+$(FAMILY)-Bold_acc.xgf: $(FAMILY)-Bold_.sfd inst_acc.py
 	$(PYTHON) inst_acc.py -c -s skipautoinst.txt -i $(FAMILY)-Bold_.sfd  -o $(FAMILY)-Bold_acc.xgf
 
-%_acc.xgf: %_.sfd
+%_acc.xgf: %_.sfd inst_acc.py
 	$(PYTHON) inst_acc.py -s skipautoinst.txt -i $*_.sfd  -o $*_acc.xgf
 
 tex-support: all
