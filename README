@@ -23,10 +23,24 @@ Tarballs are compressed with xz (use http://tukaani.org/xz/ or multiplatform
 7-Zip archiver http://sourceforge.net/projects/sevenzip/ version greater than 9 
 for decompression).
 
+Build and install instructions
+==============================
 
-In order to build the fonts from the sources you must have 
-fontforge (http://fontforge.sourceforge.net) and 
-xgridfit (http://xgridfit.sourceforge.net). 
-This could be done with "make all" command.
+You need fontforge (http://fontforge.sourceforge.net/), xgridfit
+(http://xgridfit.sourceforge.net/) and font-helpers
+(http://code.google.com/p/font-helpers/ ) in order to build fonts from
+the sources. Also you should have GNU make and coreutils. At first you
+must unpack/copy files from font-helpers into the directory where *.sfd
+files are located. Then type
+
+make
+
+and truetype fonts will be produced. On systems with X.Org you may do
+
+make install
+
+as root to install fonts system-wide (/usr/share/fonts/TTF). Otherwise
+copy *.ttf files into ~/.fonts/ directory. Then run fc-cache if you have
+fontconfig.
 
 				Andrey V. Panov <panov@canopus.iacp.dvo.ru>

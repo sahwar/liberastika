@@ -55,6 +55,7 @@
  <constant name="vstem-hcount" value="1"/>
  <constant name="smooth-count" value="1"/>
  <constant name="notch-count" value="3"/>
+ <constant name="open-end-count" value="1"/>
  <constant name="diag--halfnotch-count" value="4"/>
  <constant name="diag-halfnotch-count" value="4"/>
  <constant name="cos-it-ang" value="0.982p"/>
@@ -29530,6 +29531,7 @@
  <xi:include href="upr_dotlessj.xgf" xpointer="xmlns(x=http://xgridfit.sourceforge.net/Xgridfit2)xpointer(//x:glyph)"/>
  <xi:include href="upr_dblgrave.xgf" xpointer="xmlns(x=http://xgridfit.sourceforge.net/Xgridfit2)xpointer(//x:glyph)"/>
  <xi:include href="upr_uni0311.xgf" xpointer="xmlns(x=http://xgridfit.sourceforge.net/Xgridfit2)xpointer(//x:glyph)"/>
+ <xi:include href="upr_Eszett.xgf" xpointer="xmlns(x=http://xgridfit.sourceforge.net/Xgridfit2)xpointer(//x:glyph)"/>
  <xi:include href="Liberastika-Italic_acc.xgf" xpointer="xmlns(x=http://xgridfit.sourceforge.net/Xgridfit2)xpointer(//x:glyph)"/>
  
 </xgridfit>

@@ -3,13 +3,12 @@ FontName: Liberastika-Regular
 FullName: Liberastika Regular
 FamilyName: Liberastika
 Weight: Regular
-Copyright: Digitized data `2007 Ascender Corporation. All rights reserved.\n\nAndrey V. Panov (C) 2008
-Version: 1.1.2
+Copyright: Digitized data `2007 Ascender Corporation. All rights reserved.\n\nAndrey V. Panov (C) 2008-2010
+Version: 1.1.3
 ItalicAngle: 0
 UnderlinePosition: -292
 UnderlineWidth: 150
 Ascent: 1638
-Descent: 410
 Descent: 410
 LayerCount: 2
 Layer: 0 1 "Back"  1
@@ -21,7 +20,7 @@ OS2Version: 3
 OS2_WeightWidthSlopeOnly: 0
 OS2_UseTypoMetrics: 1
 CreationTime: 1123372800
-ModificationTime: 1269345566
+ModificationTime: 1288176502
 PfmFamily: 33
 TTFWeight: 400
 TTFWidth: 5
@@ -2831,7 +2830,7 @@ ShortTable: maxp 16
   3
   1
 EndShort
-LangName: 1033 "" "" "" "" "" "Version 1.1.2" "" "" "Ascender Corporation" "Steve Matteson, redesign of Cyrillic: Andrey V. Panov" "" "ftp://ftp.dvo.ru/pub/Font/liberastika/" "http://www.ascendercorp.com/typedesigners.html" "GNU General Public License Version 2 with font exception" "http://www.gnu.org/licenses/gpl-2.0.html http://www.gnu.org/licenses/gpl-faq.html#FontException" 
+LangName: 1033 "" "" "" "" "" "Version 1.1.3" "" "" "Ascender Corporation" "Steve Matteson, redesign of Cyrillic: Andrey V. Panov" "" "ftp://ftp.dvo.ru/pub/Font/liberastika/" "http://www.ascendercorp.com/typedesigners.html" "GNU General Public License Version 2 with font exception" "http://www.gnu.org/licenses/gpl-2.0.html http://www.gnu.org/licenses/gpl-faq.html#FontException" 
 LangName: 1049 "" "+BBsEOAQxBDUEQAQwBEEEQgQ4BDoEMAAA" 
 GaspTable: 3 8 2 17 1 65535 3
 Encoding: UnicodeBmp
@@ -2841,7 +2840,7 @@ NameList: Adobe Glyph List
 DisplaySize: -48
 AntiAlias: 1
 FitToEm: 1
-WinInfo: 432 16 14
+WinInfo: 352 16 14
 BeginChars: 65553 748
 
 StartChar: .notdef
@@ -81011,11 +81010,11 @@ EndChar
 
 StartChar: uni04CF
 Encoding: 1231 1231 678
-Width: 569
+Width: 455
 Flags: W
 LayerCount: 2
 Fore
-Refer: 44 73 N 1 0 0 1 0 0 3
+Refer: 79 108 N 1 0 0 1 0 0 3
 EndChar
 
 StartChar: uni04D0
@@ -81908,7 +81907,7 @@ EndChar
 StartChar: uni1E9E
 Encoding: 7838 7838 737
 Width: 1382
-Flags: W
+Flags: HW
 LayerCount: 2
 Back
 SplineSet
@@ -81957,13 +81956,14 @@ SplineSet
  164 1171 164 1171 290.5 1300.5 c 128,-1,3
  417 1430 417 1430 652 1430 c 256,4,5
  821 1430 821 1430 949 1360 c 128,-1,6
- 1077 1290 1077 1290 1116 1148 c 257,7,8
- 880 776 l 257,9,10
- 1008 771 1008 771 1141.5 676 c 128,-1,11
- 1275 581 1275 581 1275 380 c 256,12,13
- 1275 183 1275 183 1161 81.5 c 128,-1,14
- 1047 -20 1047 -20 852 -20 c 256,15,16
- 640.487 -20 640.487 -20 501 60 c 1,17,-1
+ 1077 1290 1077 1290 1116 1148 c 257,7,-1
+ 880 776 l 257,8,9
+ 1044 774 1044 774 1159.5 677.5 c 128,-1,10
+ 1275 581 1275 581 1275 380 c 256,11,12
+ 1275 183 1275 183 1161 81.5 c 128,-1,13
+ 1047 -20 1047 -20 852 -20 c 256,14,15
+ 740 -20 740 -20 653.5 1 c 128,-1,16
+ 567 22 567 22 501 60 c 1,17,-1
  564 213 l 1,18,19
  623 181 623 181 686.5 155 c 128,-1,20
  750 129 750 129 848 129 c 256,21,22
@@ -81973,7 +81973,7 @@ SplineSet
  872 658 872 658 638 658 c 1,27,-1
  638 725 l 257,28,-1
  916 1163 l 257,29,30
- 897 1226 897 1226 823.5 1256 c 128,-1,31
+ 882 1227 882 1227 816 1256.5 c 128,-1,31
  750 1286 750 1286 652 1286 c 256,32,33
  507 1286 507 1286 431 1200 c 128,-1,34
  355 1114 355 1114 355 941 c 2,35,-1
@@ -82221,7 +82221,7 @@ EndChar
 StartChar: uni04AF
 Encoding: 1199 1199 747
 Width: 1024
-Flags: HW
+Flags: W
 LayerCount: 2
 Back
 SplineSet
