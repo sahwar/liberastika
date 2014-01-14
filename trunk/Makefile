@@ -8,6 +8,7 @@ XGFFILES=$(FAMILY)-Regular.xgf $(FAMILY)-Bold.xgf $(FAMILY)-Italic.xgf $(FAMILY)
 SFDFILES=$(FAMILY)-Regular.sfd $(FAMILY)-Bold.sfd $(FAMILY)-Italic.sfd $(FAMILY)-BoldItalic.sfd
 DOCUMENTS=AUTHORS ChangeLog COPYING README
 TTFFILES=$(FAMILY)-Regular.ttf $(FAMILY)-Bold.ttf $(FAMILY)-Italic.ttf $(FAMILY)-BoldItalic.ttf
+PFBFILES=$(FAMILY)-Regular.pfb $(FAMILY)-Italic.pfb $(FAMILY)-Bold.pfb $(FAMILY)-BoldItalic.pfb
 XGRIDFITFLAGS=-p 25 -G no
 FFSCRIPTS=generate.ff 
 EXTRAFFSCRIPTS=make_dup_vertshift.ff new_glyph.ff add_anchor_ext.ff \
@@ -21,7 +22,8 @@ TEXENC=ot1,t1,t2a
 #PYTHON=python -W all
 PYTHON=fontforge -lang=py -script 
 
-INSTALL=install
+TEXPREFIX=./texmf
+INSTALL=install -m 644 -p
 DESTDIR=
 prefix=/usr
 fontdir=$(prefix)/share/fonts/TTF
@@ -75,26 +77,26 @@ $(FAMILY)-Bold_acc.xgf: $(FAMILY)-Bold_.sfd inst_acc.py
 	$(PYTHON) inst_acc.py -s skipautoinst.txt -i $*_.sfd  -o $*_acc.xgf
 
 tex-support: all
-	mkdir -p texmf
+	mkdir -p $(TEXPREFIX)
 	-rm -rf ./texmf/*
-	mkdir -p texmf/fonts/truetype/public/$(PKGNAME)
-	cp -a $(TTFFILES) texmf/fonts/truetype/public/$(PKGNAME)/
-	TEXMFVAR=`pwd`/texmf autoinst --encoding=$(TEXENC) \
-	--extra="--typeface=$(PKGNAME) --no-updmap  --vendor=public  --type42" \
-	--sanserif \
+	TEXMFVAR=$(TEXPREFIX) autoinst --encoding=$(TEXENC) -typeface=$(PKGNAME) \
+	-vendor=public --extra="--no-updmap" \
+	--sanserif -target=$(TEXPREFIX) \
 	$(TTFFILES)
-	mkdir -p texmf/fonts/enc/dvips/$(PKGNAME)
-	mv texmf/fonts/enc/dvips/public/* texmf/fonts/enc/dvips/$(PKGNAME)/
-	-rm -r texmf/fonts/enc/dvips/public
-	mkdir -p texmf/tex/latex/$(PKGNAME)
-	mkdir -p texmf/fonts/map/dvips/$(PKGNAME)
-	mv *$(FAMILY)-TLF.fd texmf/tex/latex/$(PKGNAME)/
-	mv $(FAMILY).sty texmf/tex/latex/$(PKGNAME)/$(PKGNAME).sty
-	mv $(FAMILY).map texmf/fonts/map/dvips/$(PKGNAME)/$(PKGNAME).map
-	mkdir -p texmf/dvips/$(PKGNAME)
-	echo "p +$(PKGNAME).map" > texmf/dvips/$(PKGNAME)/config.$(PKGNAME)
-	mkdir -p texmf/doc/fonts/$(PKGNAME)
-	cp -p $(DOCUMENTS) texmf/doc/fonts/$(PKGNAME)/
+	mkdir -p $(TEXPREFIX)/fonts/type42/public/$(PKGNAME) $(TEXPREFIX)/fonts/type1/public/$(PKGNAME)
+	for i in $(TTFFILES) ; do \
+	 BASE=`basename $${i} .ttf`; \
+	 ttftotype42 $${i} $(TEXPREFIX)/fonts/type42/public/$(PKGNAME)/$${BASE}.t42; \
+	done
+	$(INSTALL) $(PFBFILES) $(TEXPREFIX)/fonts/type1/public/$(PKGNAME)
+	mkdir -p $(TEXPREFIX)/fonts/enc/dvips/$(PKGNAME)
+	mv $(TEXPREFIX)/tex/latex/$(PKGNAME)/$(FAMILY).sty $(TEXPREFIX)/tex/latex/$(PKGNAME)/$(PKGNAME).sty
+	mv $(TEXPREFIX)/fonts/map/dvips/$(PKGNAME)/$(FAMILY).map $(TEXPREFIX)/fonts/map/dvips/$(PKGNAME)/$(PKGNAME).map
+	mkdir -p $(TEXPREFIX)/dvips/$(PKGNAME)
+	echo "p +$(PKGNAME).map" > $(TEXPREFIX)/dvips/$(PKGNAME)/config.$(PKGNAME)
+	mkdir -p $(TEXPREFIX)/doc/fonts/$(PKGNAME)
+	$(INSTALL) $(DOCUMENTS) $(TEXPREFIX)/fonts/map/dvips/$(PKGNAME)/$(PKGNAME).map $(TEXPREFIX)/doc/fonts/$(PKGNAME)/
+	sed -i -e "s/\.ttf/\.pfb/g" $(TEXPREFIX)/fonts/map/dvips/$(PKGNAME)/$(PKGNAME).map
 
 dist-src:
 	tar -cvf $(PKGNAME)-src-$(VERSION).tar $(XGFFILES) $(SFDFILES) \
@@ -110,7 +112,8 @@ dist-zip: all
 	zip -9 $(PKGNAME)-ttf-$(VERSION).zip \
 	$(TTFFILES) $(DOCUMENTS)
 
-dist-tex:
+dist: TEXPREFIX=./texmf
+dist-tex: tex-support
 	( cd ./texmf ;\
 	tar -cvf ../$(PKGNAME)-tex-$(VERSION).tar \
 	doc dvips fonts tex )
