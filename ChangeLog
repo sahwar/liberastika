@@ -1,3 +1,9 @@
+* 2014-01-15 Andrey V. Panov
+  added "twodotleader" and more spacing characters.
+  Fixed some instructions.
+  Added Type 1 and Type 42 fonts for LaTeX support.
+  Released as version 1.1.4.
+
 * 2010-10-28 Andrey V. Panov
   U+04CF replaced with reference to "l".
   added U+1E9E.
