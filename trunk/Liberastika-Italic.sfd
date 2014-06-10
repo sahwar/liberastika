@@ -3,8 +3,8 @@ FontName: Liberastika-Italic
 FullName: Liberastika Italic
 FamilyName: Liberastika
 Weight: Book
-Copyright: Digitized data `2007 Ascender Corporation. All rights reserved.\n\nAndrey V. Panov (C) 2008-2010
-Version: 1.1.3
+Copyright: Digitized data `2007 Ascender Corporation. All rights reserved.\n\nAndrey V. Panov (C) 2008-2010, 2014
+Version: 1.1.5
 ItalicAngle: -11
 UnderlinePosition: -292
 UnderlineWidth: 150
@@ -13,14 +13,13 @@ Descent: 410
 LayerCount: 2
 Layer: 0 1 "Back"  1
 Layer: 1 1 "Fore"  0
-NeedsXUIDChange: 1
 XUID: [1021 682 1963032581 621912]
 FSType: 8
 OS2Version: 3
 OS2_WeightWidthSlopeOnly: 0
 OS2_UseTypoMetrics: 1
 CreationTime: 1123372800
-ModificationTime: 1288174444
+ModificationTime: 1402400191
 PfmFamily: 33
 TTFWeight: 400
 TTFWidth: 5
@@ -3133,9 +3132,9 @@ ShortTable: maxp 16
   3
   1
 EndShort
-LangName: 1033 "" "" "" "" "" "Version 1.1.3" "" "" "Ascender Corporation" "Steve Matteson, redesign of Cyrillic: Andrey V. Panov" "" "ftp://ftp.dvo.ru/pub/Font/liberastika/" "http://www.ascendercorp.com/typedesigners.html" "GNU General Public License Version 2 with font exception" "http://www.gnu.org/licenses/gpl-2.0.html http://www.gnu.org/licenses/gpl-faq.html#FontException" 
+LangName: 1033 "" "" "" "" "" "Version 1.1.5" "" "" "Ascender Corporation" "Steve Matteson, redesign of Cyrillic: Andrey V. Panov" "" "ftp://ftp.dvo.ru/pub/Font/liberastika/" "http://www.ascendercorp.com/typedesigners.html" "GNU General Public License Version 2 with font exception" "http://www.gnu.org/licenses/gpl-2.0.html http://www.gnu.org/licenses/gpl-faq.html#FontException" 
 LangName: 1049 "" "+BBsEOAQxBDUEQAQwBEEEQgQ4BDoEMAAA" 
-GaspTable: 3 8 2 17 1 65535 3
+GaspTable: 3 8 2 17 1 65535 3 0
 Encoding: UnicodeBmp
 Compacted: 1
 UnicodeInterp: none
@@ -3143,8 +3142,8 @@ NameList: Adobe Glyph List
 DisplaySize: -48
 AntiAlias: 1
 FitToEm: 1
-WinInfo: 544 16 14
-BeginChars: 65561 750
+WinInfo: 464 16 14
+BeginChars: 65561 751
 
 StartChar: .notdef
 Encoding: 0 0 0
@@ -12653,6 +12652,31 @@ DELTAP1
 DELTAP1
 EndTTInstrs
 LayerCount: 2
+Back
+SplineSet
+1344.46484375 985 m 0,0,1
+ 1326.58203125 893 1326.58203125 893 1280.62792969 813.5 c 128,-1,2
+ 1234.67480469 734 1234.67480469 734 1162.80371094 675.5 c 128,-1,3
+ 1090.93261719 617 1090.93261719 617 993.323242188 583 c 128,-1,4
+ 895.71484375 549 895.71484375 549 774.71484375 549 c 2,5,-1
+ 360.71484375 549 l 1,6,-1
+ 254 0 l 1,7,-1
+ 63 0 l 1,8,-1
+ 336.881835938 1409 l 1,9,-1
+ 929.881835938 1409 l 2,10,11
+ 1054.88183594 1409 1054.88183594 1409 1141.953125 1378.5 c 128,-1,12
+ 1229.02441406 1348 1229.02441406 1348 1280.23632812 1292.5 c 128,-1,13
+ 1331.44824219 1237 1331.44824219 1237 1347.18945312 1158.5 c 128,-1,14
+ 1362.93066406 1080 1362.93066406 1080 1344.46484375 985 c 0,0,1
+1152.07617188 983 m 0,15,16
+ 1178.12304688 1117 1178.12304688 1117 1109.63183594 1186.5 c 128,-1,17
+ 1041.14160156 1256 1041.14160156 1256 877.141601562 1256 c 2,18,-1
+ 498.141601562 1256 l 1,19,-1
+ 390.06640625 700 l 1,20,-1
+ 777.06640625 700 l 2,21,22
+ 942.06640625 700 942.06640625 700 1033.75585938 773 c 128,-1,23
+ 1125.4453125 846 1125.4453125 846 1152.07617188 983 c 0,15,16
+EndSplineSet
 Fore
 SplineSet
 852 1409 m 2,0,1
@@ -97811,7 +97835,7 @@ EndChar
 StartChar: uni04CF
 Encoding: 1231 1231 679
 Width: 455
-Flags: HW
+Flags: W
 LayerCount: 2
 Fore
 Refer: 79 108 S 1 0 0 1 0 0 3
@@ -99078,7 +99102,7 @@ EndChar
 StartChar: uni1E9E
 Encoding: 7838 7838 749
 Width: 1382
-Flags: HW
+Flags: W
 LayerCount: 2
 Back
 SplineSet
@@ -99141,6 +99165,79 @@ SplineSet
  468 1100 468 1100 437 941 c 2,35,-1
  254 0 l 1,36,-1
  63 0 l 1,0,-1
+EndSplineSet
+EndChar
+
+StartChar: uni20BD
+Encoding: 8381 8381 750
+Width: 1139
+Flags: W
+LayerCount: 2
+Back
+SplineSet
+31.17578125 289 m 5,0,-1
+ 59.5556640625 435 l 5,1,-1
+ 164.555664062 435 l 5,2,-1
+ 190.602539062 569 l 5,3,-1
+ 85.6025390625 569 l 5,4,-1
+ 114.759765625 719 l 5,5,-1
+ 219.759765625 719 l 5,6,-1
+ 353.881835938 1409 l 5,7,-1
+ 800.881835938 1409 l 6,8,9
+ 1042.88183594 1409 1042.88183594 1409 1139.4453125 1291 c 132,-1,10
+ 1236.0078125 1173 1236.0078125 1173 1200.2421875 989 c 260,11,12
+ 1164.4765625 805 1164.4765625 805 1022.0390625 687 c 132,-1,13
+ 879.602539062 569 879.602539062 569 637.602539062 569 c 6,14,-1
+ 365.602539062 569 l 5,15,-1
+ 339.555664062 435 l 5,16,-1
+ 834.555664062 435 l 5,17,-1
+ 806.17578125 289 l 5,18,-1
+ 311.17578125 289 l 5,19,-1
+ 255 0 l 5,20,-1
+ 80 0 l 5,21,-1
+ 136.17578125 289 l 5,22,-1
+ 31.17578125 289 l 5,0,-1
+394.759765625 719 m 5,23,-1
+ 648.759765625 719 l 6,24,25
+ 791.759765625 719 791.759765625 719 889.116210938 780 c 132,-1,26
+ 986.473632812 841 986.473632812 841 1015.2421875 989 c 260,27,28
+ 1044.01074219 1137 1044.01074219 1137 970.3671875 1198 c 132,-1,29
+ 896.724609375 1259 896.724609375 1259 753.724609375 1259 c 6,30,-1
+ 499.724609375 1259 l 5,31,-1
+ 394.759765625 719 l 5,23,-1
+EndSplineSet
+Fore
+SplineSet
+31 289 m 1,0,-1
+ 60 435 l 1,1,-1
+ 165 435 l 1,2,-1
+ 191 569 l 1,3,-1
+ 86 569 l 1,4,-1
+ 115 719 l 1,5,-1
+ 220 719 l 1,6,-1
+ 354 1409 l 1,7,-1
+ 771 1409 l 2,8,9
+ 990 1409 990 1409 1097.5 1301.5 c 128,-1,10
+ 1205 1194 1205 1194 1205 1036 c 256,11,12
+ 1205 816 1205 816 1073.5 692.5 c 128,-1,13
+ 942 569 942 569 643 569 c 2,14,-1
+ 366 569 l 1,15,-1
+ 340 435 l 1,16,-1
+ 835 435 l 1,17,-1
+ 806 289 l 1,18,-1
+ 311 289 l 1,19,-1
+ 255 0 l 1,20,-1
+ 80 0 l 1,21,-1
+ 136 289 l 1,22,-1
+ 31 289 l 1,0,-1
+395 719 m 1,23,-1
+ 654 719 l 2,24,25
+ 810 719 810 719 915 784 c 128,-1,26
+ 1020 849 1020 849 1020 1023 c 256,27,28
+ 1020 1143 1020 1143 942 1201 c 128,-1,29
+ 864 1259 864 1259 737 1259 c 2,30,-1
+ 500 1259 l 1,31,-1
+ 395 719 l 1,23,-1
 EndSplineSet
 EndChar
 EndChars
