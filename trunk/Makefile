@@ -18,7 +18,7 @@ EXTRAFFSCRIPTS=make_dup_vertshift.ff new_glyph.ff add_anchor_ext.ff \
 	make_cap_accent.ff make_superscript.ff dub_aligned.ff \
 	cop_kern.ff cop_kern_acc.ff copy_anchors_acc.ff 
 COMPRESS=xz -9
-TEXENC=ot1,t1,t2a
+TEXENC=t1,t2a,t2b,t2c,ts1,ot1
 #PYTHON=python -W all
 PYTHON=fontforge -lang=py -script 
 
